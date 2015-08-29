@@ -26,7 +26,7 @@ import io.github.thunderbots.sdk.opmode.TLinearOpMode;
 public class TeleOp extends TLinearOpMode {
 	
 	private DriveSystem drive;
-	private TGamepad drivingGamepad;
+//	private TGamepad drivingGamepad;
 	
 	private static final String[] DRIVE_MOTOR_NAMES = {"front_left", "front_right", "back_left", "back_right"};
 
@@ -34,14 +34,16 @@ public class TeleOp extends TLinearOpMode {
 	protected void initializeRobot() {
 		DriveMotorSet motorSet = new DriveMotorSet(DRIVE_MOTOR_NAMES);
 		this.drive = new TankDrive(motorSet);
-		this.drivingGamepad = Robot.getGamepad1();
+//		this.drivingGamepad = Robot.getGamepad1();
 	}
 
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
-			this.drive.setMovement(drivingGamepad.leftStickY(), drivingGamepad.leftStickX());
-			Robot.sendTelemetryData("pwr",  drivingGamepad.leftStickY() + ", " + drivingGamepad.leftStickX());
+			TGamepad drivingGamepad = Robot.getGamepad1();
+			this.drive.setMovement(drivingGamepad.leftStickY(), drivingGamepad.rightStickX());
+			Robot.sendTelemetryData("joy1", this.gamepad1.left_stick_x + ", " + this.gamepad1.right_stick_x);
+			Robot.sendTelemetryData("pwr",  drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
 		}
 	}
 

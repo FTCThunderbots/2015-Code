@@ -31,7 +31,7 @@ public class TeleOp2014 extends TLinearOpMode {
 	private TGamepad secondaryGamepad;
 	
 	private TMotor conveyor;
-	private TMotor lift;
+//	private TMotor lift;
 	
 	private static final String[] DRIVE_MOTOR_NAMES = {"front_left", "front_right", "back_left", "back_right"};
 
