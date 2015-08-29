@@ -41,6 +41,7 @@ public class TeleOp extends TLinearOpMode {
 	protected void main() {
 		while (this.opModeIsActive()) {
 			this.drive.setMovement(drivingGamepad.leftStickY(), drivingGamepad.leftStickX());
+			Robot.sendTelemetryData("pwr",  drivingGamepad.leftStickY() + ", " + drivingGamepad.leftStickX());
 		}
 	}
 
