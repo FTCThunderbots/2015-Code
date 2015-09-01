@@ -11,12 +11,14 @@ public class CascadeEffectRobot {
 
 	private TMotor conveyor;
 	private TMotor goalHook;
+	private TMotor backboard;
 	
 	protected void initializeRobot() {
 		this.drivingGamepad = Robot.getGamepad1();
 		this.secondaryGamepad = Robot.getGamepad2();
 		this.conveyor = Robot.getMotor("conveyor");
 		this.goalHook = Robot.getMotor("goalHook");
+		this.backboard = Robot.getMotor("backboard");
 	}
 	
 	public void setConveyorJoystick() {
@@ -35,6 +37,15 @@ public class CascadeEffectRobot {
 			goalHook.setPower(.4);
 		else
 			goalHook.setPower(0);
+	}
+	
+	public void setBackboardJoystick() {
+		if (this.secondaryGamepad.aButton())
+			backboard.setPower(.3);
+		else if (this.secondaryGamepad.xButton())
+			backboard.setPower(-.3);
+		else
+			backboard.setPower(0);
 	}
 	
 }

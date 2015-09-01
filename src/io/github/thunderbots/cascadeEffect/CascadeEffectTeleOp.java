@@ -45,6 +45,7 @@ public class CascadeEffectTeleOp extends TLinearOpMode {
 			this.drive.setMovement(drivingGamepad.leftStickY(), drivingGamepad.leftStickX());
 			robot.setConveyorJoystick();
 			robot.setGoalHookJoystick();
+			robot.setBackboardJoystick();
 		}
 	}
 
