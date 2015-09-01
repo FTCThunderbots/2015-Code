@@ -18,23 +18,45 @@ package io.github.thunderbots;
 
 import io.github.thunderbots.sdk.Robot;
 import io.github.thunderbots.sdk.control.TGamepad;
-import io.github.thunderbots.sdk.drive.DriveMotorSet;
 import io.github.thunderbots.sdk.drive.DriveSystem;
 import io.github.thunderbots.sdk.drive.TankDrive;
 import io.github.thunderbots.sdk.opmode.TLinearOpMode;
 
-public class TeleOp extends TLinearOpMode {
+/**
+ * The TeleOp class is a base class that all tele-op programs should extend. It will handle
+ * everything directly related to driving and moving the robot.
+ * 
+ * @author Zach Ohara
+ */
+public abstract class TeleOp extends TLinearOpMode {
 	
 	private DriveSystem drive;
-//	private TGamepad drivingGamepad;
 	
-	private static final String[] DRIVE_MOTOR_NAMES = {"front_left", "front_right", "back_left", "back_right"};
+	/**
+	 * Gets an array of Strings representing the names of the motors used for driving.
+	 * <p>
+	 * If the robot has four motors, this array should be in the format of:
+	 * <pre> [front left, front right, back left, back right] </pre>
+	 * If the robot has only two motors, this array should be in the format of:
+	 * <pre> [left, right] </pre>
+	 *
+	 * @return the names of the driving motors.
+	 */
+	protected abstract String[] getDriveMotorNames();
+	
+	/**
+	 * Constructs a DriveSystem that the robot should use. TankDrive is assumed by default,
+	 * but this can be changed on an individual basis by overriding this method.
+	 *
+	 * @return
+	 */
+	protected DriveSystem createDriveSystem() {
+		return new TankDrive(this.getDriveMotorNames());
+	}
 
 	@Override
 	protected void initializeRobot() {
-		DriveMotorSet motorSet = new DriveMotorSet(DRIVE_MOTOR_NAMES);
-		this.drive = new TankDrive(motorSet);
-//		this.drivingGamepad = Robot.getGamepad1();
+		this.drive = this.createDriveSystem();
 	}
 
 	@Override
@@ -42,8 +64,7 @@ public class TeleOp extends TLinearOpMode {
 		while (this.opModeIsActive()) {
 			TGamepad drivingGamepad = Robot.getGamepad1();
 			this.drive.setMovement(drivingGamepad.leftStickY(), drivingGamepad.rightStickX());
-			Robot.sendTelemetryData("joy1", this.gamepad1.left_stick_x + ", " + this.gamepad1.right_stick_x);
-			Robot.sendTelemetryData("pwr",  drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
+			Robot.sendTelemetryData("joy1",  drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
 		}
 	}
 
