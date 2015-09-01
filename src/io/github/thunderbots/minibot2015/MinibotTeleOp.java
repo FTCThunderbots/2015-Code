@@ -20,7 +20,7 @@ import io.github.thunderbots.TeleOp;
 
 public class MinibotTeleOp extends TeleOp {
 	
-	private static final String[] DRIVE_MOTOR_NAMES = {"left_drive", "right_drive"};
+	private static final String[] DRIVE_MOTOR_NAMES = {"left_motor", "right_motor"};
 
 	/**
 	 * {@inheritDoc}
