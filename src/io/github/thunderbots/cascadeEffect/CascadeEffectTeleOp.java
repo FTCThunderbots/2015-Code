@@ -16,7 +16,7 @@
 
 package io.github.thunderbots.cascadeEffect;
 
-import io.github.thunderbots.sdk.Robot;
+import io.github.thunderbots.sdk.TRobot;
 import io.github.thunderbots.sdk.control.TGamepad;
 import io.github.thunderbots.sdk.drive.DriveMotorSet;
 import io.github.thunderbots.sdk.drive.DriveSystem;
@@ -39,7 +39,7 @@ public class CascadeEffectTeleOp extends TLinearOpMode {
 	protected void initializeRobot() {
 		DriveMotorSet motorSet = new DriveMotorSet(DRIVE_MOTOR_NAMES);
 		this.drive = new TankDrive(motorSet);
-		this.drivingGamepad = Robot.getGamepad1();
+		this.drivingGamepad = TRobot.getGamepad1();
 	}
 
 	@Override

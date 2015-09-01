@@ -1,6 +1,6 @@
 package io.github.thunderbots.cascadeEffect;
 
-import io.github.thunderbots.sdk.Robot;
+import io.github.thunderbots.sdk.TRobot;
 import io.github.thunderbots.sdk.control.TGamepad;
 import io.github.thunderbots.sdk.hardware.TMotor;
 
@@ -18,10 +18,10 @@ public class CascadeEffectRobot {
 	
 	protected void initializeRobot() {
 //		this.drivingGamepad = Robot.getGamepad1();
-		this.secondaryGamepad = Robot.getGamepad2();
-		this.conveyor = Robot.getMotor("conveyor");
-		this.goalHook = Robot.getMotor("goalHook");
-		this.backboard = Robot.getMotor("backboard");
+		this.secondaryGamepad = TRobot.getGamepad2();
+		this.conveyor = TRobot.getMotor("conveyor");
+		this.goalHook = TRobot.getMotor("goalHook");
+		this.backboard = TRobot.getMotor("backboard");
 	}
 	
 	public void setConveyorJoystick() {

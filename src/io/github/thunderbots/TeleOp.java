@@ -16,7 +16,7 @@
 
 package io.github.thunderbots;
 
-import io.github.thunderbots.sdk.Robot;
+import io.github.thunderbots.sdk.TRobot;
 import io.github.thunderbots.sdk.control.TGamepad;
 import io.github.thunderbots.sdk.drive.DriveSystem;
 import io.github.thunderbots.sdk.drive.TankDrive;
@@ -62,9 +62,9 @@ public abstract class TeleOp extends TLinearOpMode {
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
-			TGamepad drivingGamepad = Robot.getGamepad1();
+			TGamepad drivingGamepad = TRobot.getGamepad1();
 			this.drive.setMovement(drivingGamepad.leftStickY(), drivingGamepad.rightStickX());
-			Robot.sendTelemetryData("joy1",  drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
+			TRobot.sendTelemetryData("joy1",  drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
 		}
 	}
 
