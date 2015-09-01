@@ -9,7 +9,7 @@ import io.github.thunderbots.sdk.hardware.TMotor;
  */
 public class CascadeEffectRobot {
 	
-//	private TGamepad drivingGamepad;
+	private TGamepad drivingGamepad;
 	private TGamepad secondaryGamepad;
 
 	private TMotor conveyor;
@@ -17,7 +17,7 @@ public class CascadeEffectRobot {
 	private TMotor backboard;
 	
 	protected void initializeRobot() {
-//		this.drivingGamepad = Robot.getGamepad1();
+		this.drivingGamepad = TRobot.getGamepad1();
 		this.secondaryGamepad = TRobot.getGamepad2();
 		this.conveyor = TRobot.getMotor("conveyor");
 		this.goalHook = TRobot.getMotor("goalHook");
@@ -34,9 +34,9 @@ public class CascadeEffectRobot {
 	}
 	
 	public void setGoalHookJoystick() {
-		if (this.secondaryGamepad.rightButton())
+		if (this.drivingGamepad.rightButton())
 			goalHook.setPower(1.0);
-		else if (this.secondaryGamepad.rightBumper())
+		else if (this.drivingGamepad.rightBumper())
 			goalHook.setPower(.4);
 		else
 			goalHook.setPower(0);
