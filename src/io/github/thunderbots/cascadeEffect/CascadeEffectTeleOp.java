@@ -23,6 +23,9 @@ import io.github.thunderbots.sdk.drive.DriveSystem;
 import io.github.thunderbots.sdk.drive.TankDrive;
 import io.github.thunderbots.sdk.opmode.TLinearOpMode;
 
+/**
+ * @author Pranav Mathur
+ */
 public class CascadeEffectTeleOp extends TLinearOpMode {
 	
 	private DriveSystem drive;

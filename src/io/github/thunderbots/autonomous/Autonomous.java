@@ -16,13 +16,14 @@
 
 package io.github.thunderbots.autonomous;
 
-//import io.github.thunderbots.sdk.Robot;
-//import io.github.thunderbots.sdk.control.TGamepad;
 import io.github.thunderbots.sdk.drive.DriveMotorSet;
 import io.github.thunderbots.sdk.drive.DriveSystem;
 import io.github.thunderbots.sdk.drive.TankDrive;
 import io.github.thunderbots.sdk.opmode.TLinearOpMode;
 
+/**
+ * @author Pranav Mathur
+ */
 public class Autonomous extends TLinearOpMode {
 	
 	private DriveSystem drive;
