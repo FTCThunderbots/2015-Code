@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.thunderbots.teleop;
+package io.github.thunderbots;
 
 import io.github.thunderbots.sdk.Robot;
 import io.github.thunderbots.sdk.control.TGamepad;
