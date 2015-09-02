@@ -57,9 +57,6 @@ public abstract class Autonomous extends TLinearOpMode {
 		this.drive = this.createDriveSystem();
 	}
 
-	@Override
-	protected void main() {
-		
-	}
+	protected abstract void main();
 
 }
