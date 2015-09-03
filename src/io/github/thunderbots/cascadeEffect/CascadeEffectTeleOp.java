@@ -21,12 +21,12 @@ import io.github.thunderbots.sdk.control.TGamepad;
 import io.github.thunderbots.sdk.drive.DriveMotorSet;
 import io.github.thunderbots.sdk.drive.DriveSystem;
 import io.github.thunderbots.sdk.drive.TankDrive;
-import io.github.thunderbots.sdk.opmode.TLinearOpMode;
+import io.github.thunderbots.TeleOp;
 
 /**
  * @author Pranav Mathur
  */
-public class CascadeEffectTeleOp extends TLinearOpMode {
+public class CascadeEffectTeleOp extends TeleOp {
 	
 	private DriveSystem drive;
 	private TGamepad drivingGamepad;
@@ -34,6 +34,11 @@ public class CascadeEffectTeleOp extends TLinearOpMode {
 	private CascadeEffectRobot robot;
 	
 	private static final String[] DRIVE_MOTOR_NAMES = {"front_left", "front_right", "back_left", "back_right"};
+	
+	@Override
+	protected String[] getDriveMotorNames() {
+		return DRIVE_MOTOR_NAMES;
+	}
 
 	@Override
 	protected void initializeRobot() {
