@@ -5,16 +5,13 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
 import io.github.thunderbots.sdk.TRobot;
 import io.github.thunderbots.sdk.opmode.SimpleOpMode;
 
-
 /**
- * 
- *
  * @author Zach Ohara
  */
 public class SensorTest extends SimpleOpMode {
-	
+
 	private TouchSensor touch;
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -22,14 +19,14 @@ public class SensorTest extends SimpleOpMode {
 	protected String[] getDriveMotorNames() {
 		return new String[0];
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void initializeRobot() {
 		super.initializeRobot();
 		this.touch = TRobot.getTouchSensor("touchsensor");
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -40,5 +37,5 @@ public class SensorTest extends SimpleOpMode {
 			TRobot.sendTelemetryData("value", this.touch.getValue());
 		}
 	}
-	
+
 }

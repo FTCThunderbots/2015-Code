@@ -23,7 +23,7 @@ import io.github.thunderbots.sdk.opmode.SimpleOpMode;
 /**
  * The TeleOp class is a base class that all tele-op programs should extend. It will handle
  * everything directly related to driving and moving the robot.
- * 
+ *
  * @author Zach Ohara
  */
 public abstract class TeleOp extends SimpleOpMode {
@@ -33,7 +33,8 @@ public abstract class TeleOp extends SimpleOpMode {
 		while (this.opModeIsActive()) {
 			TGamepad drivingGamepad = TRobot.getGamepad1();
 			this.getDrive().setMovement(drivingGamepad.leftStickY(), drivingGamepad.rightStickX());
-			TRobot.sendTelemetryData("joy1",  drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
+			TRobot.sendTelemetryData("joy1",
+					drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
 		}
 	}
 

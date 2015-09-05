@@ -16,33 +16,34 @@
 
 package io.github.thunderbots.cascadeEffect;
 
+import io.github.thunderbots.TeleOp;
 import io.github.thunderbots.sdk.TRobot;
 import io.github.thunderbots.sdk.control.TGamepad;
 import io.github.thunderbots.sdk.drive.DriveMotorSet;
 import io.github.thunderbots.sdk.drive.DriveSystem;
 import io.github.thunderbots.sdk.drive.TankDrive;
-import io.github.thunderbots.TeleOp;
 
 /**
  * @author Pranav Mathur
  */
 public class CascadeEffectTeleOp extends TeleOp {
-	
+
 	private DriveSystem drive;
 	private TGamepad drivingGamepad;
-	
+
 	private CascadeEffectRobot robot;
-	
-	private static final String[] DRIVE_MOTOR_NAMES = {"front_left", "front_right", "back_left", "back_right"};
-	
+
+	private static final String[] DRIVE_MOTOR_NAMES =
+			{"front_left", "front_right", "back_left", "back_right"};
+
 	@Override
 	protected String[] getDriveMotorNames() {
-		return DRIVE_MOTOR_NAMES;
+		return CascadeEffectTeleOp.DRIVE_MOTOR_NAMES;
 	}
 
 	@Override
 	protected void initializeRobot() {
-		DriveMotorSet motorSet = new DriveMotorSet(DRIVE_MOTOR_NAMES);
+		DriveMotorSet motorSet = new DriveMotorSet(CascadeEffectTeleOp.DRIVE_MOTOR_NAMES);
 		this.drive = new TankDrive(motorSet);
 		this.drivingGamepad = TRobot.getGamepad1();
 	}
@@ -50,10 +51,10 @@ public class CascadeEffectTeleOp extends TeleOp {
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
-			this.drive.setMovement(drivingGamepad.leftStickY(), drivingGamepad.leftStickX());
-			robot.setConveyorJoystick();
-			robot.setGoalHookJoystick();
-			robot.setBackboardJoystick();
+			this.drive.setMovement(this.drivingGamepad.leftStickY(), this.drivingGamepad.leftStickX());
+			this.robot.setConveyorJoystick();
+			this.robot.setGoalHookJoystick();
+			this.robot.setBackboardJoystick();
 		}
 	}
 
