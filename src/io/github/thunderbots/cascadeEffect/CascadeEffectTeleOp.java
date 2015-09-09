@@ -27,22 +27,24 @@ import io.github.thunderbots.TeleOp;
  * @author Pranav Mathur
  */
 public class CascadeEffectTeleOp extends TeleOp {
-	
+
 	private DriveSystem drive;
 	private TGamepad drivingGamepad;
-	
+
 	private CascadeEffectRobot robot;
-	
-	private static final String[] DRIVE_MOTOR_NAMES = {"front_left", "front_right", "back_left", "back_right"};
-	
-	@Override
-	protected String[] getDriveMotorNames() {
-		return DRIVE_MOTOR_NAMES;
-	}
+
+	private static final String[] DRIVE_MOTOR_NAMES =
+			{"front_left", "front_right", "back_left", "back_right"};
 
 	@Override
+	protected String[] getDriveMotorNames() {
+		return CascadeEffectTeleOp.DRIVE_MOTOR_NAMES;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
 	protected void initializeRobot() {
-		DriveMotorSet motorSet = new DriveMotorSet(DRIVE_MOTOR_NAMES);
+		DriveMotorSet motorSet = new DriveMotorSet(CascadeEffectTeleOp.DRIVE_MOTOR_NAMES);
 		this.drive = new TankDrive(motorSet);
 		this.drivingGamepad = Lightning.getGamepad1();
 	}
@@ -50,10 +52,10 @@ public class CascadeEffectTeleOp extends TeleOp {
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
-			this.drive.setMovement(drivingGamepad.leftStickY(), drivingGamepad.leftStickX());
-			robot.setConveyorJoystick();
-			robot.setGoalHookJoystick();
-			robot.setBackboardJoystick();
+			this.drive.setMovement(this.drivingGamepad.leftStickY(), this.drivingGamepad.leftStickX());
+			this.robot.setConveyorJoystick();
+			this.robot.setGoalHookJoystick();
+			this.robot.setBackboardJoystick();
 		}
 	}
 

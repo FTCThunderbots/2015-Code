@@ -23,17 +23,19 @@ import io.github.thunderbots.lightning.opmode.SimpleOpMode;
 /**
  * The TeleOp class is a base class that all tele-op programs should extend. It will handle
  * everything directly related to driving and moving the robot.
- * 
+ *
  * @author Zach Ohara
  */
 public abstract class TeleOp extends SimpleOpMode {
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
 			TGamepad drivingGamepad = Lightning.getGamepad1();
 			this.getDrive().setMovement(drivingGamepad.leftStickY(), drivingGamepad.rightStickX());
-			Lightning.sendTelemetryData("joy1",  drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
+			Lightning.sendTelemetryData("joy1",
+					drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
 		}
 	}
 

@@ -19,7 +19,7 @@ package io.github.thunderbots.minibot2015;
 import io.github.thunderbots.TeleOp;
 
 public class MinibotTeleOp extends TeleOp {
-	
+
 	private static final String[] DRIVE_MOTOR_NAMES = {"left_motor", "right_motor"};
 
 	/**
@@ -27,9 +27,7 @@ public class MinibotTeleOp extends TeleOp {
 	 */
 	@Override
 	protected String[] getDriveMotorNames() {
-		return DRIVE_MOTOR_NAMES;
+		return MinibotTeleOp.DRIVE_MOTOR_NAMES;
 	}
-	
-	
 
 }
