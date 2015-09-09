@@ -16,11 +16,11 @@
 
 package io.github.thunderbots.cascadeEffect;
 
-import io.github.thunderbots.sdk.TRobot;
-import io.github.thunderbots.sdk.control.TGamepad;
-import io.github.thunderbots.sdk.drive.DriveMotorSet;
-import io.github.thunderbots.sdk.drive.DriveSystem;
-import io.github.thunderbots.sdk.drive.TankDrive;
+import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.control.TGamepad;
+import io.github.thunderbots.lightning.drive.DriveMotorSet;
+import io.github.thunderbots.lightning.drive.DriveSystem;
+import io.github.thunderbots.lightning.drive.TankDrive;
 import io.github.thunderbots.TeleOp;
 
 /**
@@ -44,7 +44,7 @@ public class CascadeEffectTeleOp extends TeleOp {
 	protected void initializeRobot() {
 		DriveMotorSet motorSet = new DriveMotorSet(DRIVE_MOTOR_NAMES);
 		this.drive = new TankDrive(motorSet);
-		this.drivingGamepad = TRobot.getGamepad1();
+		this.drivingGamepad = Lightning.getGamepad1();
 	}
 
 	@Override

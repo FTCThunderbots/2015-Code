@@ -16,9 +16,9 @@
 
 package io.github.thunderbots;
 
-import io.github.thunderbots.sdk.TRobot;
-import io.github.thunderbots.sdk.control.TGamepad;
-import io.github.thunderbots.sdk.opmode.SimpleOpMode;
+import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.control.TGamepad;
+import io.github.thunderbots.lightning.opmode.SimpleOpMode;
 
 /**
  * The TeleOp class is a base class that all tele-op programs should extend. It will handle
@@ -31,9 +31,9 @@ public abstract class TeleOp extends SimpleOpMode {
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
-			TGamepad drivingGamepad = TRobot.getGamepad1();
+			TGamepad drivingGamepad = Lightning.getGamepad1();
 			this.getDrive().setMovement(drivingGamepad.leftStickY(), drivingGamepad.rightStickX());
-			TRobot.sendTelemetryData("joy1",  drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
+			Lightning.sendTelemetryData("joy1",  drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
 		}
 	}
 
