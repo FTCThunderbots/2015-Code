@@ -2,8 +2,8 @@ package io.github.thunderbots.testing;
 
 import com.qualcomm.robotcore.hardware.TouchSensor;
 
-import io.github.thunderbots.sdk.TRobot;
-import io.github.thunderbots.sdk.opmode.SimpleOpMode;
+import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.opmode.SimpleOpMode;
 
 /**
  * @author Zach Ohara
@@ -24,7 +24,7 @@ public class SensorTest extends SimpleOpMode {
 	@Override
 	protected void initializeRobot() {
 		super.initializeRobot();
-		this.touch = TRobot.getTouchSensor("touchsensor");
+		this.touch = Lightning.getTouchSensor("touchsensor");
 	}
 
 	/**
@@ -33,8 +33,8 @@ public class SensorTest extends SimpleOpMode {
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
-			TRobot.sendTelemetryData("pressed", this.touch.isPressed());
-			TRobot.sendTelemetryData("value", this.touch.getValue());
+			Lightning.sendTelemetryData("pressed", this.touch.isPressed());
+			Lightning.sendTelemetryData("value", this.touch.getValue());
 		}
 	}
 
