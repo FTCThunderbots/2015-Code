@@ -17,7 +17,7 @@
 package io.github.thunderbots.cascadeEffect;
 
 import io.github.thunderbots.lightning.Lightning;
-import io.github.thunderbots.lightning.control.TGamepad;
+import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.drive.DriveMotorSet;
 import io.github.thunderbots.lightning.drive.DriveSystem;
 import io.github.thunderbots.lightning.drive.TankDrive;
@@ -29,7 +29,7 @@ import io.github.thunderbots.TeleOp;
 public class CascadeEffectTeleOp extends TeleOp {
 
 	private DriveSystem drive;
-	private TGamepad drivingGamepad;
+	private Joystick drivingGamepad;
 
 	private CascadeEffectRobot robot;
 

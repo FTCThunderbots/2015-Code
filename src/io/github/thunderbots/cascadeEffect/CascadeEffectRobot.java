@@ -1,7 +1,7 @@
 package io.github.thunderbots.cascadeEffect;
 
 import io.github.thunderbots.lightning.Lightning;
-import io.github.thunderbots.lightning.control.TGamepad;
+import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.hardware.TMotor;
 
 /**
@@ -9,8 +9,8 @@ import io.github.thunderbots.lightning.hardware.TMotor;
  */
 public class CascadeEffectRobot {
 
-	private TGamepad drivingGamepad;
-	private TGamepad secondaryGamepad;
+	private Joystick drivingGamepad;
+	private Joystick secondaryGamepad;
 
 	private TMotor conveyor;
 	private TMotor goalHook;

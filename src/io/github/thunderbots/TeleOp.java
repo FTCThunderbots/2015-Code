@@ -17,7 +17,7 @@
 package io.github.thunderbots;
 
 import io.github.thunderbots.lightning.Lightning;
-import io.github.thunderbots.lightning.control.TGamepad;
+import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.opmode.SimpleOpMode;
 
 /**
@@ -32,7 +32,7 @@ public abstract class TeleOp extends SimpleOpMode {
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
-			TGamepad drivingGamepad = Lightning.getGamepad1();
+			Joystick drivingGamepad = Lightning.getGamepad1();
 			this.getDrive().setMovement(drivingGamepad.leftStickY(), drivingGamepad.rightStickX());
 			Lightning.sendTelemetryData("joy1",
 					drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
