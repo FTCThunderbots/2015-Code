@@ -25,13 +25,8 @@ import io.github.thunderbots.TeleOp;
  * @author Pranav Mathur
  */
 public class CascadeEffectTeleOp extends TeleOp {
-
-<<<<<<< HEAD
-	private TGamepad drivingGamepad;
-=======
-	private DriveSystem drive;
+	
 	private Joystick drivingGamepad;
->>>>>>> df05d30154973a19b2add22eeb8a0e4496803a43
 
 	private CascadeEffectRobot robot;
 
