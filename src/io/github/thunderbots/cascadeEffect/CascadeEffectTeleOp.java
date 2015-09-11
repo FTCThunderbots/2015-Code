@@ -19,8 +19,6 @@ package io.github.thunderbots.cascadeEffect;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.control.TGamepad;
 import io.github.thunderbots.lightning.drive.DriveMotorSet;
-import io.github.thunderbots.lightning.drive.DriveSystem;
-import io.github.thunderbots.lightning.drive.TankDrive;
 import io.github.thunderbots.TeleOp;
 
 /**
@@ -28,7 +26,6 @@ import io.github.thunderbots.TeleOp;
  */
 public class CascadeEffectTeleOp extends TeleOp {
 
-	private DriveSystem drive;
 	private TGamepad drivingGamepad;
 
 	private CascadeEffectRobot robot;
@@ -45,14 +42,14 @@ public class CascadeEffectTeleOp extends TeleOp {
 	@Override
 	protected void initializeRobot() {
 		DriveMotorSet motorSet = new DriveMotorSet(CascadeEffectTeleOp.DRIVE_MOTOR_NAMES);
-		this.drive = new TankDrive(motorSet);
 		this.drivingGamepad = Lightning.getGamepad1();
 	}
 
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
-			this.drive.setMovement(this.drivingGamepad.leftStickY(), this.drivingGamepad.leftStickX());
+			this.getDrive().setMovement(this.drivingGamepad.leftStickY(),
+					this.drivingGamepad.leftStickX());
 			this.robot.setConveyorJoystick();
 			this.robot.setGoalHookJoystick();
 			this.robot.setBackboardJoystick();
