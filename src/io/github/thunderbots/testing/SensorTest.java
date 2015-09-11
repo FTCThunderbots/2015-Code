@@ -24,7 +24,7 @@ public class SensorTest extends SimpleOpMode {
 	@Override
 	protected void initializeRobot() {
 		super.initializeRobot();
-		this.touch = Lightning.getTouchSensor("touchsensor");
+		this.touch = (TouchSensor)Lightning.getSensor("touchsensor");
 	}
 
 	/**
