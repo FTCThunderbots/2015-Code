@@ -2,7 +2,7 @@ package io.github.thunderbots.cascadeEffect;
 
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.control.Joystick;
-import io.github.thunderbots.lightning.hardware.TMotor;
+import io.github.thunderbots.lightning.hardware.Motor;
 
 /**
  * @author Pranav Mathur
@@ -12,9 +12,9 @@ public class CascadeEffectRobot {
 	private Joystick drivingGamepad;
 	private Joystick secondaryGamepad;
 
-	private TMotor conveyor;
-	private TMotor goalHook;
-	private TMotor backboard;
+	private Motor conveyor;
+	private Motor goalHook;
+	private Motor backboard;
 
 	@SuppressWarnings("deprecation")
 	protected void initializeRobot() {
