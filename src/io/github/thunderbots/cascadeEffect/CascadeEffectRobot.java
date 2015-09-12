@@ -1,5 +1,6 @@
 package io.github.thunderbots.cascadeEffect;
 
+import io.github.thunderbots.Robot;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.hardware.Motor;
@@ -7,7 +8,7 @@ import io.github.thunderbots.lightning.hardware.Motor;
 /**
  * @author Pranav Mathur
  */
-public class CascadeEffectRobot {
+public class CascadeEffectRobot extends Robot {
 
 	private Joystick drivingGamepad;
 	private Joystick secondaryGamepad;
