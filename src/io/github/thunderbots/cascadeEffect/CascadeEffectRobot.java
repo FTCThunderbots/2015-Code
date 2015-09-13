@@ -17,6 +17,7 @@ public class CascadeEffectRobot extends Robot {
 	private Motor goalHook;
 	private Motor backboard;
 
+	@Override
 	@SuppressWarnings("deprecation")
 	protected void initializeRobot() {
 		this.drivingGamepad = Lightning.getJoystick1();
