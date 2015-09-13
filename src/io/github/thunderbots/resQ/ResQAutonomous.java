@@ -1,6 +1,6 @@
 package io.github.thunderbots.resQ;
 
-import io.github.thunderbots.Autonomous;
+import io.github.thunderbots.lightning.opmode.Autonomous;
 
 public class ResQAutonomous extends Autonomous {
 

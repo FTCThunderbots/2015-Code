@@ -1,6 +1,6 @@
 package io.github.thunderbots.resQ;
 
-import io.github.thunderbots.TeleOp;
+import io.github.thunderbots.lightning.opmode.TeleOp;
 
 public class ResQTeleOp extends TeleOp {
 

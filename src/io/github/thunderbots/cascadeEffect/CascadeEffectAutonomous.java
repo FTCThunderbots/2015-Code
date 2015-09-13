@@ -1,6 +1,6 @@
 package io.github.thunderbots.cascadeEffect;
 
-import io.github.thunderbots.Autonomous;
+import io.github.thunderbots.lightning.opmode.Autonomous;
 
 public class CascadeEffectAutonomous extends Autonomous {
 
