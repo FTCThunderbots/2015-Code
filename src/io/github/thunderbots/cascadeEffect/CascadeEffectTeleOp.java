@@ -18,7 +18,6 @@ package io.github.thunderbots.cascadeEffect;
 
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.control.Joystick;
-import io.github.thunderbots.lightning.drive.DriveMotorSet;
 import io.github.thunderbots.TeleOp;
 
 /**
@@ -41,8 +40,8 @@ public class CascadeEffectTeleOp extends TeleOp {
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void initializeRobot() {
-		DriveMotorSet motorSet = new DriveMotorSet(CascadeEffectTeleOp.DRIVE_MOTOR_NAMES);
-		this.drivingGamepad = Lightning.getGamepad1();
+//		DriveMotorSet motorSet = new DriveMotorSet(CascadeEffectTeleOp.DRIVE_MOTOR_NAMES);
+		this.drivingGamepad = Lightning.getJoystick1();
 	}
 
 	@Override

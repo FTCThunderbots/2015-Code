@@ -28,7 +28,6 @@ import io.github.thunderbots.lightning.opmode.SimpleOpMode;
  */
 public abstract class TeleOp extends SimpleOpMode {
 
-	@SuppressWarnings("deprecation")
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {

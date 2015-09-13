@@ -20,7 +20,6 @@ public class SensorTest extends SimpleOpMode {
 		return new String[0];
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	protected void initializeRobot() {
 		super.initializeRobot();

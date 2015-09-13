@@ -19,8 +19,8 @@ public class CascadeEffectRobot extends Robot {
 
 	@SuppressWarnings("deprecation")
 	protected void initializeRobot() {
-		this.drivingGamepad = Lightning.getGamepad1();
-		this.secondaryGamepad = Lightning.getGamepad2();
+		this.drivingGamepad = Lightning.getJoystick1();
+		this.secondaryGamepad = Lightning.getJoystick2();
 		this.conveyor = Lightning.getMotor("conveyor");
 		this.goalHook = Lightning.getMotor("goalHook");
 		this.backboard = Lightning.getMotor("backboard");
