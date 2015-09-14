@@ -17,7 +17,9 @@
 package io.github.thunderbots.minibot2015;
 
 import io.github.thunderbots.lightning.opmode.TeleOp;
+import io.github.thunderbots.annotations.OpMode;
 
+@OpMode(type="TeleOp", name="Minibot")
 public class MinibotTeleOp extends TeleOp {
 
 	private static final String[] DRIVE_MOTOR_NAMES = {"left_motor", "right_motor"};

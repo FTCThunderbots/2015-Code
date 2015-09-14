@@ -16,6 +16,7 @@
 
 package io.github.thunderbots.cascadeEffect;
 
+import io.github.thunderbots.annotations.OpMode;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.opmode.TeleOp;
@@ -23,6 +24,8 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
 /**
  * @author Pranav Mathur
  */
+
+@OpMode(type="TeleOp", name="Cascade Effect")
 public class CascadeEffectTeleOp extends TeleOp {
 
 	private Joystick drivingGamepad;
