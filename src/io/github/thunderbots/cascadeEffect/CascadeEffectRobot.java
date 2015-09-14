@@ -1,14 +1,14 @@
 package io.github.thunderbots.cascadeEffect;
 
-import io.github.thunderbots.Robot;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.hardware.Motor;
+import io.github.thunderbots.lightning.opmode.Robot;
 
 /**
  * @author Pranav Mathur
  */
-public class CascadeEffectRobot extends Robot {
+public class CascadeEffectRobot implements Robot {
 
 	private Joystick drivingGamepad;
 	private Joystick secondaryGamepad;
@@ -19,7 +19,7 @@ public class CascadeEffectRobot extends Robot {
 
 	@Override
 	@SuppressWarnings("deprecation")
-	protected void initializeRobot() {
+	public void initializeRobot() {
 		this.drivingGamepad = Lightning.getJoystick1();
 		this.secondaryGamepad = Lightning.getJoystick2();
 		this.conveyor = Lightning.getMotor("conveyor");
