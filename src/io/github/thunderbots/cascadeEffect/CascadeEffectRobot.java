@@ -18,10 +18,9 @@ public class CascadeEffectRobot implements Robot {
 	private Motor backboard;
 
 	@Override
-	@SuppressWarnings("deprecation")
 	public void initializeRobot() {
-		this.drivingGamepad = Lightning.getJoystick1();
-		this.secondaryGamepad = Lightning.getJoystick2();
+		this.drivingGamepad = Lightning.getJoystick(1);
+		this.secondaryGamepad = Lightning.getJoystick(2);
 		this.conveyor = Lightning.getMotor("conveyor");
 		this.goalHook = Lightning.getMotor("goalHook");
 		this.backboard = Lightning.getMotor("backboard");

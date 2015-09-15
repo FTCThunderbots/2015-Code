@@ -40,12 +40,11 @@ public class CascadeEffectTeleOp extends TeleOp {
 		return CascadeEffectTeleOp.DRIVE_MOTOR_NAMES;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	protected void initializeRobot() {
 		// DriveMotorSet motorSet = new
 		// DriveMotorSet(CascadeEffectTeleOp.DRIVE_MOTOR_NAMES);
-		this.drivingGamepad = Lightning.getJoystick1();
+		this.drivingGamepad = Lightning.getJoystick(1);
 	}
 
 	@Override
