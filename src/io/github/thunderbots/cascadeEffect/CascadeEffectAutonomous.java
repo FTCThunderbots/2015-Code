@@ -1,7 +1,7 @@
 package io.github.thunderbots.cascadeEffect;
 
+import io.github.thunderbots.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
-import io.github.thunderbots.annotations.OpMode;
 
 @OpMode(type="Autonomous", name="CascadeEffect")
 public class CascadeEffectAutonomous extends Autonomous {

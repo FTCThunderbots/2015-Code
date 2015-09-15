@@ -16,8 +16,8 @@
 
 package io.github.thunderbots.minibot2015;
 
+import io.github.thunderbots.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.TeleOp;
-import io.github.thunderbots.annotations.OpMode;
 
 @OpMode(type="TeleOp", name="Minibot")
 public class MinibotTeleOp extends TeleOp {
