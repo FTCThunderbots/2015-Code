@@ -19,7 +19,7 @@ package io.github.thunderbots.cascadeEffect;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.hardware.Motor;
-import io.github.thunderbots.lightning.opmode.Robot;
+import io.github.thunderbots.lightning.robot.Robot;
 
 /**
  * @author Pranav Mathur

@@ -16,7 +16,7 @@
 
 package io.github.thunderbots.resQ;
 
-import io.github.thunderbots.lightning.opmode.Robot;
+import io.github.thunderbots.lightning.robot.Robot;
 
 public class ResQRobot implements Robot {
 
