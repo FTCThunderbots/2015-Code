@@ -51,15 +51,16 @@ public class GeneralSensorTest extends LightningOpMode {
 	@Override
 	protected void main() {
 		try {
-			AccelerationSensor sensor = this.hardwareMap.accelerationSensor.get(SENSOR_NAME);
+			AccelerationSensor sensor = Lightning.getSensor(SENSOR_NAME);
+			//AccelerationSensor sensor = this.hardwareMap.accelerationSensor.get(SENSOR_NAME);
 			while (this.opModeIsActive()) {
 				Lightning.sendTelemetryData("Type", "accleration");
-				Lightning.sendTelemetryData("Data", sensor.getAcceleration().toString());
+				Lightning.sendTelemetryData("Data", sensor.getAcceleration());
 			}
 		} catch (Exception ignore) {}
-
+		
 		try {
-			CompassSensor sensor = this.hardwareMap.compassSensor.get(SENSOR_NAME);
+			CompassSensor sensor = Lightning.getSensor(SENSOR_NAME);
 			while (this.opModeIsActive()) {
 				Lightning.sendTelemetryData("Type", "compass");
 				Lightning.sendTelemetryData("Data", sensor.getDirection());
@@ -67,7 +68,7 @@ public class GeneralSensorTest extends LightningOpMode {
 		} catch (Exception ignore) {}
 
 		try {
-			GyroSensor sensor = this.hardwareMap.gyroSensor.get(SENSOR_NAME);
+			GyroSensor sensor = Lightning.getSensor(SENSOR_NAME);
 			while (this.opModeIsActive()) {
 				Lightning.sendTelemetryData("Type", "gyro");
 				Lightning.sendTelemetryData("Data", sensor.getRotation());
@@ -75,7 +76,7 @@ public class GeneralSensorTest extends LightningOpMode {
 		} catch (Exception ignore) {}
 
 		try {
-			IrSeekerSensor sensor = this.hardwareMap.irSeekerSensor.get(SENSOR_NAME);
+			IrSeekerSensor sensor = Lightning.getSensor(SENSOR_NAME);
 			while (this.opModeIsActive()) {
 				Lightning.sendTelemetryData("Type", "ir seeker");
 				Lightning.sendTelemetryData("Data", sensor.getAngle() + ", " + sensor.getStrength());
