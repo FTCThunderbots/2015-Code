@@ -24,8 +24,7 @@ public class ResQTeleOp extends TeleOp {
 
 	@Override
 	protected String[] getDriveMotorNames() {
-		// TODO Auto-generated method stub
-		return null;
+		return new String[] {"front_left", "front_right", "back_left", "back_right"};
 	}
 
 }
