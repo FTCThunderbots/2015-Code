@@ -21,7 +21,18 @@ import io.github.thunderbots.lightning.opmode.Autonomous;
 
 @OpMode(type="Autonomous", name="ResQ")
 public class ResQAutonomous extends Autonomous {
-
+	
+	ResQRobot robot;
+	
+	@Override
+	protected void initializeRobot() {
+		super.initializeRobot();
+		robot = new ResQRobot(this.getDrive());
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected String[] getDriveMotorNames() {
 		return new String[] {"front_left", "front_right", "back_left", "back_right"};
@@ -29,8 +40,9 @@ public class ResQAutonomous extends Autonomous {
 
 	@Override
 	protected void main() {
-		// TODO Auto-generated method stub
-
+		robot.getDriveSystem().driveSeconds(.5, 3);
+		robot.getDriveSystem().rotateSeconds(.5, 3);
+		robot.getDriveSystem().driveSeconds(.5, 6);
 	}
 
 }

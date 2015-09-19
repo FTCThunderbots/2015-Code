@@ -21,6 +21,8 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
 
 @OpMode(type="TeleOp", name="ResQ")
 public class ResQTeleOp extends TeleOp {
+	
+	ResQRobot robot = new ResQRobot(this.getDrive());
 
 	@Override
 	protected String[] getDriveMotorNames() {

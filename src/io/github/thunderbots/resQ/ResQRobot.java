@@ -16,14 +16,25 @@
 
 package io.github.thunderbots.resQ;
 
+import io.github.thunderbots.lightning.drive.DriveSystem;
 import io.github.thunderbots.lightning.robot.Robot;
 
 public class ResQRobot implements Robot {
+	
+	private DriveSystem drive;
+	
+	public ResQRobot(DriveSystem drive) {
+		this.drive = drive;
+	}
 
 	@Override
 	public void initializeRobot() {
 		// TODO Auto-generated method stub
-
+		
+	}
+	
+	public DriveSystem getDriveSystem() {
+		return drive;
 	}
 
 }
