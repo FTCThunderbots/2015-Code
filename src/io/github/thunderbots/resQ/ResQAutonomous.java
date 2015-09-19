@@ -27,7 +27,6 @@ public class ResQAutonomous extends Autonomous {
 	@Override
 	protected void initializeRobot() {
 		super.initializeRobot();
-		robot = new ResQRobot(this.getDrive());
 	}
 	
 	/**
@@ -40,9 +39,12 @@ public class ResQAutonomous extends Autonomous {
 
 	@Override
 	protected void main() {
-		robot.getDriveSystem().driveSeconds(.5, 3);
-		robot.getDriveSystem().rotateSeconds(.5, 3);
-		robot.getDriveSystem().driveSeconds(.5, 6);
+		this.getDrive().driveSeconds(.5, 3);
+		this.getDrive().waitAndStop(1.0);
+		this.getDrive().rotateSeconds(.5, 3);
+		this.getDrive().waitAndStop(1.0);
+		this.getDrive().driveSeconds(.5, 6);
+		this.getDrive().waitAndStop(1.0);
 	}
 
 }
