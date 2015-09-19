@@ -17,6 +17,7 @@
 package io.github.thunderbots.testing;
 
 import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
 
@@ -25,24 +26,32 @@ import io.github.thunderbots.lightning.opmode.LightningOpMode;
  */
 public class ServoTest extends LightningOpMode {
 	
-	Servo testservo;
+	Servo testServo;
 	
 	private static final String SERVO_NAME = "servo";
 
 	@Override
 	protected void initializeRobot() {
-		this.testservo = Lightning.getServo(SERVO_NAME);
+		this.testServo = Lightning.getServo(SERVO_NAME);
 	}
 
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
-			if (Lightning.getJoystick(1).rightBumper()) {
-				this.testservo.move(0.01);
-			} else if (Lightning.getJoystick(1).leftBumper()) {
-				this.testservo.move(- 0.01);
-			}
+			this.moveServoFromJoystick(Lightning.getJoystick(1));
+			Lightning.sendTelemetryData("servo", testServo.getPosition());
 		}
+	}
+	
+	private void moveServoFromJoystick(Joystick j) {
+		double increment = 0;
+		if (j.rightBumper()) {
+			increment = 0.05;
+		} else if (j.leftBumper()) {
+			increment = -0.05;
+		}
+		this.testServo.move(increment);
+		Lightning.sendTelemetryData("delta", increment);
 	}
 
 }
