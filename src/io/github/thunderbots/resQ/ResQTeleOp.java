@@ -16,6 +16,7 @@
 
 package io.github.thunderbots.resQ;
 
+import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 
@@ -32,6 +33,15 @@ public class ResQTeleOp extends TeleOp {
 	@Override
 	protected String[] getDriveMotorNames() {
 		return new String[] {"front_left", "front_right", "back_left", "back_right"};
+	}
+	
+	@Override
+	protected void main() {
+		while (this.opModeIsActive()) {
+			this.getDrive().setMovement(
+					Lightning.getJoystick(1).leftStickY(), Lightning.getJoystick(1).leftStickX());
+			robot.setSweeperJoystick();
+		}
 	}
 
 }

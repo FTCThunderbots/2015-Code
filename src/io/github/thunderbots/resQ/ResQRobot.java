@@ -16,17 +16,31 @@
 
 package io.github.thunderbots.resQ;
 
+import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.control.Joystick;
+import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.robot.Robot;
 
 public class ResQRobot implements Robot {
 	
 	private Servo bucketTiltServo;
+	private Motor sweeper;
 
 	@Override
 	public void initializeRobot() {
 		// TODO Auto-generated method stub
-		
+		sweeper = Lightning.getMotor("sweeper");
 	}
-
+	
+	public void setSweeperJoystick() {
+		Joystick joy1 = Lightning.getJoystick(1);
+		if (joy1.rightBumper())
+			sweeper.setPower(1.0);
+		else if (joy1.rightTrigger() == 1)
+			sweeper.setPower(-1.0);
+		else
+			sweeper.setPower(0.0);
+	}
+	
 }
