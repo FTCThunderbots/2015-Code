@@ -16,17 +16,51 @@
 
 package io.github.thunderbots.resQ;
 
+import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.robot.Robot;
 
 public class ResQRobot implements Robot {
 	
 	private Servo bucketTiltServo;
+	
+	private Motor bucketFingers1;
+	private Motor bucketFingers2;
+	
+	/*
+	 * These values are relevant when the bucket dumps to the right. Use their negatives for a left
+	 * dump.
+	 */
+	public static final double BUCKET_TILT_DELTA = 0.22;
+	public static final double BUCKET_FINGERS_POWER = 1;
 
 	@Override
 	public void initializeRobot() {
-		// TODO Auto-generated method stub
-		
+		this.bucketTiltServo = Lightning.getServo(null);
+		this.bucketFingers1 = Lightning.getMotor(null);
+		this.bucketFingers2 = Lightning.getMotor(null);
+	}
+	
+	public void centerBucketServo() {
+		this.bucketTiltServo.center();
+	}
+	
+	public void dumpBucketLeft() {
+		this.dumpBucket(-1);
+	}
+	
+	public void dumpBucketRight() {
+		this.dumpBucket(1);
+	}
+	
+	/*
+	 * direction is -1 for left, or +1 for right.
+	 */
+	private void dumpBucket(int dir) {
+		this.bucketTiltServo.move(dir * BUCKET_TILT_DELTA);
+		this.bucketFingers1.setPower(dir * BUCKET_FINGERS_POWER);
+		this.bucketFingers2.setPower(dir * BUCKET_FINGERS_POWER);
 	}
 
 }
