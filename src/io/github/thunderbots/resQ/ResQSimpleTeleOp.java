@@ -20,29 +20,31 @@ import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 
-@OpMode(type="TeleOp", name="ResQ")
-public class ResQTeleOp extends TeleOp {
-	
-	private ResQRobot robot;
+@OpMode(type="TeleOp", name="CESimple")
+public class ResQSimpleTeleOp extends TeleOp {
 
+	private static final String[] DRIVE_MOTOR_NAMES =
+			{"front_left", "front_right", "back_left", "back_right"};
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected String[] getDriveMotorNames() {
+		return ResQSimpleTeleOp.DRIVE_MOTOR_NAMES;
+	}
+	
 	@Override
 	protected void initializeRobot() {
 		super.initializeRobot();
-		this.robot = new ResQRobot();
+		Lightning.getMotor("front_left").setReversed(true);
+		Lightning.getMotor("front_right").setReversed(true);
 	}
 
 	@Override
-	protected String[] getDriveMotorNames() {
-		return new String[] {"front_left", "front_right", "back_left", "back_right"};
-	}
-	
-	@Override
 	protected void main() {
-		while (this.opModeIsActive()) {
-			this.getDrive().setMovement(
-					Lightning.getJoystick(1).leftStickY(), Lightning.getJoystick(1).leftStickX());
-			robot.setSweeperJoystick();
-		}
+		// TODO Auto-generated method stub
+		super.main();
 	}
 
 }
