@@ -18,6 +18,7 @@ package io.github.thunderbots.resQ;
 
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.OpMode;
+import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 
 @OpMode(type="TeleOp", name="ResQ")
@@ -29,6 +30,7 @@ public class ResQTeleOp extends TeleOp {
 	protected void initializeRobot() {
 		super.initializeRobot();
 		this.robot = new ResQRobot();
+		this.robot.initializeRobot();
 	}
 
 	@Override
@@ -39,9 +41,31 @@ public class ResQTeleOp extends TeleOp {
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
-			this.getDrive().setMovement(
-					Lightning.getJoystick(1).leftStickY(), Lightning.getJoystick(1).leftStickX());
-			robot.setSweeperJoystick();
+			Joystick driver = Lightning.getJoystick(1);
+			Joystick aux = Lightning.getJoystick(2);
+			this.getDrive().setMovement(driver.leftStickY(), driver.rightStickX());
+			this.setSweeper(aux);
+			this.setBucket(aux);
+		}
+	}
+	
+	public void setSweeper(Joystick joy) {
+		Joystick joy1 = Lightning.getJoystick(1);
+		if (joy1.rightBumper())
+			this.robot.setSweeperPower(1);
+		else if (joy1.rightTrigger() == 1)
+			this.robot.setSweeperPower(-1);
+		else
+			this.robot.setSweeperPower(0);
+	}
+	
+	public void setBucket(Joystick joy) {
+		if (joy.xButton()) {
+			this.robot.dumpBucketLeft();
+		} else if (joy.bButton()) {
+			this.robot.dumpBucketRight();
+		} else if (joy.yButton()) {
+			this.robot.centerBucket();
 		}
 	}
 
