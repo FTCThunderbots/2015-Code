@@ -17,16 +17,23 @@
 package io.github.thunderbots.resQ;
 
 import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.robot.Robot;
 
 public class ResQRobot implements Robot {
 	
+	private Motor sweeper;
+	
 	private Servo bucketTiltServo;
 	
 	private Motor bucketFingers1;
 	private Motor bucketFingers2;
+	
+	public static final String SWEEPER_NAME = "sweeper";
+	public static final String BUCKET_TILT_SERVO_NAME = "bucket_tilt";
+	public static final String[] BUCKET_FINGERS_NAMES = {"fingers1", "fingers2"};
 	
 	/*
 	 * These values are relevant when the bucket dumps to the right. Use their negatives for a left
@@ -37,13 +44,16 @@ public class ResQRobot implements Robot {
 
 	@Override
 	public void initializeRobot() {
-		this.bucketTiltServo = Lightning.getServo(null);
-		this.bucketFingers1 = Lightning.getMotor(null);
-		this.bucketFingers2 = Lightning.getMotor(null);
+		this.sweeper = Lightning.getMotor(SWEEPER_NAME);
+		this.bucketTiltServo = Lightning.getServo(BUCKET_TILT_SERVO_NAME);
+		this.bucketFingers1 = Lightning.getMotor(BUCKET_FINGERS_NAMES[0]);
+		this.bucketFingers2 = Lightning.getMotor(BUCKET_FINGERS_NAMES[1]);
 	}
 	
-	public void centerBucketServo() {
+	public void centerBucket() {
 		this.bucketTiltServo.center();
+		this.bucketFingers1.stop();
+		this.bucketFingers2.stop();
 	}
 	
 	public void dumpBucketLeft() {
@@ -62,5 +72,15 @@ public class ResQRobot implements Robot {
 		this.bucketFingers1.setPower(dir * BUCKET_FINGERS_POWER);
 		this.bucketFingers2.setPower(dir * BUCKET_FINGERS_POWER);
 	}
-
+	
+	public void setSweeperJoystick() {
+		Joystick joy1 = Lightning.getJoystick(1);
+		if (joy1.rightBumper())
+			sweeper.setPower(1.0);
+		else if (joy1.rightTrigger() == 1)
+			sweeper.setPower(-1.0);
+		else
+			sweeper.setPower(0.0);
+	}
+	
 }
