@@ -25,12 +25,16 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
 public class ResQTeleOp extends TeleOp {
 	
 	private ResQRobot robot;
+	
+	private long lastBucketTime;
 
 	@Override
 	protected void initializeRobot() {
 		super.initializeRobot();
 		this.robot = new ResQRobot();
 		this.robot.initializeRobot();
+		Lightning.getMotor("back_left").setReversed(true);
+		Lightning.getMotor("back_right").setReversed(true);
 	}
 
 	@Override
@@ -46,20 +50,34 @@ public class ResQTeleOp extends TeleOp {
 			this.getDrive().setMovement(driver.leftStickY(), driver.rightStickX());
 			this.setSweeper(aux);
 			this.setBucket(aux);
+			this.setBoopers(driver);
+			this.robot.addDebugInformation();
 		}
 	}
 	
 	public void setSweeper(Joystick joy) {
-		Joystick joy1 = Lightning.getJoystick(1);
-		if (joy1.rightBumper())
+		if (joy.rightBumper())
 			this.robot.setSweeperPower(1);
-		else if (joy1.rightTrigger() == 1)
+		else if (joy.rightTrigger() == 1)
 			this.robot.setSweeperPower(-1);
 		else
 			this.robot.setSweeperPower(0);
 	}
 	
+	public void setBoopers(Joystick joy) {
+		if (joy.leftButton()) {
+			this.robot.toggleLeftBooper();
+		}
+		if (joy.rightButton()) {
+			this.robot.toggleRightBooper();
+		}
+	}
+	
 	public void setBucket(Joystick joy) {
+		if (this.lastBucketTime + 1000 > System.currentTimeMillis()) {
+			return;
+		}
+		this.lastBucketTime = System.currentTimeMillis();
 		if (joy.xButton()) {
 			this.robot.dumpBucketLeft();
 		} else if (joy.bButton()) {
