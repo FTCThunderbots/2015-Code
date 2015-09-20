@@ -43,16 +43,14 @@ public class ResQTeleOp extends TeleOp {
 	}
 	
 	@Override
-	protected void main() {
-		while (this.opModeIsActive()) {
-			Joystick driver = Lightning.getJoystick(1);
-			Joystick aux = Lightning.getJoystick(2);
-			this.getDrive().setMovement(driver.leftStickY(), driver.rightStickX());
-			this.setSweeper(aux);
-			this.setBucket(aux);
-			this.setBoopers(driver);
-			this.robot.addDebugInformation();
-		}
+	protected void mainLoop() {
+		Joystick driver = Lightning.getJoystick(1);
+		Joystick aux = Lightning.getJoystick(2);
+		this.getDrive().setMovement(driver.leftStickY(), driver.rightStickX());
+		this.setSweeper(aux);
+		this.setBucket(aux);
+		this.setBoopers(driver);
+		this.robot.addDebugInformation();
 	}
 	
 	public void setSweeper(Joystick joy) {
