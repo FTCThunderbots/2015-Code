@@ -145,20 +145,31 @@ public class ResQRobot implements Robot {
 	 * +---------------------------+
 	 */
 	
+	/**
+	 * Re-centers the bucket.
+	 */
 	public void centerBucket() {
 		this.bucketTiltServo.center();
 	}
 	
+	/**
+	 * Dumps the bucket to the left.
+	 */
 	public void dumpBucketLeft() {
 		this.dumpBucket(-1);
 	}
 	
+	/**
+	 * Dumps the bucket to the right.
+	 */
 	public void dumpBucketRight() {
 		this.dumpBucket(1);
 	}
 	
-	/*
-	 * direction is -1 for left, or +1 for right.
+	/**
+	 * Dumps the center bucket in the given direction.
+	 *
+	 * @param dir -1 if the bucket should dump to the left, or +1 if the bucket should dump to the right.
 	 */
 	private void dumpBucket(int dir) {
 		this.bucketTiltServo.move(dir * BUCKET_TILT_DELTA);

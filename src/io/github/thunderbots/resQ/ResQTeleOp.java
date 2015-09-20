@@ -29,6 +29,8 @@ public class ResQTeleOp extends TeleOp {
 	private long lastBucketTime;
 	private long lastLeftBoopTime;
 	private long lastRightBoopTime;
+	
+	private static final long COOLDOWN_MS = 500;
 
 	@Override
 	protected void initializeRobot() {
@@ -66,13 +68,13 @@ public class ResQTeleOp extends TeleOp {
 	
 	public void setBoopers(Joystick joy) {
 		if (joy.leftButton()) {
-			if (this.lastLeftBoopTime + 500 <= System.currentTimeMillis()) {
+			if (this.lastLeftBoopTime + COOLDOWN_MS <= System.currentTimeMillis()) {
 				this.lastLeftBoopTime = System.currentTimeMillis();
 				this.robot.toggleLeftBooper();
 			}
 		}
 		if (joy.rightButton()) {
-			if (this.lastRightBoopTime + 500 <= System.currentTimeMillis()) {
+			if (this.lastRightBoopTime + COOLDOWN_MS <= System.currentTimeMillis()) {
 				this.lastRightBoopTime = System.currentTimeMillis();
 				this.robot.toggleRightBooper();
 			}
@@ -80,7 +82,7 @@ public class ResQTeleOp extends TeleOp {
 	}
 	
 	public void setBucket(Joystick joy) {
-		if (this.lastBucketTime + 500 > System.currentTimeMillis()) {
+		if (this.lastBucketTime + COOLDOWN_MS > System.currentTimeMillis()) {
 			return;
 		}
 		this.lastBucketTime = System.currentTimeMillis();
