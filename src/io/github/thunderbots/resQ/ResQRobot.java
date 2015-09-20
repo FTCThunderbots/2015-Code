@@ -62,7 +62,7 @@ public class ResQRobot implements Robot {
 	 * These values are relevant when the bucket dumps to the right. Use their negatives for a left
 	 * dump.
 	 */
-	public static final double BUCKET_TILT_DELTA = 0.25;
+	public static final double BUCKET_TILT_DELTA = 0.15;
 	public static final double BUCKET_FINGERS_POWER = 1;
 
 	@Override
@@ -130,7 +130,7 @@ public class ResQRobot implements Robot {
 	}
 	
 	public void boopRight() {
-		this.rightBooperServo.moveToPosition(BOOPER_UP);
+		this.rightBooperServo.moveToPosition(BOOPER_DOWN);
 		this.isRightBooping = true;
 	}
 	
