@@ -17,7 +17,6 @@
 package io.github.thunderbots.resQ;
 
 import io.github.thunderbots.lightning.Lightning;
-import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.robot.Robot;
@@ -46,14 +45,18 @@ public class ResQRobot implements Robot {
 	public void initializeRobot() {
 		this.sweeper = Lightning.getMotor(SWEEPER_NAME);
 		this.bucketTiltServo = Lightning.getServo(BUCKET_TILT_SERVO_NAME);
-		this.bucketFingers1 = Lightning.getMotor(BUCKET_FINGERS_NAMES[0]);
-		this.bucketFingers2 = Lightning.getMotor(BUCKET_FINGERS_NAMES[1]);
+//		this.bucketFingers1 = Lightning.getMotor(BUCKET_FINGERS_NAMES[0]);
+//		this.bucketFingers2 = Lightning.getMotor(BUCKET_FINGERS_NAMES[1]);
+	}
+	
+	public void setSweeperPower(double power) {
+		this.sweeper.setPower(power);
 	}
 	
 	public void centerBucket() {
 		this.bucketTiltServo.center();
-		this.bucketFingers1.stop();
-		this.bucketFingers2.stop();
+//		this.bucketFingers1.stop();
+//		this.bucketFingers2.stop();
 	}
 	
 	public void dumpBucketLeft() {
@@ -69,18 +72,8 @@ public class ResQRobot implements Robot {
 	 */
 	private void dumpBucket(int dir) {
 		this.bucketTiltServo.move(dir * BUCKET_TILT_DELTA);
-		this.bucketFingers1.setPower(dir * BUCKET_FINGERS_POWER);
-		this.bucketFingers2.setPower(dir * BUCKET_FINGERS_POWER);
-	}
-	
-	public void setSweeperJoystick() {
-		Joystick joy1 = Lightning.getJoystick(1);
-		if (joy1.rightBumper())
-			sweeper.setPower(1.0);
-		else if (joy1.rightTrigger() == 1)
-			sweeper.setPower(-1.0);
-		else
-			sweeper.setPower(0.0);
+//		this.bucketFingers1.setPower(dir * BUCKET_FINGERS_POWER);
+//		this.bucketFingers2.setPower(dir * BUCKET_FINGERS_POWER);
 	}
 	
 }
