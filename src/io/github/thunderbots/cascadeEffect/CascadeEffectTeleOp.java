@@ -50,7 +50,7 @@ public class CascadeEffectTeleOp extends TeleOp {
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
-			this.getDrive().setMovement(this.drivingGamepad.leftStickY(), this.drivingGamepad.leftStickX());
+			this.getDrive().setMovement(this.drivingGamepad.leftStickY(), this.drivingGamepad.rightStickX());
 			this.robot.setConveyorJoystick();
 			this.robot.setGoalHookJoystick();
 			this.robot.setBackboardJoystick();

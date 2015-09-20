@@ -40,7 +40,7 @@ public class ResQTeleOp extends TeleOp {
 	protected void main() {
 		while (this.opModeIsActive()) {
 			this.getDrive().setMovement(
-					Lightning.getJoystick(1).leftStickY(), Lightning.getJoystick(1).leftStickX());
+					Lightning.getJoystick(1).leftStickY(), Lightning.getJoystick(1).rightStickX());
 			robot.setSweeperJoystick();
 		}
 	}
