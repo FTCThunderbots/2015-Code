@@ -68,12 +68,12 @@ public class ResQRobot implements Robot {
 	/**
 	 * The first of the CR servos responsible for pushing the blocks out of the bucket.
 	 */
-//	private Motor bucketFingers1;
+	private Motor bucketFingers1;
 	
 	/**
 	 * The second of the CR servos responsible for pushing the blocks out of the bucket.
 	 */
-//	private Motor bucketFingers2;
+	private Motor bucketFingers2;
 	
 	public static final String SWEEPER_NAME = "sweeper";
 	public static final String BUCKET_TILT_SERVO_NAME = "bucket_tilt";
@@ -99,8 +99,12 @@ public class ResQRobot implements Robot {
 		this.unboopLeft();
 		this.unboopRight();
 		this.centerBucket();
-//		this.bucketFingers1 = Lightning.getMotor(BUCKET_FINGERS_NAMES[0]);
-//		this.bucketFingers2 = Lightning.getMotor(BUCKET_FINGERS_NAMES[1]);
+		try {
+			this.bucketFingers1 = Lightning.getMotor(BUCKET_FINGERS_NAMES[0]);
+			this.bucketFingers2 = Lightning.getMotor(BUCKET_FINGERS_NAMES[1]);
+		} catch(Exception ex) {
+			Lightning.sendTelemetryData("Null: ", "Fingers are null");
+		}
 	}
 	
 	/**
@@ -112,8 +116,10 @@ public class ResQRobot implements Robot {
 		Lightning.sendTelemetryData("Bucket", this.bucketTiltServo.getPosition());
 		Lightning.sendTelemetryData("Left boop", this.leftBooperServo.getPosition());
 		Lightning.sendTelemetryData("Right boop", this.rightBooperServo.getPosition());
-//		Lightning.sendTelemetryData("Fingers 1", this.bucketFingers1.getPower());
-//		Lightning.sendTelemetryData("Fingers 2", this.bucketFingers2.getPower());
+		if (this.bucketFingers1 != null)
+			Lightning.sendTelemetryData("Fingers 1", this.bucketFingers1.getPower());
+		if (this.bucketFingers2 != null)
+			Lightning.sendTelemetryData("Fingers 2", this.bucketFingers2.getPower());
 	}
 	
 	/**
@@ -184,8 +190,10 @@ public class ResQRobot implements Robot {
 	 */
 	public void centerBucket() {
 		this.bucketTiltServo.center();
-//		this.bucketFingers1.stop();
-//		this.bucketFingers2.stop();
+		if (this.bucketFingers1 != null)
+			this.bucketFingers1.stop();
+		if (this.bucketFingers2 != null)
+			this.bucketFingers2.stop();
 	}
 	
 	/**
@@ -209,8 +217,10 @@ public class ResQRobot implements Robot {
 	 */
 	private void dumpBucket(int dir) {
 		this.bucketTiltServo.move(dir * BUCKET_TILT_DELTA);
-//		this.bucketFingers1.setPower(dir * BUCKET_FINGERS_POWER);
-//		this.bucketFingers2.setPower(dir * BUCKET_FINGERS_POWER);
+		if (this.bucketFingers1 != null)
+			this.bucketFingers1.setPower(dir * BUCKET_FINGERS_POWER);
+		if (this.bucketFingers2 != null)
+			this.bucketFingers2.setPower(dir * BUCKET_FINGERS_POWER);
 	}
 	
 }
