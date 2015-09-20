@@ -21,12 +21,9 @@ import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
 
 @OpMode(type="Autonomous", name="ResQ")
-public class ResQAutonomous extends Autonomous {
+public class ResQAutoBlue extends Autonomous {
 	
 	ResQRobot robot;
-	
-	/** -1 is Red, 1 is Blue */
-	private final static int side = 1;
 	
 	@Override
 	protected void initializeRobot() {
@@ -47,12 +44,12 @@ public class ResQAutonomous extends Autonomous {
 
 	@Override
 	protected void main() {
-		this.getDrive().driveSeconds(.5, .75);
-		this.getDrive().waitAndStop(2.0);
-		this.getDrive().rotateSeconds(.5 * ResQAutonomous.side, 1);
-		this.getDrive().waitAndStop(2.0);
-		this.getDrive().driveSeconds(.5, .75);
-		this.getDrive().waitAndStop(2.0);
+		this.getDrive().driveSeconds(.5, 3);
+		this.getDrive().waitAndStop(1.0);
+		this.getDrive().rotateSeconds(-.5, 3);
+		this.getDrive().waitAndStop(1.0);
+		this.getDrive().driveSeconds(.5, 6);
+		this.getDrive().waitAndStop(1.0);
 	}
 
 }

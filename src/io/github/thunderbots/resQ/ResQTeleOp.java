@@ -47,6 +47,29 @@ public class ResQTeleOp extends TeleOp {
 	}
 	
 	@Override
+	protected void main() {
+		while (this.opModeIsActive()) {
+			Joystick drivingGamepad = Lightning.getJoystick(1);
+			try {
+				this.getDrive().setMovement(drivingGamepad.leftStickY(), -drivingGamepad.rightStickX());
+			} catch (NullPointerException e) {
+				String nulled = "";
+				if (this.getDrive() == null) {
+					nulled = "drive system";
+				} else if (drivingGamepad == null) {
+					nulled = "gamepad";
+				}
+				Lightning.sendTelemetryData(nulled + " is null!!");
+			}
+			Lightning.sendTelemetryData("joy1",
+					drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
+			Lightning.sendTelemetryData("raw",
+					this.gamepad1.left_stick_y + ", " + this.gamepad1.right_stick_x);
+			this.mainLoop();
+		}
+	}
+	
+	@Override
 	protected void mainLoop() {
 		Joystick driver = Lightning.getJoystick(1);
 		Joystick aux = Lightning.getJoystick(2);
