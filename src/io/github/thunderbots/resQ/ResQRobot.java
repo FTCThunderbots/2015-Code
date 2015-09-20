@@ -23,11 +23,18 @@ import io.github.thunderbots.lightning.robot.Robot;
 
 public class ResQRobot implements Robot {
 	
+	/**
+	 * The motor responsible for the sweeper on the robot.
+	 */
 	private Motor sweeper;
 	
+	/**
+	 * The servo responsible for tilting the bucket.
+	 */
 	private Servo bucketTiltServo;
 	
 	/**
+	 * The servo responsible for "booping" on the left side of the robot.
 	 * <pre>
 	 * Boop the
 	 *    _
@@ -42,12 +49,30 @@ public class ResQRobot implements Robot {
 	 *  </pre>
 	 */
 	private Servo leftBooperServo;
+	
+	/**
+	 * The servo responsible for "booping" on the right side of the robot.
+	 */
 	private Servo rightBooperServo;
 	
+	/**
+	 * Determines whether the left booping-arm is currently activated.
+	 */
 	private boolean isLeftBooping;
+	
+	/**
+	 * Determines whether the right booping-arm is currently activated.
+	 */
 	private boolean isRightBooping;
 	
+	/**
+	 * The first of the CR servos responsible for pushing the blocks out of the bucket.
+	 */
 //	private Motor bucketFingers1;
+	
+	/**
+	 * The second of the CR servos responsible for pushing the blocks out of the bucket.
+	 */
 //	private Motor bucketFingers2;
 	
 	public static final String SWEEPER_NAME = "sweeper";
@@ -78,6 +103,10 @@ public class ResQRobot implements Robot {
 //		this.bucketFingers2 = Lightning.getMotor(BUCKET_FINGERS_NAMES[1]);
 	}
 	
+	/**
+	 * Collect debug information from various parts of the robot's hardware, and send them through
+	 * the telemetry link.
+	 */
 	public void addDebugInformation() {
 		Lightning.sendTelemetryData("Sweeper", this.sweeper.getPower());
 		Lightning.sendTelemetryData("Bucket", this.bucketTiltServo.getPosition());
@@ -87,22 +116,18 @@ public class ResQRobot implements Robot {
 //		Lightning.sendTelemetryData("Fingers 2", this.bucketFingers2.getPower());
 	}
 	
-	/*
-	 * +--------------------------+
-	 * |       Sweeper motor      |
-	 * +--------------------------+
+	/**
+	 * Sets the power of the sweeper motor.
+	 *
+	 * @param power the power of of the sweeper motor
 	 */
-	
 	public void setSweeperPower(double power) {
 		this.sweeper.setPower(power);
 	}
 	
-	/*
-	 * +---------------------------+
-	 * |       Boop the THESE      |
-	 * +---------------------------+
+	/**
+	 * Toggles the activated-deactivated status of the left booping-arm.
 	 */
-	
 	public void toggleLeftBooper() {
 		if (this.isLeftBooping) {
 			this.unboopLeft();
@@ -111,16 +136,25 @@ public class ResQRobot implements Robot {
 		}
 	}
 	
+	/**
+	 * Activates the left booping-arm.
+	 */
 	public void boopLeft() {
 		this.leftBooperServo.moveToPosition(Servo.MAX_POSITION - BOOPER_DOWN);
 		this.isLeftBooping = true;
 	}
 	
+	/**
+	 * De-activates the left booping-arm.
+	 */
 	public void unboopLeft() {
 		this.leftBooperServo.moveToPosition(Servo.MAX_POSITION - BOOPER_UP);
 		this.isLeftBooping = false;
 	}
 	
+	/**
+	 * Toggles the activated-deactivated status of the right booping-arm.
+	 */
 	public void toggleRightBooper() {
 		if (this.isRightBooping) {
 			this.unboopRight();
@@ -129,27 +163,29 @@ public class ResQRobot implements Robot {
 		}
 	}
 	
+	/**
+	 * Activates the right booping-arm.
+	 */
 	public void boopRight() {
 		this.rightBooperServo.moveToPosition(BOOPER_DOWN);
 		this.isRightBooping = true;
 	}
 	
+	/**
+	 * De-activates the right booping-arm.
+	 */
 	public void unboopRight() {
 		this.rightBooperServo.moveToPosition(BOOPER_UP);
 		this.isRightBooping = false;
 	}
-	
-	/*
-	 * +---------------------------+
-	 * |    Bucket tilting stuff   |
-	 * +---------------------------+
-	 */
 	
 	/**
 	 * Re-centers the bucket.
 	 */
 	public void centerBucket() {
 		this.bucketTiltServo.center();
+//		this.bucketFingers1.stop();
+//		this.bucketFingers2.stop();
 	}
 	
 	/**
