@@ -50,7 +50,6 @@ public class ResQTeleOp extends TeleOp {
 	protected void mainLoop() {
 		Joystick driver = Lightning.getJoystick(1);
 		Joystick aux = Lightning.getJoystick(2);
-		this.getDrive().setMovement(driver.leftStickY(), driver.rightStickX());
 		this.setSweeper(aux);
 		this.setBucket(aux);
 		this.setBoopers(driver);
