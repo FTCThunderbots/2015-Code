@@ -45,8 +45,8 @@ public class ResQRobot implements Robot {
 	public void initializeRobot() {
 		this.sweeper = Lightning.getMotor(SWEEPER_NAME);
 		this.bucketTiltServo = Lightning.getServo(BUCKET_TILT_SERVO_NAME);
-		this.bucketFingers1 = Lightning.getMotor(BUCKET_FINGERS_NAMES[0]);
-		this.bucketFingers2 = Lightning.getMotor(BUCKET_FINGERS_NAMES[1]);
+//		this.bucketFingers1 = Lightning.getMotor(BUCKET_FINGERS_NAMES[0]);
+//		this.bucketFingers2 = Lightning.getMotor(BUCKET_FINGERS_NAMES[1]);
 	}
 	
 	public void setSweeperPower(double power) {
@@ -55,8 +55,8 @@ public class ResQRobot implements Robot {
 	
 	public void centerBucket() {
 		this.bucketTiltServo.center();
-		this.bucketFingers1.stop();
-		this.bucketFingers2.stop();
+//		this.bucketFingers1.stop();
+//		this.bucketFingers2.stop();
 	}
 	
 	public void dumpBucketLeft() {
@@ -72,8 +72,8 @@ public class ResQRobot implements Robot {
 	 */
 	private void dumpBucket(int dir) {
 		this.bucketTiltServo.move(dir * BUCKET_TILT_DELTA);
-		this.bucketFingers1.setPower(dir * BUCKET_FINGERS_POWER);
-		this.bucketFingers2.setPower(dir * BUCKET_FINGERS_POWER);
+//		this.bucketFingers1.setPower(dir * BUCKET_FINGERS_POWER);
+//		this.bucketFingers2.setPower(dir * BUCKET_FINGERS_POWER);
 	}
 	
 }
