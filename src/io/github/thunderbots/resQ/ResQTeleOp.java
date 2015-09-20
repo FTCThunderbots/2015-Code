@@ -27,6 +27,8 @@ public class ResQTeleOp extends TeleOp {
 	private ResQRobot robot;
 	
 	private long lastBucketTime;
+	private long lastLeftBoopTime;
+	private long lastRightBoopTime;
 
 	@Override
 	protected void initializeRobot() {
@@ -64,15 +66,21 @@ public class ResQTeleOp extends TeleOp {
 	
 	public void setBoopers(Joystick joy) {
 		if (joy.leftButton()) {
-			this.robot.toggleLeftBooper();
+			if (this.lastLeftBoopTime + 500 <= System.currentTimeMillis()) {
+				this.lastLeftBoopTime = System.currentTimeMillis();
+				this.robot.toggleLeftBooper();
+			}
 		}
 		if (joy.rightButton()) {
-			this.robot.toggleRightBooper();
+			if (this.lastRightBoopTime + 500 <= System.currentTimeMillis()) {
+				this.lastRightBoopTime = System.currentTimeMillis();
+				this.robot.toggleRightBooper();
+			}
 		}
 	}
 	
 	public void setBucket(Joystick joy) {
-		if (this.lastBucketTime + 1000 > System.currentTimeMillis()) {
+		if (this.lastBucketTime + 500 > System.currentTimeMillis()) {
 			return;
 		}
 		this.lastBucketTime = System.currentTimeMillis();
