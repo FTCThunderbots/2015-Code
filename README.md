@@ -4,6 +4,8 @@ This is all of the code used by the Thunderbots Robotics Team in the 2015-2016 F
 
 This entire repository is open source, and is made available under the GNU General Public License v. 3.0 (GPLv3). A full copy of the license is available as [the LICENSE file in this repository](LICENSE), or at [the GNU license page](http://www.gnu.org/licenses/gpl.txt). A quick summary of the text is also available [here](https://tldrlegal.com/license/gnu-general-public-license-v3-%28gpl-3%29). 
 
+This code is dependent on the code found in the [LightningSDK](https://github.com/Thunderbots5604/LightningSDK) repository. This project must be on the build path in order for any code found in this repository to compile successfully. A JAR file of the SDK is available for download [here](https://github.com/Thunderbots5604/LightningSDK/releases).
+
 The license does provide a header that is recommended to be put at the top of every file in the repository. Some files in the repository here contain the header, but other files here may not, and they are all fully protected under the GPLv3 license. The header is provided as follows, and applies generically to all files in this repository, including other branches:
 
 > Copyright (C) 2015 Thunderbots-5604
