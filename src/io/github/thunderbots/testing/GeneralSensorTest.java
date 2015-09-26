@@ -24,6 +24,7 @@ import com.qualcomm.robotcore.hardware.LightSensor;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 import com.qualcomm.robotcore.hardware.UltrasonicSensor;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
@@ -56,6 +57,15 @@ public class GeneralSensorTest extends LightningOpMode {
 			while (this.opModeIsActive()) {
 				Lightning.sendTelemetryData("Type", "accleration");
 				Lightning.sendTelemetryData("Data", sensor.getAcceleration());
+			}
+		} catch (Exception ignore) {}
+		
+		try {
+			ColorSensor sensor = Lightning.getSensor(SENSOR_NAME);
+			//AccelerationSensor sensor = this.hardwareMap.accelerationSensor.get(SENSOR_NAME);
+			while (this.opModeIsActive()) {
+				Lightning.sendTelemetryData("Type", "color");
+				Lightning.sendTelemetryData("Data", sensor.toString());
 			}
 		} catch (Exception ignore) {}
 		
