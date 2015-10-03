@@ -22,14 +22,12 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
 @OpMode(type="TeleOp", name="Minibot")
 public class MinibotTeleOp extends TeleOp {
 
-	private static final String[] DRIVE_MOTOR_NAMES = {"left_motor", "right_motor"};
-
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
 	protected String[] getDriveMotorNames() {
-		return MinibotTeleOp.DRIVE_MOTOR_NAMES;
+		return new String[] {"left_motor", "right_motor"};
 	}
 
 }
