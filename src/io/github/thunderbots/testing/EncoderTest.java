@@ -2,18 +2,16 @@ package io.github.thunderbots.testing;
 
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.hardware.Motor;
-import io.github.thunderbots.lightning.opmode.SimpleOpMode;
+import io.github.thunderbots.lightning.opmode.LightningOpMode;
 
-public class EncoderTest extends SimpleOpMode {
+public class EncoderTest extends LightningOpMode {
 	
 	private Motor testMotor;
 	
-	@Override
 	protected void initializeRobot() {
 		this.testMotor = Lightning.getMotor("test");
 	}
 
-	@Override
 	protected String[] getDriveMotorNames() {
 		return null;
 	}

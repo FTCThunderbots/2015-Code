@@ -19,26 +19,17 @@ package io.github.thunderbots.testing;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 
 import io.github.thunderbots.lightning.Lightning;
-import io.github.thunderbots.lightning.opmode.SimpleOpMode;
+import io.github.thunderbots.lightning.opmode.LightningOpMode;
 
 /**
  * @author Zach Ohara
  */
-public class SensorTest extends SimpleOpMode {
+public class SensorTest extends LightningOpMode {
 
 	private TouchSensor touch;
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected String[] getDriveMotorNames() {
-		return new String[0];
-	}
-
 	@Override
 	protected void initializeRobot() {
-		super.initializeRobot();
 		this.touch = (TouchSensor) Lightning.getSensor("touchsensor");
 	}
 
