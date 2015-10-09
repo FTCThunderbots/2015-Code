@@ -8,6 +8,7 @@ public class ResQTestBot extends TeleOp {
 	
 	@Override
 	protected void initializeRobot() {
+		super.initializeRobot();
 		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("back_left").setReversed(true);
 	}
