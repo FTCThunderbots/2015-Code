@@ -12,10 +12,6 @@ public class EncoderTest extends LightningOpMode {
 		this.testMotor = Lightning.getMotor("test");
 	}
 
-	protected String[] getDriveMotorNames() {
-		return null;
-	}
-
 	@Override
 	protected void main() {
 		testMotor.setPower(.5);
