@@ -23,12 +23,12 @@ import io.github.thunderbots.lightning.opmode.Autonomous;
 @OpMode(type="Autonomous", name="ResQ")
 public class ResQAutoBlue extends Autonomous {
 	
-	ResQRobot robot;
+	Ri1WRobot robot;
 	
 	@Override
 	protected void initializeRobot() {
 		super.initializeRobot();
-		robot = new ResQRobot();
+		robot = new Ri1WRobot();
 		robot.initializeRobot();
 		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("front_right").setReversed(true);

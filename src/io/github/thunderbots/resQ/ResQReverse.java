@@ -24,7 +24,7 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
 @OpMode(type="TeleOp", name="ResQ")
 public class ResQReverse extends TeleOp {
 	
-	private ResQRobot robot;
+	private Ri1WRobot robot;
 	
 	private long lastBucketTime;
 	private long lastLeftBoopTime;
@@ -35,7 +35,7 @@ public class ResQReverse extends TeleOp {
 	@Override
 	protected void initializeRobot() {
 		super.initializeRobot();
-		this.robot = new ResQRobot();
+		this.robot = new Ri1WRobot();
 		this.robot.initializeRobot();
 		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("front_right").setReversed(true);
