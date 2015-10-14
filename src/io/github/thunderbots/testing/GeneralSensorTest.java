@@ -55,7 +55,7 @@ public class GeneralSensorTest extends LightningOpMode {
 			AccelerationSensor sensor = Lightning.getSensor(SENSOR_NAME);
 			//AccelerationSensor sensor = this.hardwareMap.accelerationSensor.get(SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Lightning.sendTelemetryData("Type", "accleration");
+				Lightning.sendTelemetryData("Type", "acceleration");
 				Lightning.sendTelemetryData("Data", sensor.getAcceleration());
 			}
 		} catch (Exception ignore) {}
