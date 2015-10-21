@@ -14,7 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.thunderbots.resQ;
+package io.github.thunderbots.robotInOneWeek;
 
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.OpMode;

@@ -20,6 +20,7 @@ import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.opmode.TeleOp;
+import io.github.thunderbots.robotInOneWeek.Ri1WRobot;
 
 @OpMode(type="TeleOp", name="ResQ")
 public class ResQReverse extends TeleOp {

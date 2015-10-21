@@ -19,6 +19,7 @@ package io.github.thunderbots.resQ;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
+import io.github.thunderbots.robotInOneWeek.Ri1WRobot;
 
 @OpMode(type="Autonomous", name="ResQ")
 public class ResQAutonomous extends Autonomous {
