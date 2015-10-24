@@ -22,7 +22,7 @@ public class ResQRobot implements Robot {
 
 	@Override
 	public void initializeRobot() {
-		
+
 	}
 
 }

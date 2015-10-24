@@ -23,13 +23,13 @@ public class CameraTest extends LightningOpMode {
 	@Override
 	protected void initializeRobot() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	protected void main() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

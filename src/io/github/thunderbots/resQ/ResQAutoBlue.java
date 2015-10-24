@@ -21,20 +21,20 @@ import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
 import io.github.thunderbots.robotInOneWeek.Ri1WRobot;
 
-@OpMode(type="Autonomous", name="ResQ")
+@OpMode(type = "Autonomous", name = "ResQ")
 public class ResQAutoBlue extends Autonomous {
-	
+
 	Ri1WRobot robot;
-	
+
 	@Override
 	protected void initializeRobot() {
 		super.initializeRobot();
-		robot = new Ri1WRobot();
-		robot.initializeRobot();
+		this.robot = new Ri1WRobot();
+		this.robot.initializeRobot();
 		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("front_right").setReversed(true);
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */

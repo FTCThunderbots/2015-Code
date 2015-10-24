@@ -34,20 +34,20 @@ public class TaskSchedulerTest extends LightningOpMode {
 			// repeat
 		}
 	}
-	
+
 	public static class TestRunnable implements Runnable {
-		
+
 		private String s;
-		
+
 		public TestRunnable(String s) {
 			this.s = s;
 		}
-		
+
 		@Override
 		public void run() {
-			Lightning.sendTelemetryData(s);
+			Lightning.sendTelemetryData(this.s);
 		}
-		
+
 	}
 
 }

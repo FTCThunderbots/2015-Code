@@ -20,8 +20,6 @@ import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 
 public class ResQTeleOp extends TeleOp {
-	
-	
 
 	@Override
 	protected void initializeRobot() {

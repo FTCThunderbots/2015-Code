@@ -21,15 +21,15 @@ import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 
-@OpMode(type="TeleOp", name="ResQ")
+@OpMode(type = "TeleOp", name = "ResQ")
 public class Ri1WTeleOp extends TeleOp {
-	
+
 	private Ri1WRobot robot;
-	
+
 	private long lastBucketTime;
 	private long lastLeftBoopTime;
 	private long lastRightBoopTime;
-	
+
 	private static final long COOLDOWN_MS = 500;
 
 	@Override
@@ -45,7 +45,7 @@ public class Ri1WTeleOp extends TeleOp {
 	protected String[] getDriveMotorNames() {
 		return new String[] {"front_left", "front_right", "back_left", "back_right"};
 	}
-	
+
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
@@ -63,12 +63,12 @@ public class Ri1WTeleOp extends TeleOp {
 			}
 			Lightning.sendTelemetryData("joy1",
 					drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
-			Lightning.sendTelemetryData("raw",
-					this.gamepad1.left_stick_y + ", " + this.gamepad1.right_stick_x);
+			Lightning.sendTelemetryData("raw", this.gamepad1.left_stick_y + ", "
+					+ this.gamepad1.right_stick_x);
 			this.mainLoop();
 		}
 	}
-	
+
 	@Override
 	protected void mainLoop() {
 		Joystick driver = Lightning.getJoystick(1);
@@ -78,33 +78,34 @@ public class Ri1WTeleOp extends TeleOp {
 		this.setBoopers(driver);
 		this.robot.addDebugInformation();
 	}
-	
+
 	public void setSweeper(Joystick joy) {
-		if (joy.rightBumper())
+		if (joy.rightBumper()) {
 			this.robot.setSweeperPower(1);
-		else if (joy.rightTrigger() == 1)
+		} else if (joy.rightTrigger() == 1) {
 			this.robot.setSweeperPower(-1);
-		else
+		} else {
 			this.robot.setSweeperPower(0);
+		}
 	}
-	
+
 	public void setBoopers(Joystick joy) {
 		if (joy.leftButton()) {
-			if (this.lastLeftBoopTime + COOLDOWN_MS <= System.currentTimeMillis()) {
+			if (this.lastLeftBoopTime + Ri1WTeleOp.COOLDOWN_MS <= System.currentTimeMillis()) {
 				this.lastLeftBoopTime = System.currentTimeMillis();
 				this.robot.toggleLeftBooper();
 			}
 		}
 		if (joy.rightButton()) {
-			if (this.lastRightBoopTime + COOLDOWN_MS <= System.currentTimeMillis()) {
+			if (this.lastRightBoopTime + Ri1WTeleOp.COOLDOWN_MS <= System.currentTimeMillis()) {
 				this.lastRightBoopTime = System.currentTimeMillis();
 				this.robot.toggleRightBooper();
 			}
 		}
 	}
-	
+
 	public void setBucket(Joystick joy) {
-		if (this.lastBucketTime + COOLDOWN_MS > System.currentTimeMillis()) {
+		if (this.lastBucketTime + Ri1WTeleOp.COOLDOWN_MS > System.currentTimeMillis()) {
 			return;
 		}
 		this.lastBucketTime = System.currentTimeMillis();

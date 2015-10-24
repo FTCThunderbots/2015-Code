@@ -16,18 +16,18 @@
 
 package io.github.thunderbots.testing;
 
+import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.hardware.Motor;
+import io.github.thunderbots.lightning.opmode.LightningOpMode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-import io.github.thunderbots.lightning.Lightning;
-import io.github.thunderbots.lightning.hardware.Motor;
-import io.github.thunderbots.lightning.opmode.LightningOpMode;
-
 public class AllMotorTest extends LightningOpMode {
-	
+
 	private List<Motor> allMotors;
 
 	@Override

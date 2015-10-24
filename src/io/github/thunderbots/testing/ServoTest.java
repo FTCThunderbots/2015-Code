@@ -22,27 +22,27 @@ import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
 
 /**
- * Servo Test is designed to test servo functionality. 
+ * Servo Test is designed to test servo functionality.
  */
 public class ServoTest extends LightningOpMode {
-	
+
 	Servo testServo;
-	
+
 	private static final String SERVO_NAME = "servo";
 
 	@Override
 	protected void initializeRobot() {
-		this.testServo = Lightning.getServo(SERVO_NAME);
+		this.testServo = Lightning.getServo(ServoTest.SERVO_NAME);
 	}
 
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
 			this.moveServoFromJoystick(Lightning.getJoystick(1));
-			Lightning.sendTelemetryData("servo", testServo.getPosition());
+			Lightning.sendTelemetryData("servo", this.testServo.getPosition());
 		}
 	}
-	
+
 	private void moveServoFromJoystick(Joystick j) {
 		double increment = 0;
 		if (j.rightBumper()) {

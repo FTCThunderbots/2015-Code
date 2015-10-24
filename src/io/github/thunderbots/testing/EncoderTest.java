@@ -22,19 +22,20 @@ import io.github.thunderbots.lightning.opmode.LightningOpMode;
 import io.github.thunderbots.lightning.utility.Util;
 
 public class EncoderTest extends LightningOpMode {
-	
+
 	private Motor testMotor;
-	
+
+	@Override
 	protected void initializeRobot() {
 		this.testMotor = Lightning.getMotor("test");
 	}
 
 	@Override
 	protected void main() {
-		testMotor.setPower(.5);
+		this.testMotor.setPower(.5);
 		Util.sleep(5000);
-		testMotor.stop();
-		Lightning.sendTelemetryData("Encoder", testMotor.getRawPosition());
+		this.testMotor.stop();
+		Lightning.sendTelemetryData("Encoder", this.testMotor.getRawPosition());
 		Util.sleep(5000);
 	}
 
