@@ -30,8 +30,8 @@ public class ResQAutonomous extends Autonomous {
 	private final static int side = 1;
 
 	@Override
-	protected void initializeRobot() {
-		super.initializeRobot();
+	protected void initializeOpMode() {
+		super.initializeOpMode();
 		this.robot = new Ri1WRobot();
 		this.robot.initializeRobot();
 		Lightning.getMotor("front_left").setReversed(true);

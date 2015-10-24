@@ -29,7 +29,7 @@ public class SensorTest extends LightningOpMode {
 	private TouchSensor touch;
 
 	@Override
-	protected void initializeRobot() {
+	protected void initializeOpMode() {
 		this.touch = (TouchSensor) Lightning.getSensor("touchsensor");
 	}
 

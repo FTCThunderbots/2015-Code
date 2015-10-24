@@ -10,7 +10,7 @@ import io.github.thunderbots.lightning.opmode.LightningOpMode;
 public class JoystickEventsTest extends LightningOpMode implements JoystickListener {
 
 	@Override
-	protected void initializeRobot() {
+	protected void initializeOpMode() {
 		Lightning.getJoystickMonitor(1).registerJoystickListener(this);
 	}
 
