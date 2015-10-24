@@ -25,7 +25,7 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
  * @author Pranav Mathur
  */
 
-@OpMode(type="TeleOp", name="Cascade Effect")
+@OpMode(type = "TeleOp", name = "Cascade Effect")
 public class CascadeEffectTeleOp extends TeleOp {
 
 	private Joystick drivingGamepad;
@@ -33,7 +33,7 @@ public class CascadeEffectTeleOp extends TeleOp {
 	private CascadeEffectRobot robot;
 
 	private static final String[] DRIVE_MOTOR_NAMES =
-			{"front_left", "front_right", "back_left", "back_right"};
+		{"front_left", "front_right", "back_left", "back_right"};
 
 	@Override
 	protected String[] getDriveMotorNames() {

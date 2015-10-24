@@ -16,10 +16,10 @@
 
 package io.github.thunderbots.testing;
 
-import com.qualcomm.robotcore.hardware.TouchSensor;
-
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
+
+import com.qualcomm.robotcore.hardware.TouchSensor;
 
 /**
  * @author Zach Ohara

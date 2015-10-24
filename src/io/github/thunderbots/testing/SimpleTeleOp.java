@@ -14,20 +14,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.thunderbots.cascadeEffect;
+package io.github.thunderbots.testing;
 
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 
-@OpMode(type="TeleOp", name="CESimple")
+@OpMode(type = "TeleOp", name = "SimpleTeleOp")
 public class SimpleTeleOp extends TeleOp {
 
 	private static final String[] DRIVE_MOTOR_NAMES =
-			{"front_left", "front_right", "back_left", "back_right"};
+		{"front_left", "front_right", "back_left", "back_right"};
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected String[] getDriveMotorNames() {
 		return SimpleTeleOp.DRIVE_MOTOR_NAMES;

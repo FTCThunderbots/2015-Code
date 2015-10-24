@@ -19,24 +19,25 @@ package io.github.thunderbots.resQ;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
+import io.github.thunderbots.robotInOneWeek.Ri1WRobot;
 
-@OpMode(type="Autonomous", name="ResQ")
+@OpMode(type = "Autonomous", name = "ResQ")
 public class ResQAutonomous extends Autonomous {
-	
+
 	Ri1WRobot robot;
-	
+
 	/** -1 is Red, 1 is Blue */
 	private final static int side = 1;
-	
+
 	@Override
 	protected void initializeRobot() {
 		super.initializeRobot();
-		robot = new Ri1WRobot();
-		robot.initializeRobot();
+		this.robot = new Ri1WRobot();
+		this.robot.initializeRobot();
 		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("front_right").setReversed(true);
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
