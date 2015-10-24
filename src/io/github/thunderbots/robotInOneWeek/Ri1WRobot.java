@@ -21,7 +21,7 @@ import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.robot.Robot;
 
-public class Ri1WRobot implements Robot {
+public class Ri1WRobot extends Robot {
 	
 	/**
 	 * The motor responsible for the sweeper on the robot.

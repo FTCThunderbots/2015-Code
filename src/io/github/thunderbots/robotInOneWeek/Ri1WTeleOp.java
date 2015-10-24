@@ -24,21 +24,24 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
 @OpMode(type="TeleOp", name="ResQ")
 public class Ri1WTeleOp extends TeleOp {
 	
-	private Ri1WRobot robot;
-	
+	public Ri1WTeleOp() {
+		super();
+		this.robot = new Ri1WRobot();
+	}
+
 	private long lastBucketTime;
 	private long lastLeftBoopTime;
 	private long lastRightBoopTime;
 	
 	private static final long COOLDOWN_MS = 500;
 
+	protected Ri1WRobot getRobot() {
+		return (Ri1WRobot) this.robot;
+	}
+	
 	@Override
-	protected void initializeRobot() {
-		super.initializeRobot();
-		this.robot = new Ri1WRobot();
-		this.robot.initializeRobot();
-		Lightning.getMotor("back_left").setReversed(true);
-		Lightning.getMotor("back_right").setReversed(true);
+	protected void initializeLightning() {
+		this.getRobot().initializeRobot();
 	}
 
 	@Override
@@ -47,26 +50,9 @@ public class Ri1WTeleOp extends TeleOp {
 	}
 	
 	@Override
-	protected void main() {
-		while (this.opModeIsActive()) {
-			Joystick drivingGamepad = Lightning.getJoystick(1);
-			try {
-				this.getDrive().setMovement(drivingGamepad.leftStickY(), -drivingGamepad.rightStickX());
-			} catch (NullPointerException e) {
-				String nulled = "";
-				if (this.getDrive() == null) {
-					nulled = "drive system";
-				} else if (drivingGamepad == null) {
-					nulled = "gamepad";
-				}
-				Lightning.sendTelemetryData(nulled + " is null!!");
-			}
-			Lightning.sendTelemetryData("joy1",
-					drivingGamepad.leftStickY() + ", " + drivingGamepad.rightStickX());
-			Lightning.sendTelemetryData("raw",
-					this.gamepad1.left_stick_y + ", " + this.gamepad1.right_stick_x);
-			this.mainLoop();
-		}
+	protected void setMovement() {
+		Joystick drivingGamepad = Lightning.getJoystick(1);
+		this.getRobot().getDrive().setMovement(drivingGamepad.leftStickY(), -drivingGamepad.rightStickX());
 	}
 	
 	@Override
@@ -76,29 +62,29 @@ public class Ri1WTeleOp extends TeleOp {
 		this.setSweeper(aux);
 		this.setBucket(aux);
 		this.setBoopers(driver);
-		this.robot.addDebugInformation();
+		this.getRobot().addDebugInformation();
 	}
 	
 	public void setSweeper(Joystick joy) {
 		if (joy.rightBumper())
-			this.robot.setSweeperPower(1);
+			this.getRobot().setSweeperPower(1);
 		else if (joy.rightTrigger() == 1)
-			this.robot.setSweeperPower(-1);
+			this.getRobot().setSweeperPower(-1);
 		else
-			this.robot.setSweeperPower(0);
+			this.getRobot().setSweeperPower(0);
 	}
 	
 	public void setBoopers(Joystick joy) {
 		if (joy.leftButton()) {
 			if (this.lastLeftBoopTime + COOLDOWN_MS <= System.currentTimeMillis()) {
 				this.lastLeftBoopTime = System.currentTimeMillis();
-				this.robot.toggleLeftBooper();
+				this.getRobot().toggleLeftBooper();
 			}
 		}
 		if (joy.rightButton()) {
 			if (this.lastRightBoopTime + COOLDOWN_MS <= System.currentTimeMillis()) {
 				this.lastRightBoopTime = System.currentTimeMillis();
-				this.robot.toggleRightBooper();
+				this.getRobot().toggleRightBooper();
 			}
 		}
 	}
@@ -109,11 +95,11 @@ public class Ri1WTeleOp extends TeleOp {
 		}
 		this.lastBucketTime = System.currentTimeMillis();
 		if (joy.xButton()) {
-			this.robot.dumpBucketLeft();
+			this.getRobot().dumpBucketLeft();
 		} else if (joy.bButton()) {
-			this.robot.dumpBucketRight();
+			this.getRobot().dumpBucketRight();
 		} else if (joy.yButton()) {
-			this.robot.centerBucket();
+			this.getRobot().centerBucket();
 		}
 	}
 
