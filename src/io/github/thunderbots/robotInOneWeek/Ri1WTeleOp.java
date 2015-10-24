@@ -23,11 +23,6 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
 
 @OpMode(type="TeleOp", name="ResQ")
 public class Ri1WTeleOp extends TeleOp {
-	
-	public Ri1WTeleOp() {
-		super();
-		this.robot = new Ri1WRobot();
-	}
 
 	private long lastBucketTime;
 	private long lastLeftBoopTime;
@@ -36,11 +31,12 @@ public class Ri1WTeleOp extends TeleOp {
 	private static final long COOLDOWN_MS = 500;
 
 	protected Ri1WRobot getRobot() {
-		return (Ri1WRobot) this.robot;
+		return (Ri1WRobot) super.getRobot();
 	}
 	
 	@Override
 	protected void initializeLightning() {
+		super.setRobot(new Ri1WRobot());
 		this.getRobot().initializeRobot();
 	}
 

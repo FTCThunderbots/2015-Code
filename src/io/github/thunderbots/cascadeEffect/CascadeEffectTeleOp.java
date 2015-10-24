@@ -16,9 +16,7 @@
 
 package io.github.thunderbots.cascadeEffect;
 
-import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.OpMode;
-import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 
 /**
@@ -28,10 +26,6 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
 @OpMode(type="TeleOp", name="Cascade Effect")
 public class CascadeEffectTeleOp extends TeleOp {
 
-	private Joystick drivingGamepad;
-
-	private CascadeEffectRobot robot;
-
 	private static final String[] DRIVE_MOTOR_NAMES =
 			{"front_left", "front_right", "back_left", "back_right"};
 
@@ -39,22 +33,22 @@ public class CascadeEffectTeleOp extends TeleOp {
 	protected String[] getDriveMotorNames() {
 		return CascadeEffectTeleOp.DRIVE_MOTOR_NAMES;
 	}
-
+	
 	@Override
-	protected void initializeRobot() {
-		// DriveMotorSet motorSet = new
-		// DriveMotorSet(CascadeEffectTeleOp.DRIVE_MOTOR_NAMES);
-		this.drivingGamepad = Lightning.getJoystick(1);
+	protected CascadeEffectRobot getRobot() {
+		return (CascadeEffectRobot) super.getRobot();
 	}
 
 	@Override
-	protected void main() {
-		while (this.opModeIsActive()) {
-			this.getDrive().setMovement(this.drivingGamepad.leftStickY(), this.drivingGamepad.rightStickX());
-			this.robot.setConveyorJoystick();
-			this.robot.setGoalHookJoystick();
-			this.robot.setBackboardJoystick();
-		}
+	protected void initializeLightning() {
+		this.getRobot().initializeRobot();
+	}
+
+	@Override
+	protected void mainLoop() {
+		this.getRobot().setConveyorJoystick();
+		this.getRobot().setGoalHookJoystick();
+		this.getRobot().setBackboardJoystick();
 	}
 
 }

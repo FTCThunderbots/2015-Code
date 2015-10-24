@@ -7,8 +7,7 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
 public class ResQTestBot extends TeleOp {
 	
 	@Override
-	protected void initializeRobot() {
-		super.initializeRobot();
+	protected void initializeLightning() {
 		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("back_left").setReversed(true);
 	}
@@ -21,7 +20,7 @@ public class ResQTestBot extends TeleOp {
 	@Override
 	protected void setMovement() {
 		Joystick drivingGamepad = Lightning.getJoystick(1);
-		this.getDrive().setMovement(drivingGamepad.leftStickY()/2, drivingGamepad.rightStickX()/2);
+		this.getRobot().getDrive().setMovement(drivingGamepad.leftStickY()/2, drivingGamepad.rightStickX()/2);
 	}
 
 }

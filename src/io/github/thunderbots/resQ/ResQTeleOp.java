@@ -5,11 +5,15 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
 
 public class ResQTeleOp extends TeleOp {
 	
-	
+	@Override
+	protected ResQRobot getRobot() {
+		return (ResQRobot) super.getRobot();
+		
+	}
 
 	@Override
-	protected void initializeRobot() {
-		super.initializeRobot();
+	protected void initializeLightning() {
+		this.getRobot().initializeRobot();
 		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("front_right").setReversed(true);
 	}

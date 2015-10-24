@@ -24,7 +24,7 @@ import io.github.thunderbots.lightning.robot.Robot;
 /**
  * @author Pranav Mathur
  */
-public class CascadeEffectRobot implements Robot {
+public class CascadeEffectRobot extends Robot {
 
 	private Joystick drivingGamepad;
 	private Joystick secondaryGamepad;

@@ -30,4 +30,9 @@ public class MinibotTeleOp extends TeleOp {
 		return new String[] {"left_motor", "right_motor"};
 	}
 
+	@Override
+	protected void initializeLightning() {
+		
+	}
+
 }

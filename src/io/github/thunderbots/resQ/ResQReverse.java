@@ -25,7 +25,10 @@ import io.github.thunderbots.robotInOneWeek.Ri1WRobot;
 @OpMode(type="TeleOp", name="ResQ")
 public class ResQReverse extends TeleOp {
 	
-	private Ri1WRobot robot;
+	@Override
+	protected Ri1WRobot getRobot() {
+		return (Ri1WRobot) super.getRobot();
+	}
 	
 	private long lastBucketTime;
 	private long lastLeftBoopTime;
@@ -34,10 +37,9 @@ public class ResQReverse extends TeleOp {
 	private static final long COOLDOWN_MS = 500;
 
 	@Override
-	protected void initializeRobot() {
-		super.initializeRobot();
-		this.robot = new Ri1WRobot();
-		this.robot.initializeRobot();
+	protected void initializeLightning() {
+		this.setRobot(new Ri1WRobot());
+		this.getRobot().initializeRobot();
 		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("front_right").setReversed(true);
 	}
@@ -54,29 +56,29 @@ public class ResQReverse extends TeleOp {
 		this.setSweeper(aux);
 		this.setBucket(aux);
 		this.setBoopers(driver);
-		this.robot.addDebugInformation();
+		this.getRobot().addDebugInformation();
 	}
 	
 	public void setSweeper(Joystick joy) {
 		if (joy.rightBumper())
-			this.robot.setSweeperPower(1);
+			this.getRobot().setSweeperPower(1);
 		else if (joy.rightTrigger() == 1)
-			this.robot.setSweeperPower(-1);
+			this.getRobot().setSweeperPower(-1);
 		else
-			this.robot.setSweeperPower(0);
+			this.getRobot().setSweeperPower(0);
 	}
 	
 	public void setBoopers(Joystick joy) {
 		if (joy.leftButton()) {
 			if (this.lastLeftBoopTime + COOLDOWN_MS <= System.currentTimeMillis()) {
 				this.lastLeftBoopTime = System.currentTimeMillis();
-				this.robot.toggleLeftBooper();
+				this.getRobot().toggleLeftBooper();
 			}
 		}
 		if (joy.rightButton()) {
 			if (this.lastRightBoopTime + COOLDOWN_MS <= System.currentTimeMillis()) {
 				this.lastRightBoopTime = System.currentTimeMillis();
-				this.robot.toggleRightBooper();
+				this.getRobot().toggleRightBooper();
 			}
 		}
 	}
@@ -87,11 +89,11 @@ public class ResQReverse extends TeleOp {
 		}
 		this.lastBucketTime = System.currentTimeMillis();
 		if (joy.xButton()) {
-			this.robot.dumpBucketLeft();
+			this.getRobot().dumpBucketLeft();
 		} else if (joy.bButton()) {
-			this.robot.dumpBucketRight();
+			this.getRobot().dumpBucketRight();
 		} else if (joy.yButton()) {
-			this.robot.centerBucket();
+			this.getRobot().centerBucket();
 		}
 	}
 
