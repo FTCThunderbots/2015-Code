@@ -23,8 +23,8 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
 public class ResQTestBot extends TeleOp {
 
 	@Override
-	protected void initializeRobot() {
-		super.initializeRobot();
+	protected void initializeOpMode() {
+		super.initializeOpMode();
 		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("back_left").setReversed(true);
 	}

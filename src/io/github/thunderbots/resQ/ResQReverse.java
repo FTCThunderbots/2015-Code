@@ -34,8 +34,8 @@ public class ResQReverse extends TeleOp {
 	private static final long COOLDOWN_MS = 500;
 
 	@Override
-	protected void initializeRobot() {
-		super.initializeRobot();
+	protected void initializeOpMode() {
+		super.initializeOpMode();
 		this.robot = new Ri1WRobot();
 		this.robot.initializeRobot();
 		Lightning.getMotor("front_left").setReversed(true);

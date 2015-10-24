@@ -22,7 +22,7 @@ import io.github.thunderbots.lightning.opmode.LightningOpMode;
 public class TaskSchedulerTest extends LightningOpMode {
 
 	@Override
-	protected void initializeRobot() {
+	protected void initializeOpMode() {
 		Lightning.getTaskScheduler().registerTask(new TestRunnable("A"));
 		Lightning.getTaskScheduler().registerTask(new TestRunnable("B"));
 		Lightning.getTaskScheduler().registerTask(new TestRunnable("C"));
