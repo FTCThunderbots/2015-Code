@@ -30,4 +30,9 @@ public class SimpleTeleOp extends TeleOp {
 		return SimpleTeleOp.DRIVE_MOTOR_NAMES;
 	}
 
+	@Override
+	protected void initializeLightning() {
+		
+	}
+
 }

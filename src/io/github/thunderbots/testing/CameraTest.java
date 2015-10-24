@@ -5,7 +5,7 @@ import io.github.thunderbots.lightning.opmode.LightningOpMode;
 public class CameraTest extends LightningOpMode {
 
 	@Override
-	protected void initializeRobot() {
+	protected void initializeLightning() {
 		// TODO Auto-generated method stub
 		
 	}

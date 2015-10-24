@@ -31,7 +31,7 @@ public class ServoTest extends LightningOpMode {
 	private static final String SERVO_NAME = "servo";
 
 	@Override
-	protected void initializeRobot() {
+	protected void initializeLightning() {
 		this.testServo = Lightning.getServo(SERVO_NAME);
 	}
 

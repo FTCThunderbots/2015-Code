@@ -9,7 +9,7 @@ public class EncoderTest extends LightningOpMode {
 	
 	private Motor testMotor;
 	
-	protected void initializeRobot() {
+	protected void initializeLightning() {
 		this.testMotor = Lightning.getMotor("test");
 	}
 
