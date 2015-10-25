@@ -16,7 +16,6 @@
 
 package io.github.thunderbots.resQ;
 
-import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
 import io.github.thunderbots.robotInOneWeek.Ri1WRobot;
@@ -33,16 +32,6 @@ public class ResQAutoRed extends Autonomous {
 	protected void initializeLightning() {
 		this.setRobot(new Ri1WRobot());
 		this.getRobot().initializeRobot();
-		Lightning.getMotor("front_left").setReversed(true);
-		Lightning.getMotor("front_right").setReversed(true);
-	}
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected String[] getDriveMotorNames() {
-		return new String[] {"front_left", "front_right", "back_left", "back_right"};
 	}
 
 	@Override
