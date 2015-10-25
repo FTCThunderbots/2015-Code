@@ -91,6 +91,11 @@ public class Ri1WRobot extends Robot {
 	public static final double BUCKET_FINGERS_POWER = 1;
 
 	@Override
+	public String[] getDriveMotorNames() {
+		return new String[] {"front_left", "front_right", "back_left", "back_right"};
+	}
+
+	@Override
 	public void initializeRobot() {
 		this.sweeper = Lightning.getMotor(SWEEPER_NAME);
 		this.bucketTiltServo = Lightning.getServo(BUCKET_TILT_SERVO_NAME);

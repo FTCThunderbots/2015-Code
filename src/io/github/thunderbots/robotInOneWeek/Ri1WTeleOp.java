@@ -39,11 +39,6 @@ public class Ri1WTeleOp extends TeleOp {
 		super.setRobot(new Ri1WRobot());
 		this.getRobot().initializeRobot();
 	}
-
-	@Override
-	protected String[] getDriveMotorNames() {
-		return new String[] {"front_left", "front_right", "back_left", "back_right"};
-	}
 	
 	@Override
 	protected void setMovement() {
