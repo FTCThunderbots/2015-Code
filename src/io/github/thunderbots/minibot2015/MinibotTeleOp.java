@@ -21,18 +21,15 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
 
 @OpMode(type="TeleOp", name="Minibot")
 public class MinibotTeleOp extends TeleOp {
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected String[] getDriveMotorNames() {
-		return new String[] {"left_motor", "right_motor"};
+	
+	protected MinibotRobot getRobot() {
+		return (MinibotRobot) super.getRobot();
 	}
 
 	@Override
 	protected void initializeLightning() {
-		
+		this.setRobot(new MinibotRobot());
+		this.getRobot().initializeRobot();
 	}
 
 }
