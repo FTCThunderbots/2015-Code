@@ -41,7 +41,8 @@ public class JoystickDemo extends LightningOpMode {
 		while (this.opModeIsActive()) {
 			Joystick joy1 = Lightning.getJoystick(1);
 			Joystick joy2 = Lightning.getJoystick(2);
-			// use the button array method that's in Joystick in the joystick-events branch
+			Lightning.sendTelemetryData("Joy 1", joy1.toButtonList());
+			Lightning.sendTelemetryData("Joy 2", joy2.toButtonList());
 		}
 	}
 	
