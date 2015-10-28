@@ -32,7 +32,7 @@ public class CascadeEffectTeleOp extends TeleOp {
 	}
 
 	@Override
-	protected void initializeLightning() {
+	protected void initializeOpMode() {
 		this.setRobot(new CascadeEffectRobot());
 		this.getRobot().initializeRobot();
 	}

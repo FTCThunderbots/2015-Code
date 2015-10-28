@@ -28,7 +28,7 @@ public class SimpleTeleOp extends TeleOp {
 	}
 
 	@Override
-	protected void initializeLightning() {
+	protected void initializeOpMode() {
 		
 	}
 

@@ -42,7 +42,7 @@ public class GeneralSensorTest extends LightningOpMode {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void initializeLightning() {
+	protected void initializeOpMode() {
 		// take no action
 	}
 

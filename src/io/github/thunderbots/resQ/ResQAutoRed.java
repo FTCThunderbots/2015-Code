@@ -29,7 +29,7 @@ public class ResQAutoRed extends Autonomous {
 	}
 	
 	@Override
-	protected void initializeLightning() {
+	protected void initializeOpMode() {
 		this.setRobot(new Ri1WRobot());
 		this.getRobot().initializeRobot();
 	}

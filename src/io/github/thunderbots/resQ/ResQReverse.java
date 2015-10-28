@@ -37,7 +37,7 @@ public class ResQReverse extends TeleOp {
 	private static final long COOLDOWN_MS = 500;
 
 	@Override
-	protected void initializeLightning() {
+	protected void initializeOpMode() {
 		this.setRobot(new Ri1WRobot());
 		this.getRobot().initializeRobot();
 	}

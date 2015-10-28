@@ -12,7 +12,7 @@ public class ResQTeleOp extends TeleOp {
 	}
 
 	@Override
-	protected void initializeLightning() {
+	protected void initializeOpMode() {
 		this.setRobot(new Ri1WRobot());
 		this.getRobot().initializeRobot();
 	}

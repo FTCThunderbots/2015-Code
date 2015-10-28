@@ -15,7 +15,7 @@ public class AllMotorTest extends LightningOpMode {
 	private List<Motor> allMotors;
 
 	@Override
-	protected void initializeLightning() {
+	protected void initializeOpMode() {
 		this.allMotors = new ArrayList<Motor>();
 		for (Entry<String, DcMotor> entry : this.hardwareMap.dcMotor.entrySet()) {
 			DcMotor m = entry.getValue();

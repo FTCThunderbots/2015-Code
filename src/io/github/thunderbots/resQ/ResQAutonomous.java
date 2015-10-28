@@ -32,7 +32,7 @@ public class ResQAutonomous extends Autonomous {
 	private final static int side = 1;
 	
 	@Override
-	protected void initializeLightning() {
+	protected void initializeOpMode() {
 		this.setRobot(new Ri1WRobot());
 		this.getRobot().initializeRobot();
 	}
