@@ -16,7 +16,11 @@
 
 package io.github.thunderbots.testing;
 
+import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.opmode.LightningOpMode;
+
 import com.qualcomm.robotcore.hardware.AccelerationSensor;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.CompassSensor;
 import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.IrSeekerSensor;
@@ -24,18 +28,12 @@ import com.qualcomm.robotcore.hardware.LightSensor;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 import com.qualcomm.robotcore.hardware.UltrasonicSensor;
-import com.qualcomm.robotcore.hardware.ColorSensor;
-
-import io.github.thunderbots.lightning.Lightning;
-import io.github.thunderbots.lightning.opmode.LightningOpMode;
 
 /**
- * 
- *
  * @author Zach Ohara
  */
 public class GeneralSensorTest extends LightningOpMode {
-	
+
 	public static final String SENSOR_NAME = "sensor";
 
 	/**
@@ -52,78 +50,90 @@ public class GeneralSensorTest extends LightningOpMode {
 	@Override
 	protected void main() {
 		try {
-			AccelerationSensor sensor = Lightning.getSensor(SENSOR_NAME);
-			//AccelerationSensor sensor = this.hardwareMap.accelerationSensor.get(SENSOR_NAME);
+			AccelerationSensor sensor = Lightning.getSensor(GeneralSensorTest.SENSOR_NAME);
+			// AccelerationSensor sensor =
+			// this.hardwareMap.accelerationSensor.get(SENSOR_NAME);
 			while (this.opModeIsActive()) {
 				Lightning.sendTelemetryData("Type", "acceleration");
 				Lightning.sendTelemetryData("Data", sensor.getAcceleration());
 			}
-		} catch (Exception ignore) {}
-		
+		} catch (Exception ignore) {
+		}
+
 		try {
-			ColorSensor sensor = Lightning.getSensor(SENSOR_NAME);
-			//AccelerationSensor sensor = this.hardwareMap.accelerationSensor.get(SENSOR_NAME);
+			ColorSensor sensor = Lightning.getSensor(GeneralSensorTest.SENSOR_NAME);
+			// AccelerationSensor sensor =
+			// this.hardwareMap.accelerationSensor.get(SENSOR_NAME);
 			while (this.opModeIsActive()) {
 				Lightning.sendTelemetryData("Type", "color");
 				Lightning.sendTelemetryData("Data", sensor.toString());
 			}
-		} catch (Exception ignore) {}
-		
+		} catch (Exception ignore) {
+		}
+
 		try {
-			CompassSensor sensor = Lightning.getSensor(SENSOR_NAME);
+			CompassSensor sensor = Lightning.getSensor(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
 				Lightning.sendTelemetryData("Type", "compass");
 				Lightning.sendTelemetryData("Data", sensor.getDirection());
 			}
-		} catch (Exception ignore) {}
+		} catch (Exception ignore) {
+		}
 
 		try {
-			GyroSensor sensor = Lightning.getSensor(SENSOR_NAME);
+			GyroSensor sensor = Lightning.getSensor(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
 				Lightning.sendTelemetryData("Type", "gyro");
 				Lightning.sendTelemetryData("Data", sensor.getRotation());
 			}
-		} catch (Exception ignore) {}
+		} catch (Exception ignore) {
+		}
 
 		try {
-			IrSeekerSensor sensor = Lightning.getSensor(SENSOR_NAME);
+			IrSeekerSensor sensor = Lightning.getSensor(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
 				Lightning.sendTelemetryData("Type", "ir seeker");
 				Lightning.sendTelemetryData("Data", sensor.getAngle() + ", " + sensor.getStrength());
 			}
-		} catch (Exception ignore) {}
+		} catch (Exception ignore) {
+		}
 
 		try {
-			LightSensor sensor = this.hardwareMap.lightSensor.get(SENSOR_NAME);
+			LightSensor sensor = this.hardwareMap.lightSensor.get(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
 				Lightning.sendTelemetryData("Type", "light");
 				Lightning.sendTelemetryData("Data", sensor.getLightDetected());
 			}
-		} catch (Exception ignore) {}
+		} catch (Exception ignore) {
+		}
 
 		try {
-			OpticalDistanceSensor sensor = this.hardwareMap.opticalDistanceSensor.get(SENSOR_NAME);
+			OpticalDistanceSensor sensor =
+					this.hardwareMap.opticalDistanceSensor.get(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
 				Lightning.sendTelemetryData("Type", "optical distance");
 				Lightning.sendTelemetryData("Data", sensor.getLightDetected());
 			}
-		} catch (Exception ignore) {}
+		} catch (Exception ignore) {
+		}
 
 		try {
-			TouchSensor sensor = this.hardwareMap.touchSensor.get(SENSOR_NAME);
+			TouchSensor sensor = this.hardwareMap.touchSensor.get(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
 				Lightning.sendTelemetryData("Type", "touch");
 				Lightning.sendTelemetryData("Data", sensor.getValue());
 			}
-		} catch (Exception ignore) {}
+		} catch (Exception ignore) {
+		}
 
 		try {
-			UltrasonicSensor sensor = this.hardwareMap.ultrasonicSensor.get(SENSOR_NAME);
+			UltrasonicSensor sensor = this.hardwareMap.ultrasonicSensor.get(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
 				Lightning.sendTelemetryData("Type", "ultrasonic");
 				Lightning.sendTelemetryData("Data", sensor.getUltrasonicLevel());
 			}
-		} catch (Exception ignore) {}
+		} catch (Exception ignore) {
+		}
 	}
 
 }

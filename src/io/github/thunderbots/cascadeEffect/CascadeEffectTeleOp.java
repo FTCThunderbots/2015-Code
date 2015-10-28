@@ -23,7 +23,7 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
  * @author Pranav Mathur
  */
 
-@OpMode(type="TeleOp", name="Cascade Effect")
+@OpMode(type = "TeleOp", name = "Cascade Effect")
 public class CascadeEffectTeleOp extends TeleOp {
 	
 	@Override

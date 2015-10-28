@@ -20,17 +20,17 @@ import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
 import io.github.thunderbots.robotInOneWeek.Ri1WRobot;
 
-@OpMode(type="Autonomous", name="ResQ")
+@OpMode(type = "Autonomous", name = "ResQ")
 public class ResQAutonomous extends Autonomous {
-	
+
 	@Override
 	protected Ri1WRobot getRobot() {
 		return (Ri1WRobot) super.getRobot();
 	}
-	
+
 	/** -1 is Red, 1 is Blue */
 	private final static int side = 1;
-	
+
 	@Override
 	protected void initializeOpMode() {
 		this.setRobot(new Ri1WRobot());
