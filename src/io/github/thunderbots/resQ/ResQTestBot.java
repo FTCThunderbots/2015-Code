@@ -31,7 +31,8 @@ public class ResQTestBot extends TeleOp {
 
 	@Override
 	protected void setMovement() {
-		Joystick drivingGamepad = Lightning.getJoystick(1);		this.getRobot().getDrive().setMovement(drivingGamepad.leftStickY()/2, drivingGamepad.rightStickX()/2);
+		Joystick drivingGamepad = Lightning.getJoystick(1);
+		this.getRobot().getDrive().setMovement(drivingGamepad.leftStickY()/2, drivingGamepad.rightStickX()/2);
 		this.getRobot().getDrive().setMovement(drivingGamepad.leftStickY()/2, drivingGamepad.rightStickX()/2);
 	}
 
