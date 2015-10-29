@@ -18,6 +18,7 @@ package io.github.thunderbots.cascadeEffect;
 
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.TeleOp;
+import io.github.thunderbots.lightning.robot.Robot;
 
 /**
  * @author Pranav Mathur
@@ -33,7 +34,6 @@ public class CascadeEffectTeleOp extends TeleOp {
 
 	@Override
 	protected void initializeOpMode() {
-		this.setRobot(new CascadeEffectRobot());
 		this.getRobot().initializeRobot();
 	}
 
@@ -42,6 +42,11 @@ public class CascadeEffectTeleOp extends TeleOp {
 		this.getRobot().setConveyorJoystick();
 		this.getRobot().setGoalHookJoystick();
 		this.getRobot().setBackboardJoystick();
+	}
+
+	@Override
+	protected Robot createRobot() {
+		return new CascadeEffectRobot();
 	}
 
 }
