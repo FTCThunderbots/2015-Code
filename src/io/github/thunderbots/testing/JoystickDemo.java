@@ -19,6 +19,7 @@ package io.github.thunderbots.testing;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.control.Joystick;
+import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
 
 /**
@@ -31,9 +32,13 @@ import io.github.thunderbots.lightning.opmode.LightningOpMode;
 @OpMode(type="Demo", name="Joystick Demo")
 public class JoystickDemo extends LightningOpMode {
 	
+	private Servo servo;
+	
 	@Override
 	protected void initializeOpMode() {
-		
+		try {
+			this.servo = Lightning.getServo("servo");
+		} catch (IllegalArgumentException ignore) {}
 	}
 	
 	@Override
@@ -43,6 +48,9 @@ public class JoystickDemo extends LightningOpMode {
 			Joystick joy2 = Lightning.getJoystick(2);
 			Lightning.sendTelemetryData("Joy 1", joy1.toButtonList());
 			Lightning.sendTelemetryData("Joy 2", joy2.toButtonList());
+			if (this.servo != null) {
+				this.servo.moveToPosition(joy1.leftStickY());
+			}
 		}
 	}
 	
