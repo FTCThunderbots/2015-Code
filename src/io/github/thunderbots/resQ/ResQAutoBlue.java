@@ -18,7 +18,6 @@ package io.github.thunderbots.resQ;
 
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
-import io.github.thunderbots.lightning.robot.Robot;
 import io.github.thunderbots.robotInOneWeek.Ri1WRobot;
 
 @OpMode(type = "Autonomous", name = "ResQ")
@@ -31,6 +30,7 @@ public class ResQAutoBlue extends Autonomous {
 
 	@Override
 	protected void initializeOpMode() {
+		this.setRobot(new Ri1WRobot());
 		this.getRobot().initializeRobot();
 	}
 
@@ -42,11 +42,6 @@ public class ResQAutoBlue extends Autonomous {
 		this.getRobot().getDrive().waitAndStop(1.0);
 		this.getRobot().getDrive().driveSeconds(.5, 6);
 		this.getRobot().getDrive().waitAndStop(1.0);
-	}
-
-	@Override
-	protected Robot createRobot() {
-		return new ResQRobot();
 	}
 
 }

@@ -20,7 +20,6 @@ import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.opmode.TeleOp;
-import io.github.thunderbots.lightning.robot.Robot;
 import io.github.thunderbots.robotInOneWeek.Ri1WRobot;
 
 @OpMode(type = "TeleOp", name = "ResQ")
@@ -39,6 +38,7 @@ public class ResQReverse extends TeleOp {
 
 	@Override
 	protected void initializeOpMode() {
+		this.setRobot(new Ri1WRobot());
 		this.getRobot().initializeRobot();
 	}
 
@@ -89,11 +89,6 @@ public class ResQReverse extends TeleOp {
 		} else if (joy.yButton()) {
 			this.getRobot().centerBucket();
 		}
-	}
-
-	@Override
-	protected Robot createRobot() {
-		return new Ri1WRobot();
 	}
 
 }
