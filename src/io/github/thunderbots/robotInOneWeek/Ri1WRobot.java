@@ -21,7 +21,7 @@ import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.robot.Robot;
 
-public class Ri1WRobot implements Robot {
+public class Ri1WRobot extends Robot {
 
 	/**
 	 * The motor responsible for the sweeper on the robot.
@@ -90,6 +90,11 @@ public class Ri1WRobot implements Robot {
 	 */
 	public static final double BUCKET_TILT_DELTA = 0.15;
 	public static final double BUCKET_FINGERS_POWER = 1;
+
+	@Override
+	public String[] getDriveMotorNames() {
+		return new String[] {"front_left", "front_right", "back_left", "back_right"};
+	}
 
 	@Override
 	public void initializeRobot() {

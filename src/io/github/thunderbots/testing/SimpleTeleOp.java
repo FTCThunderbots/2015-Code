@@ -21,13 +21,15 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
 
 @OpMode(type = "TeleOp", name = "SimpleTeleOp")
 public class SimpleTeleOp extends TeleOp {
-
-	private static final String[] DRIVE_MOTOR_NAMES =
-		{"front_left", "front_right", "back_left", "back_right"};
+	
+	@Override
+	protected SimpleRobot getRobot() {
+		return (SimpleRobot) super.getRobot();
+	}
 
 	@Override
-	protected String[] getDriveMotorNames() {
-		return SimpleTeleOp.DRIVE_MOTOR_NAMES;
+	protected void initializeOpMode() {
+		
 	}
 
 }

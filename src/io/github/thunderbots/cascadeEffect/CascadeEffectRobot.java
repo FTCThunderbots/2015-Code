@@ -24,7 +24,15 @@ import io.github.thunderbots.lightning.robot.Robot;
 /**
  * @author Pranav Mathur
  */
-public class CascadeEffectRobot implements Robot {
+public class CascadeEffectRobot extends Robot {
+	
+	private static final String[] DRIVE_MOTOR_NAMES =
+		{"front_left", "front_right", "back_left", "back_right"};
+	
+	@Override
+	public String[] getDriveMotorNames() {
+		return CascadeEffectRobot.DRIVE_MOTOR_NAMES;
+	}
 
 	private Joystick drivingGamepad;
 	private Joystick secondaryGamepad;

@@ -19,25 +19,21 @@ package io.github.thunderbots.resQ;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.opmode.TeleOp;
+import io.github.thunderbots.robotInOneWeek.Ri1WRobot;
 
 public class ResQTestBot extends TeleOp {
 
 	@Override
 	protected void initializeOpMode() {
-		super.initializeOpMode();
-		Lightning.getMotor("front_left").setReversed(true);
-		Lightning.getMotor("back_left").setReversed(true);
-	}
-
-	@Override
-	protected String[] getDriveMotorNames() {
-		return new String[] {"front_left", "front_right", "back_left", "back_right"};
+		this.setRobot(new Ri1WRobot());
+		this.getRobot().initializeRobot();
 	}
 
 	@Override
 	protected void setMovement() {
 		Joystick drivingGamepad = Lightning.getJoystick(1);
-		this.getDrive().setMovement(drivingGamepad.leftStickY() / 2, drivingGamepad.rightStickX() / 2);
+		this.getRobot().getDrive().setMovement(drivingGamepad.leftStickY()/2, drivingGamepad.rightStickX()/2);
+		this.getRobot().getDrive().setMovement(drivingGamepad.leftStickY()/2, drivingGamepad.rightStickX()/2);
 	}
 
 }
