@@ -45,7 +45,7 @@ public class TaskSchedulerTest extends LightningOpMode {
 
 		@Override
 		public void run() {
-			Lightning.sendTelemetryData(this.s);
+			Lightning.sendTelemetryData(this.s, this.s);
 		}
 
 	}
