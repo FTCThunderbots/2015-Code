@@ -16,7 +16,6 @@
 
 package io.github.thunderbots.resQ;
 
-import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
 import io.github.thunderbots.robotInOneWeek.Ri1WRobot;
@@ -24,36 +23,28 @@ import io.github.thunderbots.robotInOneWeek.Ri1WRobot;
 @OpMode(type = "Autonomous", name = "ResQ")
 public class ResQAutonomous extends Autonomous {
 
-	Ri1WRobot robot;
+	@Override
+	protected Ri1WRobot getRobot() {
+		return (Ri1WRobot) super.getRobot();
+	}
 
 	/** -1 is Red, 1 is Blue */
 	private final static int side = 1;
 
 	@Override
 	protected void initializeOpMode() {
-		super.initializeOpMode();
-		this.robot = new Ri1WRobot();
-		this.robot.initializeRobot();
-		Lightning.getMotor("front_left").setReversed(true);
-		Lightning.getMotor("front_right").setReversed(true);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected String[] getDriveMotorNames() {
-		return new String[] {"front_left", "front_right", "back_left", "back_right"};
+		this.setRobot(new Ri1WRobot());
+		this.getRobot().initializeRobot();
 	}
 
 	@Override
 	protected void main() {
-		this.getDrive().driveSeconds(.5, .75);
-		this.getDrive().waitAndStop(2.0);
-		this.getDrive().rotateSeconds(.5 * ResQAutonomous.side, 1);
-		this.getDrive().waitAndStop(2.0);
-		this.getDrive().driveSeconds(.5, .75);
-		this.getDrive().waitAndStop(2.0);
+		this.getRobot().getDrive().driveSeconds(.5, .75);
+		this.getRobot().getDrive().waitAndStop(2.0);
+		this.getRobot().getDrive().rotateSeconds(.5 * ResQAutonomous.side, 1);
+		this.getRobot().getDrive().waitAndStop(2.0);
+		this.getRobot().getDrive().driveSeconds(.5, .75);
+		this.getRobot().getDrive().waitAndStop(2.0);
 	}
 
 }
