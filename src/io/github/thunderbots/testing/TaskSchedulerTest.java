@@ -26,13 +26,26 @@ public class TaskSchedulerTest extends LightningOpMode {
 		Lightning.getTaskScheduler().registerTask(new TestRunnable("A"));
 		Lightning.getTaskScheduler().registerTask(new TestRunnable("B"));
 		Lightning.getTaskScheduler().registerTask(new TestRunnable("C"));
+		
 	}
 
 	@Override
 	protected void main() {
-		while (this.opModeIsActive()) {
-			// repeat
+		TestRunnable runnableA = new TestRunnable("A");
+		TestRunnable runnableB = new TestRunnable("B");
+		TestRunnable runnableC = new TestRunnable("C");
+		//references to each of the test runnables
+		Lightning.getTaskScheduler().registerTask(runnableA);
+		Lightning.getTaskScheduler().registerTask(runnableB);
+		Lightning.getTaskScheduler().registerTask(runnableC);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
+		Lightning.getTaskScheduler().removeTask(runnableA);
+		Lightning.getTaskScheduler().removeTask(runnableB);
+		Lightning.getTaskScheduler().removeTask(runnableC);
 	}
 
 	public static class TestRunnable implements Runnable {
