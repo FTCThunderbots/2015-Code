@@ -31,6 +31,7 @@ public class EncoderTest extends LightningOpMode {
 
 	@Override
 	protected void initializeOpMode() {
+		super.initializeOpMode();
 		this.testMotor = Lightning.getMotor("motor");
 		this.encoderRunnable = new EncoderUpdateRunnable();
 		Lightning.getTaskScheduler().registerTask(this.encoderRunnable);
