@@ -58,6 +58,9 @@ public class AverageSingleEncoderTest extends AverageEncoderTest {
 	 * | 10. Program stops                |                                                |
 	 * |                                  |                                                |
 	 * +-----------------------------------------------------------------------------------+
+	 *
+	 * The main method for this test is defined in AverageEncoderTest.
+	 *
 	 */
 	
 }
