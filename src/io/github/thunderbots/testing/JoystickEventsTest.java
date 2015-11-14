@@ -1,16 +1,19 @@
 package io.github.thunderbots.testing;
 
 import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.control.ButtonHandler;
 import io.github.thunderbots.lightning.control.JoystickButton;
 import io.github.thunderbots.lightning.control.JoystickListener;
 import io.github.thunderbots.lightning.control.ButtonHandler.PressType;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
 
+@OpMode(name="Joystick events test", type="test", active=true)
 public class JoystickEventsTest extends LightningOpMode implements JoystickListener {
 
 	@Override
 	protected void initializeOpMode() {
+		super.initializeOpMode();
 		Lightning.getJoystickMonitor(1).registerJoystickListener(this);
 	}
 
@@ -21,44 +24,68 @@ public class JoystickEventsTest extends LightningOpMode implements JoystickListe
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * 
+	 * JoystickEventsTest.java - tests the fundamental principals of the joystick event
+	 * system.
+	 * 
+	 * Setup:
+	 * 
+	 * This test only requires that a joystick be attached to the driver station phone.
+	 * No specific robot hardware is required.
+	 * 
+	 * Expected behavior:
+	 * 
+	 * When the joystic is registered in the driver station as the primary joystick, all
+	 * information will be labeled "joy1". If the joystick is the secondary joystick, the
+	 * information will be labeled as "joy2".
+	 * 
+	 * The only buttons that are monitored by this test are the A and B buttons. Whenever
+	 * either button is pressed, the driver station screen should read "_ button pressed".
+	 * When either button is released, the driver station screen should read "_ button
+	 * released". In both cases, the underscore will be replaced by either "A" or "B"
+	 * depending on what button was pressed.
+	 * 
+	 */
+	
 	@ButtonHandler(button = JoystickButton.A, joystick = 1, type = PressType.PRESS)
 	public void onAButtonPress() {
-		Lightning.sendTelemetryData("Type", "[joy1] A button pressed");
+		Lightning.sendTelemetryData("joy1", "A button pressed");
 	}
 	
 	@ButtonHandler(button = JoystickButton.A, joystick = 1, type = PressType.RELEASE)
 	public void onAButtonRelease() {
-		Lightning.sendTelemetryData("Type", "[joy1] A button pressed");
+		Lightning.sendTelemetryData("joy1", "A button released");
 	}
 	
 	@ButtonHandler(button = JoystickButton.B, joystick = 1, type = PressType.PRESS)
 	public void onBButtonPress() {
-		Lightning.sendTelemetryData("Type", "[joy1] B button pressed");
+		Lightning.sendTelemetryData("joy1", "B button pressed");
 	}
 	
 	@ButtonHandler(button = JoystickButton.B, joystick = 1, type = PressType.RELEASE)
 	public void onBButtonRelease() {
-		Lightning.sendTelemetryData("Type", "[joy1] B button pressed");
+		Lightning.sendTelemetryData("joy1", "B button released");
 	}
 	
 	@ButtonHandler(button = JoystickButton.A, joystick = 2, type = PressType.PRESS)
 	public void onJ2AButtonPress() {
-		Lightning.sendTelemetryData("Type", "[joy1] A button pressed");
+		Lightning.sendTelemetryData("joy2", "A button pressed");
 	}
 	
 	@ButtonHandler(button = JoystickButton.A, joystick = 2, type = PressType.RELEASE)
 	public void onJ2AButtonRelease() {
-		Lightning.sendTelemetryData("Type", "[joy1] A button pressed");
+		Lightning.sendTelemetryData("joy2", "A button released");
 	}
 	
 	@ButtonHandler(button = JoystickButton.B, joystick = 2, type = PressType.PRESS)
 	public void onJ2BButtonPress() {
-		Lightning.sendTelemetryData("Type", "[joy1] B button pressed");
+		Lightning.sendTelemetryData("joy2", "B button released");
 	}
 	
 	@ButtonHandler(button = JoystickButton.B, joystick = 2, type = PressType.RELEASE)
 	public void onJ2BButtonRelease() {
-		Lightning.sendTelemetryData("Type", "[joy1] B button pressed");
+		Lightning.sendTelemetryData("joy2", "B button released");
 	}
 
 }
