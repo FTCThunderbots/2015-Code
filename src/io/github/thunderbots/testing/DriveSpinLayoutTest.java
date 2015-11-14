@@ -3,6 +3,9 @@ package io.github.thunderbots.testing;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.annotation.Active;
+
+@Active 
 
 /**
  * Control Layouts Test is designed to test Control Layout functionality.

@@ -5,6 +5,9 @@ import io.github.thunderbots.lightning.control.layout.ControlLayout;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.control.layout.MecanumControlLayout;
+import io.github.thunderbots.lightning.annotation.Active;
+
+@Active
 
 /**
  * Control Layouts Test is designed to test Control Layout functionality.
