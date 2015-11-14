@@ -58,9 +58,20 @@ public class TaskSchedulerTest extends LightningOpMode {
 	 * |           |
 	 * +-----------+
 	 * 
-	 * The text should appear on the screen for 4 seconds, then the text should disappear.
-	 * After the text disappears, the op mode should continue running for an additional
-	 * 4 seconds before stopping.
+	 * The text should appear on the screen for 4 seconds. After that, the text should
+	 * be replaced by the following (slightly different) text.
+	 * 
+	 * +--------------+
+	 * |              |
+	 * |   A : done   |
+	 * |   B : done   |
+	 * |   C : done   |
+	 * |              |
+	 * +--------------+
+	 * 
+	 * 
+	 * The second text should appear on the screen for 4 seconds. The op mode should stop
+	 * on its own after that.
 	 * 
 	 */
 	
@@ -73,6 +84,11 @@ public class TaskSchedulerTest extends LightningOpMode {
 		Lightning.getTaskScheduler().removeTask(this.runnableA);
 		Lightning.getTaskScheduler().removeTask(this.runnableB);
 		Lightning.getTaskScheduler().removeTask(this.runnableC);
+		Util.sleep(100);
+		Lightning.sendTelemetryData("A", "done");
+		Lightning.sendTelemetryData("B", "done");
+		Lightning.sendTelemetryData("C", "done");
+		
 		Util.sleep(DELAY);
 	}
 
