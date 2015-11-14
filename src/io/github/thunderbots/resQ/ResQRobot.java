@@ -23,7 +23,7 @@ public class ResQRobot extends Robot {
 
 	@Override
 	public void initializeRobot() {
-		Lightning.getMotor("back_left").setReversed(true);
+		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("front_right").setReversed(true);
 	}
 

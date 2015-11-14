@@ -24,19 +24,85 @@ import io.github.thunderbots.lightning.utility.Util;
 public class EncoderTest extends LightningOpMode {
 
 	private Motor testMotor;
+	private EncoderUpdateRunnable encoderRunnable;
+	
+	private static final int DELAY = 3000; // in milliseconds
+	private static final double POWER = 0.5; // motor power
 
 	@Override
 	protected void initializeOpMode() {
-		this.testMotor = Lightning.getMotor("test");
+		super.initializeOpMode();
+		this.testMotor = Lightning.getMotor("motor");
+		this.encoderRunnable = new EncoderUpdateRunnable();
+		Lightning.getTaskScheduler().registerTask(this.encoderRunnable);
 	}
 
+	/* (non-Javadoc)
+	 * 
+	 * EncoderTest.java - tests encoder functionality on a single motor.
+	 * 
+	 * Setup:
+	 * 
+	 * Attach a single motor named "motor" in the configuration, and attach an encoder
+	 * to that motor.
+	 * 
+	 * Run the test again without an encoder. The values should stay at zero, but everything
+	 * else should remain unchanged.
+	 * 
+	 * Expected behavior:
+	 * 
+	 * Currently the standard 'wait' delay is 3 seconds, and the
+	 * standard 'forward' motor power is half power.
+	 * 
+	 * (prodecure | encoder observation)
+	 * 
+	 * +----------------------------------+-------------------------------------------------------+
+	 * | 1. Wait                          | Both values are at 0                                  |
+	 * | 2. Move forward                  | Both values increase at the same rate                 |
+	 * | 3. Wait                          | Neither value changes. They are equivalent and        |
+	 * |                                  | both positive                                         |
+	 * | 4. Move backward for double time | Both values decrease at the same rate to              |
+	 * |                                  | approximately the negative of the observed value      |
+	 * |                                  | at step 3.                                            |
+ 	 * | 5. Wait                          | Neither value changes. They are equivalent and        |
+	 * |                                  | both negative.                                        |
+	 * | 6. Reset the 'zero' position     | The 'raw' value does not change. The 'encoder' value  |
+	 * |                                  | changes instantly to zero.                            |
+	 * | 7. Wait                          | Neither value changes.                                |
+	 * | 8. Move forward at double power  | Both values increase at double the rate observed in   |
+	 * |                                  | step 2. They are not equivalent.                      |
+	 * | 9. Wait                          | Neither value changes.                                |
+	 * | 10. Program stops                |                                                       |
+	 * |                                  |                                                       |
+	 * +------------------------------------------------------------------------------------------+
+	 */
 	@Override
 	protected void main() {
-		this.testMotor.setPower(.5);
-		Util.sleep(5000);
+		Util.sleep(DELAY);
+		this.testMotor.setPower(POWER);
+		Util.sleep(DELAY);
 		this.testMotor.stop();
-		Lightning.sendTelemetryData("Encoder", this.testMotor.getRawPosition());
-		Util.sleep(5000);
+		Util.sleep(DELAY);
+		this.testMotor.setPower(-POWER);
+		Util.sleep(DELAY * 2);
+		this.testMotor.stop();
+		Util.sleep(DELAY);
+		this.testMotor.getEncoder().reset();
+		Util.sleep(DELAY);
+		this.testMotor.setPower(POWER * 2);
+		Util.sleep(DELAY);
+		this.testMotor.stop();
+		Util.sleep(DELAY);
+	}
+	
+	protected class EncoderUpdateRunnable implements Runnable {
+
+		@Override
+		public void run() {
+			Lightning.sendTelemetryData("Raw", EncoderTest.this.testMotor.getRawPosition());
+			Lightning.sendTelemetryData("Encoder", EncoderTest.this.testMotor.getEncoder().getPosition());
+		}
+		
 	}
 
 }
