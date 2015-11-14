@@ -16,11 +16,12 @@
 
 package io.github.thunderbots.resQ;
 
+import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.TeleOp;
-import io.github.thunderbots.robotInOneWeek.Ri1WRobot;
 
-@OpMode(name = "ResQTeleOp", type = "TeleOp", active = true)
+@OpMode(name = "ResQTeleOp", type = "TeleOp")
+@Active
 public class ResQTeleOp extends TeleOp {
 
 	@Override
@@ -30,7 +31,7 @@ public class ResQTeleOp extends TeleOp {
 
 	@Override
 	protected void initializeOpMode() {
-		this.setRobot(new Ri1WRobot());
+		this.setRobot(new ResQRobot());
 		this.getRobot().initializeRobot();
 	}
 	
