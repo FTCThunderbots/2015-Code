@@ -39,6 +39,8 @@ public class AverageEncoderTest extends LightningOpMode {
 
 	/* (non-Javadoc)
 	 * 
+	 * AverageEncoderTest.java - tests average encoder functionality on two motors.
+	 * 
 	 * Setup:
 	 * 
 	 * Attach two motors to the robot. Name them "motor1" and "motor2" in the configuration.

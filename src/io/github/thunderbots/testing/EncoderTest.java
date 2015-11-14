@@ -38,6 +38,17 @@ public class EncoderTest extends LightningOpMode {
 	}
 
 	/* (non-Javadoc)
+	 * 
+	 * EncoderTest.java - tests encoder functionality on a single motor.
+	 * 
+	 * Setup:
+	 * 
+	 * Attach a single motor named "motor" in the configuration, and attach an encoder
+	 * to that motor.
+	 * 
+	 * Run the test again without an encoder. The values should stay at zero, but everything
+	 * else should remain unchanged.
+	 * 
 	 * Expected behavior:
 	 * 
 	 * Currently the standard 'wait' delay is 3 seconds, and the
