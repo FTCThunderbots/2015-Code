@@ -18,34 +18,78 @@ package io.github.thunderbots.testing;
 
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
+import io.github.thunderbots.lightning.utility.Util;
 
 public class TaskSchedulerTest extends LightningOpMode {
 
+	private TestRunnable runnableA;
+	private TestRunnable runnableB;
+	private TestRunnable runnableC;
+	
+	private static final int DELAY = 4000; // in milliseconds
+	
 	@Override
 	protected void initializeOpMode() {
-		Lightning.getTaskScheduler().registerTask(new TestRunnable("A"));
-		Lightning.getTaskScheduler().registerTask(new TestRunnable("B"));
-		Lightning.getTaskScheduler().registerTask(new TestRunnable("C"));
-		
+		this.runnableA = new TestRunnable("A");
+		this.runnableB = new TestRunnable("B");
+		this.runnableC = new TestRunnable("C");
 	}
 
+	/* (non-Javadoc)
+	 * 
+	 * TaskSchedulerTest.java - tests the task scheduler's ability to register and remove
+	 * background tasks.
+	 * 
+	 * Setup:
+	 * 
+	 * No hardware is required to run this test. Only the phone software, and any basic
+	 * hardware that the phone software requires, is necessesary to run this test.
+	 * 
+	 * Expected behavior:
+	 * 
+	 * When the test is started, the following text should appear on the driver station
+	 * screen.
+	 * 
+	 * +-----------+
+	 * |           |
+	 * |   A : A   |
+	 * |   B : B   |
+	 * |   C : C   |
+	 * |           |
+	 * +-----------+
+	 * 
+	 * The text should appear on the screen for 4 seconds. After that, the text should
+	 * be replaced by the following (slightly different) text.
+	 * 
+	 * +--------------+
+	 * |              |
+	 * |   A : done   |
+	 * |   B : done   |
+	 * |   C : done   |
+	 * |              |
+	 * +--------------+
+	 * 
+	 * 
+	 * The second text should appear on the screen for 4 seconds. The op mode should stop
+	 * on its own after that.
+	 * 
+	 */
+	
 	@Override
 	protected void main() {
-		TestRunnable runnableA = new TestRunnable("A");
-		TestRunnable runnableB = new TestRunnable("B");
-		TestRunnable runnableC = new TestRunnable("C");
-		//references to each of the test runnables
-		Lightning.getTaskScheduler().registerTask(runnableA);
-		Lightning.getTaskScheduler().registerTask(runnableB);
-		Lightning.getTaskScheduler().registerTask(runnableC);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Lightning.getTaskScheduler().removeTask(runnableA);
-		Lightning.getTaskScheduler().removeTask(runnableB);
-		Lightning.getTaskScheduler().removeTask(runnableC);
+		Lightning.getTaskScheduler().registerTask(this.runnableA);
+		Lightning.getTaskScheduler().registerTask(this.runnableB);
+		Lightning.getTaskScheduler().registerTask(this.runnableC);
+		Util.sleep(DELAY);
+		Lightning.getTaskScheduler().removeTask(this.runnableA);
+		Lightning.getTaskScheduler().removeTask(this.runnableB);
+		Lightning.getTaskScheduler().removeTask(this.runnableC);
+		Util.sleep(100);
+		Lightning.sendTelemetryData("A", "done");
+		Lightning.sendTelemetryData("B", "done");
+		Lightning.sendTelemetryData("C", "done");
+		
+		Util.sleep(DELAY);
 	}
 
 	public static class TestRunnable implements Runnable {
