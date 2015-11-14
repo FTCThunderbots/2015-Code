@@ -32,5 +32,9 @@ public class ResQTeleOp extends TeleOp {
 		this.setRobot(new Ri1WRobot());
 		this.getRobot().initializeRobot();
 	}
+	
+	protected void mainLoop() {
+		this.getRobot().setLegPower();
+	}
 
 }

@@ -23,13 +23,28 @@ public class ResQRobot extends Robot {
 
 	@Override
 	public void initializeRobot() {
-		Lightning.getMotor("front_left").setReversed(true);
+		Lightning.getMotor("back_left").setReversed(true);
 		Lightning.getMotor("front_right").setReversed(true);
 	}
 
 	@Override
 	public String[] getDriveMotorNames() {
 		return new String[] {"front_left", "front_right", "back_left", "back_right"};
+	}
+	
+	public void setLegPower() {
+		if (Lightning.getJoystick(1).rightButton()) {
+			Lightning.getMotor("left_leg").setPower(1);
+			Lightning.getMotor("right_leg").setPower(1);
+		}
+		else if (Lightning.getJoystick(1).rightButton()) {
+			Lightning.getMotor("left_leg").setPower(-1);
+			Lightning.getMotor("right_leg").setPower(-1);
+		}
+		else {
+			Lightning.getMotor("left_leg").setPower(0);
+			Lightning.getMotor("right_leg").setPower(0);
+		}
 	}
 
 }
