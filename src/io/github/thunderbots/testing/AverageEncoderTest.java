@@ -17,10 +17,12 @@
 package io.github.thunderbots.testing;
 
 import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.hardware.MotorSet;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
 import io.github.thunderbots.lightning.utility.Util;
 
+@Active
 public class AverageEncoderTest extends LightningOpMode {
 
 	protected MotorSet motors;
