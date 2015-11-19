@@ -16,9 +16,11 @@
 
 package io.github.thunderbots.resQ;
 
+import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.TeleOp;
+import io.github.thunderbots.resQ.ResQRobot;
 
 @OpMode(name = "ResQTeleOp", type = "TeleOp")
 @Active
@@ -36,7 +38,13 @@ public class ResQTeleOp extends TeleOp {
 	}
 	
 	protected void mainLoop() {
-		this.getRobot().setLegPower();
+		if (Lightning.getJoystick(1).rightBumper())
+			this.getRobot().setLegPower(1, 1);
+		else if (Lightning.getJoystick(1).leftBumper())
+			this.getRobot().setLegPower(-1, -1);
+		else
+			this.getRobot().setLegPower(0, 0);
 	}
+		
 
 }
