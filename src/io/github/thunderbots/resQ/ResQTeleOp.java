@@ -44,6 +44,15 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().setLegPower(-1, -1);
 		else
 			this.getRobot().setLegPower(0, 0);
+		
+		if (Lightning.getJoystick(2).aButton()) {
+			this.getRobot().setLeftBooper(true);
+			this.getRobot().setRightBooper(true);
+		}
+		if (Lightning.getJoystick(2).bButton()) {
+			this.getRobot().setLeftBooper(false);
+			this.getRobot().setRightBooper(false);
+		}
 	}
 		
 
