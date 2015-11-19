@@ -20,6 +20,10 @@ import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.robot.Robot;
 
 public class ResQRobot extends Robot {
+	
+	private static int BOOPER_STATIONARY = 0;
+	
+	private static int BOOPER_ENGAGED = 90;
 
 	@Override
 	public void initializeRobot() {
@@ -35,6 +39,49 @@ public class ResQRobot extends Robot {
 	public void setLegPower(double right, double left) {
 		Lightning.getMotor("left_leg").setPower(left);
 		Lightning.getMotor("right_leg").setPower(right);
+	}
+	
+	/**
+	 * Moves the booper servos
+	 *
+	 * <pre>
+	 * Boop the
+	 *    _
+	 *   / \
+	 *   |O|
+	 *    Y
+	 *    |
+	 *   / \
+	 *  /   \
+	 *
+	 *  THESE
+	 * </pre>
+	 */
+	
+	public void setLeftBooper(boolean isBooping) {
+		Lightning.getServo("left_booper").moveToPosition(
+				isBooping ? BOOPER_STATIONARY : BOOPER_ENGAGED);
+	}
+	
+	/**
+	 * Moves the booper servos
+	 *
+	 * <pre>
+	 * Boop the
+	 *    _
+	 *   / \
+	 *   |O|
+	 *    Y
+	 *    |
+	 *   / \
+	 *  /   \
+	 *
+	 *  THESE
+	 * </pre>
+	 */
+	public void setRightBooper(boolean isBooping) {
+		Lightning.getServo("right_booper").moveToPosition(
+				isBooping ? BOOPER_STATIONARY : BOOPER_ENGAGED);
 	}
 
 }
