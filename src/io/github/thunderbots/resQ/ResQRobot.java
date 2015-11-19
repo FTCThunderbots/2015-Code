@@ -33,11 +33,11 @@ public class ResQRobot extends Robot {
 	}
 	
 	public void setLegPower() {
-		if (Lightning.getJoystick(1).rightButton()) {
+		if (Lightning.getJoystick(1).rightBumper()) {
 			Lightning.getMotor("left_leg").setPower(1);
 			Lightning.getMotor("right_leg").setPower(1);
 		}
-		else if (Lightning.getJoystick(1).rightButton()) {
+		else if (Lightning.getJoystick(1).leftBumper()) {
 			Lightning.getMotor("left_leg").setPower(-1);
 			Lightning.getMotor("right_leg").setPower(-1);
 		}
