@@ -35,7 +35,6 @@ public class ResQRobot extends Robot {
 	public void setLegPower(double right, double left) {
 		Lightning.getMotor("left_leg").setPower(left);
 		Lightning.getMotor("right_leg").setPower(right);
-	
 	}
 
 }

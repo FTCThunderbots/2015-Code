@@ -17,9 +17,11 @@
 package io.github.thunderbots.resQ;
 
 import io.github.thunderbots.lightning.annotation.Active;
+import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
 
 @Active
+@OpMode(type="Autonomous", name="Auto Mountain [B]")
 public class AutoMountainBlue extends Autonomous {
 
 	@Override
