@@ -17,7 +17,6 @@
 package io.github.thunderbots.resQ;
 
 import io.github.thunderbots.lightning.Lightning;
-import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.control.ButtonHandler;
 import io.github.thunderbots.lightning.control.Joystick;
@@ -27,7 +26,6 @@ import io.github.thunderbots.lightning.control.ButtonHandler.PressType;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 
 @OpMode(name="Event Tele Op", type="TeleOp")
-@Active
 public class ResQEventsTeleOp extends TeleOp implements JoystickListener {
 
 	@Override

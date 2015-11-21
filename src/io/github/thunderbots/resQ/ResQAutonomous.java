@@ -20,7 +20,7 @@ import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
 
-@OpMode(type = "Autonomous", name = "ResQ")
+@OpMode(type = "Autonomous", name = "ResQ Autonomous")
 @Active
 public class ResQAutonomous extends Autonomous {
 
