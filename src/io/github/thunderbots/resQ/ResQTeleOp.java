@@ -49,13 +49,28 @@ public class ResQTeleOp extends TeleOp {
 		}
 		
 		// Set boopers
+//		if (Lightning.getJoystick(2).aButton()) {
+//			this.getRobot().boopLeft();
+//			this.getRobot().boopRight();
+//		}
+//		if (Lightning.getJoystick(2).bButton()) {
+//			this.getRobot().unboopLeft();
+//			this.getRobot().unboopRight();
+//		}
 		if (Lightning.getJoystick(2).aButton()) {
-			this.getRobot().boopLeft();
-			this.getRobot().boopRight();
+			this.getRobot().incrementRightBooper(false);
+		} else if (Lightning.getJoystick(2).bButton()) {
+			this.getRobot().incrementRightBooper(true);
+		} else {
+			
 		}
-		if (Lightning.getJoystick(2).bButton()) {
-			this.getRobot().unboopLeft();
-			this.getRobot().unboopRight();
+		
+		if (Lightning.getJoystick(2).xButton()) {
+			this.getRobot().incrementLeftBooper(false);
+		} else if (Lightning.getJoystick(2).yButton()) {
+			this.getRobot().incrementLeftBooper(true);
+		} else {
+			
 		}
 		
 		// Extend / Retract the people
@@ -67,5 +82,4 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().stopMovingPeople(); 
 		}
 	}
-
 }

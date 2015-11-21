@@ -37,6 +37,8 @@ public class ResQRobot extends Robot {
 	private static double LEG_MOTOR_SPEED = 1.0;
 	private static double PEOPLE_SERVO_SPEED = 0.5;
 	
+	private static double BOOPER_INCREMENT = 0.01;
+	
 	@Override
 	public String[] getDriveMotorNames() {
 		return new String[] {"front_left", "front_right", "back_left", "back_right"};
@@ -97,6 +99,32 @@ public class ResQRobot extends Robot {
 	 */
 	public void unboopRight() {
 		this.rightBooper.moveToPosition(BOOPER_DOWN_POSITION);
+	}
+	
+	/**
+	 * Increment the right booper servo by BOOPER_INCREMENT.
+	 * 
+	 * @param forward Forward or backwards
+	 */
+	public void incrementRightBooper(boolean forward) {
+		if (forward) {
+			this.rightBooper.move(ResQRobot.BOOPER_INCREMENT);
+		} else {
+			this.rightBooper.move(-(ResQRobot.BOOPER_INCREMENT));
+		}
+	}
+	
+	/**
+	 * Increment the left booper servo by BOOPER_INCREMENT.
+	 * 
+	 * @param forward Forward or backwards
+	 */
+	public void incrementLeftBooper(boolean forward) {
+		if (forward) {
+			this.leftBooper.move(ResQRobot.BOOPER_INCREMENT);
+		} else {
+			this.leftBooper.move(-(ResQRobot.BOOPER_INCREMENT));
+		}
 	}
 	
 	public void extendPeople() {
