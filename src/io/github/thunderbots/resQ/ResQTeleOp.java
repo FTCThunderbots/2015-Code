@@ -58,19 +58,15 @@ public class ResQTeleOp extends TeleOp {
 //			this.getRobot().unboopRight();
 //		}
 		if (Lightning.getJoystick(2).aButton()) {
-			this.getRobot().incrementRightBooper(false);
-		} else if (Lightning.getJoystick(2).bButton()) {
 			this.getRobot().incrementRightBooper(true);
-		} else {
-			
+		} else if (Lightning.getJoystick(2).bButton()) {
+			this.getRobot().incrementRightBooper(false);
 		}
 		
 		if (Lightning.getJoystick(2).xButton()) {
 			this.getRobot().incrementLeftBooper(false);
 		} else if (Lightning.getJoystick(2).yButton()) {
 			this.getRobot().incrementLeftBooper(true);
-		} else {
-			
 		}
 		
 		// Extend / Retract the people
