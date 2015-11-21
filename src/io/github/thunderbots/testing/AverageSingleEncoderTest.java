@@ -16,10 +16,8 @@
 
 package io.github.thunderbots.testing;
 
-import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.hardware.MotorSet;
 
-@Active 
 public class AverageSingleEncoderTest extends AverageEncoderTest {
 	
 	@Override

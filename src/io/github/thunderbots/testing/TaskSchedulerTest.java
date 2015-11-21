@@ -19,9 +19,7 @@ package io.github.thunderbots.testing;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
 import io.github.thunderbots.lightning.utility.Util;
-import io.github.thunderbots.lightning.annotation.Active;
 
-@Active 
 
 public class TaskSchedulerTest extends LightningOpMode {
 

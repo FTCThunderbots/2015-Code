@@ -1,7 +1,6 @@
 package io.github.thunderbots.testing;
 
 import io.github.thunderbots.lightning.Lightning;
-import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.control.ButtonHandler;
 import io.github.thunderbots.lightning.control.JoystickButton;
@@ -10,7 +9,6 @@ import io.github.thunderbots.lightning.control.ButtonHandler.PressType;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
 
 @OpMode(name="Joystick events test", type="test")
-@Active
 public class JoystickEventsTest extends LightningOpMode implements JoystickListener {
 
 	@Override
