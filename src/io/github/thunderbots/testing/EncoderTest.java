@@ -17,12 +17,15 @@
 package io.github.thunderbots.testing;
 
 import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
 import io.github.thunderbots.lightning.utility.Util;
 
-public class EncoderTest extends LightningOpMode {
+@Active
 
+public class EncoderTest extends LightningOpMode {
+	
 	private Motor testMotor;
 	private EncoderUpdateRunnable encoderRunnable;
 	
