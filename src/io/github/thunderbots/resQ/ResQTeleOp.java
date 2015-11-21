@@ -43,7 +43,7 @@ public class ResQTeleOp extends TeleOp {
 		if (Lightning.getJoystick(1).rightBumper()) {
 			this.getRobot().walkForward();
 		} else if (Lightning.getJoystick(1).leftBumper()) {
-			this.getRobot().walkForward();
+			this.getRobot().walkBackward();
 		} else {
 			this.getRobot().stopWalking();
 		}

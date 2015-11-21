@@ -64,7 +64,7 @@ public class ResQRobot extends Robot {
 	}
 	
 	public void walkBackward() {
-		this.setLegPower(-1 * LEG_MOTOR_SPEED);
+		this.setLegPower(-LEG_MOTOR_SPEED);
 	}
 	
 	public void stopWalking() {
