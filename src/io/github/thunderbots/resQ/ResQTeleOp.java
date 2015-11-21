@@ -22,7 +22,7 @@ import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 import io.github.thunderbots.resQ.ResQRobot;
 
-@OpMode(name = "ResQTeleOp", type = "TeleOp")
+@OpMode(name="Tele Op", type="TeleOp")
 @Active
 public class ResQTeleOp extends TeleOp {
 
@@ -39,29 +39,33 @@ public class ResQTeleOp extends TeleOp {
 	}
 	
 	protected void mainLoop() {
-		if (Lightning.getJoystick(1).rightBumper())
-			this.getRobot().setLegPower(1, 1);
-		else if (Lightning.getJoystick(1).leftBumper())
-			this.getRobot().setLegPower(-1, -1);
-		else
-			this.getRobot().setLegPower(0, 0);
+		// Set the leg motors
+		if (Lightning.getJoystick(1).rightBumper()) {
+			this.getRobot().walkForward();
+		} else if (Lightning.getJoystick(1).leftBumper()) {
+			this.getRobot().walkForward();
+		} else {
+			this.getRobot().stopWalking();
+		}
 		
+		// Set boopers
 		if (Lightning.getJoystick(2).aButton()) {
-			this.getRobot().setLeftBooper(true);
-			this.getRobot().setRightBooper(true);
+			this.getRobot().boopLeft();
+			this.getRobot().boopRight();
 		}
 		if (Lightning.getJoystick(2).bButton()) {
-			this.getRobot().setLeftBooper(false);
-			this.getRobot().setRightBooper(false);
+			this.getRobot().unboopLeft();
+			this.getRobot().unboopRight();
 		}
 		
-		if (Lightning.getJoystick(2).rightBumper())
-			this.getRobot().setPeopleServo(0.5);
-		else if (Lightning.getJoystick(2).leftBumper())
-			this.getRobot().setPeopleServo(-0.5);
-		else
-			this.getRobot().setPeopleServo(0.0);
+		// Extend / Retract the people
+		if (Lightning.getJoystick(2).rightBumper()) {
+			this.getRobot().extendPeople();
+		} else if (Lightning.getJoystick(2).leftBumper()) {
+			this.getRobot().retractPeople();
+		} else {
+			this.getRobot().stopWalking(); 
+		}
 	}
-		
 
 }
