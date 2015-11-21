@@ -21,9 +21,9 @@ import io.github.thunderbots.lightning.robot.Robot;
 
 public class ResQRobot extends Robot {
 	
-	private static int BOOPER_STATIONARY = 0;
+	private static double BOOPER_STATIONARY = .13;
 	
-	private static int BOOPER_ENGAGED = 90;
+	private static double BOOPER_ENGAGED = .82;
 
 	@Override
 	public void initializeRobot() {
@@ -81,7 +81,11 @@ public class ResQRobot extends Robot {
 	 */
 	public void setRightBooper(boolean isBooping) {
 		Lightning.getServo("right_booper").moveToPosition(
-				isBooping ? BOOPER_STATIONARY : BOOPER_ENGAGED);
+				isBooping ? BOOPER_ENGAGED : BOOPER_STATIONARY);
+	}
+	
+	public void setPeopleServo(double power) {
+		Lightning.getMotor("people").setPower(power);
 	}
 
 }
