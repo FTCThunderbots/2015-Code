@@ -17,75 +17,98 @@
 package io.github.thunderbots.resQ;
 
 import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.hardware.Motor;
+import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.robot.Robot;
 
 public class ResQRobot extends Robot {
 	
-	private static double BOOPER_STATIONARY = .13;
+	private Motor leftLeg;
+	private Motor rightLeg;
 	
-	private static double BOOPER_ENGAGED = .82;
-
-	@Override
-	public void initializeRobot() {
-		Lightning.getMotor("front_left").setReversed(true);
-		Lightning.getMotor("front_right").setReversed(true);
-	}
-
+	private Servo leftBooper;
+	private Servo rightBooper;
+	
+	private Motor peopleCRServo; // cr servo
+	
+	private static double BOOPER_UP_POSITION = .13;
+	private static double BOOPER_DOWN_POSITION = .82;
+	
+	private static double LEG_MOTOR_SPEED = 1.0;
+	private static double PEOPLE_SERVO_SPEED = 0.5;
+	
 	@Override
 	public String[] getDriveMotorNames() {
 		return new String[] {"front_left", "front_right", "back_left", "back_right"};
 	}
+
+	@Override
+	public void initializeRobot() {
+		this.leftLeg = Lightning.getMotor("left_leg");
+		this.rightLeg = Lightning.getMotor("right_leg");
+		this.leftBooper = Lightning.getServo("left_booper");
+		this.rightBooper = Lightning.getServo("right_booper");
+		this.peopleCRServo = Lightning.getMotor("people");
+		
+		Lightning.getMotor("front_left").setReversed(true);
+		Lightning.getMotor("front_right").setReversed(true);
+	}
 	
-	public void setLegPower(double right, double left) {
-		Lightning.getMotor("left_leg").setPower(left);
-		Lightning.getMotor("right_leg").setPower(right);
+	private void setLegPower(double pow) {
+		this.leftLeg.setPower(pow);
+		this.rightLeg.setPower(pow);
+	}
+	
+	public void walkForward() {
+		this.setLegPower(LEG_MOTOR_SPEED);
+	}
+	
+	public void walkBackward() {
+		this.setLegPower(-1 * LEG_MOTOR_SPEED);
+	}
+	
+	public void stopWalking() {
+		this.setLegPower(0);
 	}
 	
 	/**
-	 * Moves the booper servos
-	 *
-	 * <pre>
-	 * Boop the
-	 *    _
-	 *   / \
-	 *   |O|
-	 *    Y
-	 *    |
-	 *   / \
-	 *  /   \
-	 *
-	 *  THESE
-	 * </pre>
+	 * Engages the left booper servo.
 	 */
-	
-	public void setLeftBooper(boolean isBooping) {
-		Lightning.getServo("left_booper").moveToPosition(
-				isBooping ? BOOPER_STATIONARY : BOOPER_ENGAGED);
+	public void boopLeft() {
+		this.leftBooper.moveToPosition(BOOPER_UP_POSITION);
 	}
 	
 	/**
-	 * Moves the booper servos
-	 *
-	 * <pre>
-	 * Boop the
-	 *    _
-	 *   / \
-	 *   |O|
-	 *    Y
-	 *    |
-	 *   / \
-	 *  /   \
-	 *
-	 *  THESE
-	 * </pre>
+	 * Disengages the left booper servo.
 	 */
-	public void setRightBooper(boolean isBooping) {
-		Lightning.getServo("right_booper").moveToPosition(
-				isBooping ? BOOPER_ENGAGED : BOOPER_STATIONARY);
+	public void unboopLeft() {
+		this.leftBooper.moveToPosition(BOOPER_DOWN_POSITION);
 	}
 	
-	public void setPeopleServo(double power) {
-		Lightning.getMotor("people").setPower(power);
+	/**
+	 * Engages the right booper servo.
+	 */
+	public void boopRight() {
+		this.rightBooper.moveToPosition(BOOPER_UP_POSITION);
+	}
+	
+	/**
+	 * Disengages the right booper servo.
+	 */
+	public void unboopRight() {
+		this.rightBooper.moveToPosition(BOOPER_DOWN_POSITION);
+	}
+	
+	public void extendPeople() {
+		this.peopleCRServo.setPower(PEOPLE_SERVO_SPEED);
+	}
+	
+	public void retractPeople() {
+		this.peopleCRServo.setPower(-PEOPLE_SERVO_SPEED);
+	}
+	
+	public void stopMovingPeople() {
+		this.peopleCRServo.stop();
 	}
 
 }
