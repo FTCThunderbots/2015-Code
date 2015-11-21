@@ -34,6 +34,7 @@ public class ResQAutonomous extends Autonomous {
 
 	@Override
 	protected void initializeOpMode() {
+		super.initializeOpMode();
 		this.setRobot(new ResQRobot());
 		this.getRobot().initializeRobot();
 	}

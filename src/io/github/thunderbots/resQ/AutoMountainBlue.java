@@ -34,6 +34,7 @@ public class AutoMountainBlue extends Autonomous {
 
 	@Override
 	protected void initializeOpMode() {
+		super.initializeOpMode();
 		this.setRobot(new ResQRobot());
 		this.getRobot().initializeRobot();
 	}

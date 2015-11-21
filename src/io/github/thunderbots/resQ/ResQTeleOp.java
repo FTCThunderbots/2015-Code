@@ -33,6 +33,7 @@ public class ResQTeleOp extends TeleOp {
 
 	@Override
 	protected void initializeOpMode() {
+		super.initializeOpMode();
 		this.setRobot(new ResQRobot());
 		this.getRobot().initializeRobot();
 	}

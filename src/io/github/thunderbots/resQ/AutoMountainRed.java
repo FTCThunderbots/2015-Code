@@ -18,6 +18,7 @@ public class AutoMountainRed extends Autonomous{
 
 		@Override
 		protected void initializeOpMode() {
+			super.initializeOpMode();
 			this.setRobot(new ResQRobot());
 			this.getRobot().initializeRobot();
 		}
