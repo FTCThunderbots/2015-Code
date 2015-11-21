@@ -64,7 +64,7 @@ public class ResQTeleOp extends TeleOp {
 		} else if (Lightning.getJoystick(2).leftBumper()) {
 			this.getRobot().retractPeople();
 		} else {
-			this.getRobot().stopWalking(); 
+			this.getRobot().stopMovingPeople(); 
 		}
 	}
 
