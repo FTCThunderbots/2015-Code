@@ -3,7 +3,7 @@ package io.github.thunderbots.resQ;
 import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
 
-@OpMode(type="Autonomous", name="Auto Mountain Time [B]")
+@OpMode(type="Autonomous", name="Auto Mountain [T][B]")
 @Active
 public class ResQAutoMountainBlueTime extends ResQAutoMountainTime {
 
