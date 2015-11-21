@@ -1,4 +1,4 @@
-/* Copyright (C) 2015-2016 Thunderbots Robotics
+/* Copyright (C) 2015 Thunderbots Robotics
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,22 +16,24 @@
 
 package io.github.thunderbots.resQ;
 
-import io.github.thunderbots.lightning.annotation.Active;
-import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
+import io.github.thunderbots.lightning.utility.Util;
 
-@Active
-@OpMode(type="Autonomous", name="Auto Mountain [B]")
-public class AutoMountainBlue extends Autonomous {
-
+public abstract class ResQAutoMountainTime extends Autonomous {
+	
+	private static final double DRIVE_POWER = 0.75;
+	private static final double TURN_POWER = 0.75;
+	
 	@Override
 	protected ResQRobot getRobot() {
 		return (ResQRobot) super.getRobot();
 	}
 	
-	/** -1 is Red, 1 is Blue */
-	private final static int side = 1;
-
+	/**
+	 * -1 is Red, 1 is Blue
+	 */
+	protected abstract int getSide();
+	
 	@Override
 	protected void initializeOpMode() {
 		super.initializeOpMode();
@@ -41,10 +43,10 @@ public class AutoMountainBlue extends Autonomous {
 	
 	@Override
 	protected void main() {
-		this.getRobot().getDrive().driveSeconds(.75, 2.0);
-		this.getRobot().getDrive().waitAndStop(0.5);
-		this.getRobot().getDrive().rotateSeconds(.75 * AutoMountainBlue.side, .75);
-		this.getRobot().getDrive().driveSeconds(.75, 1.5);
+		this.getRobot().getDrive().driveSeconds(DRIVE_POWER, 2.0);
+		Util.sleep(500);
+		this.getRobot().getDrive().rotateSeconds(TURN_POWER * this.getSide(), 0.75);
+		this.getRobot().getDrive().driveSeconds(DRIVE_POWER, 1.5);
 	}
-
+	
 }
