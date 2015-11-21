@@ -44,7 +44,7 @@ public class AutoMountainBlue extends Autonomous {
 		this.getRobot().getDrive().driveSeconds(.75, 1.8);
 		this.getRobot().getDrive().waitAndStop(0.5);
 		this.getRobot().getDrive().rotateSeconds(.75 * AutoMountainBlue.side, .75);
-		this.getRobot().getDrive().driveSeconds(.75, 1.5);
+		this.getRobot().getDrive().driveSeconds(1.05, 1.5);
 	}
 
 }
