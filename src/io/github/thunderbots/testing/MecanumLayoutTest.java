@@ -6,6 +6,7 @@ import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.control.layout.ControlLayout;
 import io.github.thunderbots.lightning.control.layout.MecanumControlLayout;
 import io.github.thunderbots.lightning.opmode.TeleOpTest;
+import io.github.thunderbots.lightning.utility.Telemetry;
 
 @OpMode (type = "Teleop", name = "Mecanum layout test")
 public class MecanumLayoutTest extends TeleOpTest {
@@ -18,9 +19,9 @@ public class MecanumLayoutTest extends TeleOpTest {
 	@Override 
 	protected void mainLoop() {
 		Joystick drivingGamepad = Lightning.getJoystick(1);
-		Lightning.sendTelemetryData("Type", "Mecanum Control Layout");
+		Telemetry.sendTelemetryData("Type", "Mecanum Control Layout");
 		double right = ((MecanumControlLayout) this.getControlLayout()).getRightStrafePower(drivingGamepad);
-		Lightning.sendTelemetryData("right", right);
+		Telemetry.sendTelemetryData("right", right);
 	}
 	
 }

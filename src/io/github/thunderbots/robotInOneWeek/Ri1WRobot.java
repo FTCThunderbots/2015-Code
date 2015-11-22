@@ -20,6 +20,7 @@ import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.robot.Robot;
+import io.github.thunderbots.lightning.utility.Telemetry;
 
 public class Ri1WRobot extends Robot {
 
@@ -109,7 +110,7 @@ public class Ri1WRobot extends Robot {
 			this.bucketFingers1 = Lightning.getMotor(Ri1WRobot.BUCKET_FINGERS_NAMES[0]);
 			this.bucketFingers2 = Lightning.getMotor(Ri1WRobot.BUCKET_FINGERS_NAMES[1]);
 		} catch (Exception ex) {
-			Lightning.sendTelemetryData("Null: ", "Fingers are null");
+			Telemetry.sendTelemetryData("Null: ", "Fingers are null");
 		}
 	}
 
@@ -118,15 +119,15 @@ public class Ri1WRobot extends Robot {
 	 * through the telemetry link.
 	 */
 	public void addDebugInformation() {
-		Lightning.sendTelemetryData("Sweeper", this.sweeper.getPower());
-		Lightning.sendTelemetryData("Bucket", this.bucketTiltServo.getPosition());
-		Lightning.sendTelemetryData("Left boop", this.leftBooperServo.getPosition());
-		Lightning.sendTelemetryData("Right boop", this.rightBooperServo.getPosition());
+		Telemetry.sendTelemetryData("Sweeper", this.sweeper.getPower());
+		Telemetry.sendTelemetryData("Bucket", this.bucketTiltServo.getPosition());
+		Telemetry.sendTelemetryData("Left boop", this.leftBooperServo.getPosition());
+		Telemetry.sendTelemetryData("Right boop", this.rightBooperServo.getPosition());
 		if (this.bucketFingers1 != null) {
-			Lightning.sendTelemetryData("Fingers 1", this.bucketFingers1.getPower());
+			Telemetry.sendTelemetryData("Fingers 1", this.bucketFingers1.getPower());
 		}
 		if (this.bucketFingers2 != null) {
-			Lightning.sendTelemetryData("Fingers 2", this.bucketFingers2.getPower());
+			Telemetry.sendTelemetryData("Fingers 2", this.bucketFingers2.getPower());
 		}
 	}
 

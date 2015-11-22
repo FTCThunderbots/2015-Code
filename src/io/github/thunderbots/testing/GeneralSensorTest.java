@@ -18,6 +18,7 @@ package io.github.thunderbots.testing;
 
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
+import io.github.thunderbots.lightning.utility.Telemetry;
 
 import com.qualcomm.robotcore.hardware.AccelerationSensor;
 import com.qualcomm.robotcore.hardware.ColorSensor;
@@ -54,8 +55,8 @@ public class GeneralSensorTest extends LightningOpMode {
 			// AccelerationSensor sensor =
 			// this.hardwareMap.accelerationSensor.get(SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Lightning.sendTelemetryData("Type", "acceleration");
-				Lightning.sendTelemetryData("Data", sensor.getAcceleration());
+				Telemetry.sendTelemetryData("Type", "acceleration");
+				Telemetry.sendTelemetryData("Data", sensor.getAcceleration());
 			}
 		} catch (Exception ignore) {
 		}
@@ -65,8 +66,8 @@ public class GeneralSensorTest extends LightningOpMode {
 			// AccelerationSensor sensor =
 			// this.hardwareMap.accelerationSensor.get(SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Lightning.sendTelemetryData("Type", "color");
-				Lightning.sendTelemetryData("Data", sensor.toString());
+				Telemetry.sendTelemetryData("Type", "color");
+				Telemetry.sendTelemetryData("Data", sensor.toString());
 			}
 		} catch (Exception ignore) {
 		}
@@ -74,8 +75,8 @@ public class GeneralSensorTest extends LightningOpMode {
 		try {
 			CompassSensor sensor = Lightning.getSensor(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Lightning.sendTelemetryData("Type", "compass");
-				Lightning.sendTelemetryData("Data", sensor.getDirection());
+				Telemetry.sendTelemetryData("Type", "compass");
+				Telemetry.sendTelemetryData("Data", sensor.getDirection());
 			}
 		} catch (Exception ignore) {
 		}
@@ -83,8 +84,8 @@ public class GeneralSensorTest extends LightningOpMode {
 		try {
 			GyroSensor sensor = Lightning.getSensor(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Lightning.sendTelemetryData("Type", "gyro");
-				Lightning.sendTelemetryData("Data", sensor.getRotation());
+				Telemetry.sendTelemetryData("Type", "gyro");
+				Telemetry.sendTelemetryData("Data", sensor.getRotation());
 			}
 		} catch (Exception ignore) {
 		}
@@ -92,8 +93,8 @@ public class GeneralSensorTest extends LightningOpMode {
 		try {
 			IrSeekerSensor sensor = Lightning.getSensor(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Lightning.sendTelemetryData("Type", "ir seeker");
-				Lightning.sendTelemetryData("Data", sensor.getAngle() + ", " + sensor.getStrength());
+				Telemetry.sendTelemetryData("Type", "ir seeker");
+				Telemetry.sendTelemetryData("Data", sensor.getAngle() + ", " + sensor.getStrength());
 			}
 		} catch (Exception ignore) {
 		}
@@ -101,8 +102,8 @@ public class GeneralSensorTest extends LightningOpMode {
 		try {
 			LightSensor sensor = this.hardwareMap.lightSensor.get(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Lightning.sendTelemetryData("Type", "light");
-				Lightning.sendTelemetryData("Data", sensor.getLightDetected());
+				Telemetry.sendTelemetryData("Type", "light");
+				Telemetry.sendTelemetryData("Data", sensor.getLightDetected());
 			}
 		} catch (Exception ignore) {
 		}
@@ -111,8 +112,8 @@ public class GeneralSensorTest extends LightningOpMode {
 			OpticalDistanceSensor sensor =
 					this.hardwareMap.opticalDistanceSensor.get(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Lightning.sendTelemetryData("Type", "optical distance");
-				Lightning.sendTelemetryData("Data", sensor.getLightDetected());
+				Telemetry.sendTelemetryData("Type", "optical distance");
+				Telemetry.sendTelemetryData("Data", sensor.getLightDetected());
 			}
 		} catch (Exception ignore) {
 		}
@@ -120,8 +121,8 @@ public class GeneralSensorTest extends LightningOpMode {
 		try {
 			TouchSensor sensor = this.hardwareMap.touchSensor.get(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Lightning.sendTelemetryData("Type", "touch");
-				Lightning.sendTelemetryData("Data", sensor.getValue());
+				Telemetry.sendTelemetryData("Type", "touch");
+				Telemetry.sendTelemetryData("Data", sensor.getValue());
 			}
 		} catch (Exception ignore) {
 		}
@@ -129,8 +130,8 @@ public class GeneralSensorTest extends LightningOpMode {
 		try {
 			UltrasonicSensor sensor = this.hardwareMap.ultrasonicSensor.get(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Lightning.sendTelemetryData("Type", "ultrasonic");
-				Lightning.sendTelemetryData("Data", sensor.getUltrasonicLevel());
+				Telemetry.sendTelemetryData("Type", "ultrasonic");
+				Telemetry.sendTelemetryData("Data", sensor.getUltrasonicLevel());
 			}
 		} catch (Exception ignore) {
 		}

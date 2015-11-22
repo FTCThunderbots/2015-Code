@@ -18,6 +18,7 @@ package io.github.thunderbots.testing;
 
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
+import io.github.thunderbots.lightning.utility.Telemetry;
 import io.github.thunderbots.lightning.utility.Util;
 
 
@@ -86,9 +87,9 @@ public class TaskSchedulerTest extends LightningOpMode {
 		Lightning.getTaskScheduler().removeTask(this.runnableB);
 		Lightning.getTaskScheduler().removeTask(this.runnableC);
 		Util.sleep(100);
-		Lightning.sendTelemetryData("A", "done");
-		Lightning.sendTelemetryData("B", "done");
-		Lightning.sendTelemetryData("C", "done");
+		Telemetry.sendTelemetryData("A", "done");
+		Telemetry.sendTelemetryData("B", "done");
+		Telemetry.sendTelemetryData("C", "done");
 		
 		Util.sleep(DELAY);
 	}
@@ -103,7 +104,7 @@ public class TaskSchedulerTest extends LightningOpMode {
 
 		@Override
 		public void run() {
-			Lightning.sendTelemetryData(this.s, this.s);
+			Telemetry.sendTelemetryData(this.s, this.s);
 		}
 
 	}

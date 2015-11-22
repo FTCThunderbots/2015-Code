@@ -18,6 +18,7 @@ package io.github.thunderbots.testing;
 
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
+import io.github.thunderbots.lightning.utility.Telemetry;
 
 import com.qualcomm.robotcore.hardware.TouchSensor;
 
@@ -39,8 +40,8 @@ public class SensorTest extends LightningOpMode {
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
-			Lightning.sendTelemetryData("pressed", this.touch.isPressed());
-			Lightning.sendTelemetryData("value", this.touch.getValue());
+			Telemetry.sendTelemetryData("pressed", this.touch.isPressed());
+			Telemetry.sendTelemetryData("value", this.touch.getValue());
 		}
 	}
 

@@ -20,6 +20,7 @@ import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
+import io.github.thunderbots.lightning.utility.Telemetry;
 
 /**
  * Servo Test is designed to test servo functionality.
@@ -39,7 +40,7 @@ public class ServoTest extends LightningOpMode {
 	protected void main() {
 		while (this.opModeIsActive()) {
 			this.moveServoFromJoystick(Lightning.getJoystick(1));
-			Lightning.sendTelemetryData("servo", this.testServo.getPosition());
+			Telemetry.sendTelemetryData("servo", this.testServo.getPosition());
 		}
 	}
 
@@ -51,7 +52,7 @@ public class ServoTest extends LightningOpMode {
 			increment = -0.05;
 		}
 		this.testServo.move(increment);
-		Lightning.sendTelemetryData("delta", increment);
+		Telemetry.sendTelemetryData("delta", increment);
 	}
 
 }

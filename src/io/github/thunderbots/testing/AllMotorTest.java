@@ -19,6 +19,7 @@ package io.github.thunderbots.testing;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
+import io.github.thunderbots.lightning.utility.Telemetry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,7 @@ public class AllMotorTest extends LightningOpMode {
 			double power = Lightning.getJoystick(1).leftStickY();
 			for (Motor m : this.allMotors) {
 				m.setPower(power);
-				Lightning.sendTelemetryData(m.getName(), m.getRawPosition());
+				Telemetry.sendTelemetryData(m.getName(), m.getRawPosition());
 			}
 		}
 	}

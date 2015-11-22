@@ -21,6 +21,7 @@ import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
+import io.github.thunderbots.lightning.utility.Telemetry;
 
 /**
  * A quick demo to show the peer-to-peer communication between the two phones.
@@ -46,8 +47,8 @@ public class JoystickDemo extends LightningOpMode {
 		while (this.opModeIsActive()) {
 			Joystick joy1 = Lightning.getJoystick(1);
 			Joystick joy2 = Lightning.getJoystick(2);
-			Lightning.sendTelemetryData("Joy 1", joy1.toButtonList());
-			Lightning.sendTelemetryData("Joy 2", joy2.toButtonList());
+			Telemetry.sendTelemetryData("Joy 1", joy1.toButtonList());
+			Telemetry.sendTelemetryData("Joy 2", joy2.toButtonList());
 			if (this.servo != null) {
 				this.servo.moveToPosition(joy1.leftStickY());
 			}

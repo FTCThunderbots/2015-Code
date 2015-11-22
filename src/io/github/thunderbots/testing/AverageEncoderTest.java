@@ -19,6 +19,7 @@ package io.github.thunderbots.testing;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.hardware.MotorSet;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
+import io.github.thunderbots.lightning.utility.Telemetry;
 import io.github.thunderbots.lightning.utility.Util;
 
 public class AverageEncoderTest extends LightningOpMode {
@@ -91,7 +92,7 @@ public class AverageEncoderTest extends LightningOpMode {
 
 		@Override
 		public void run() {
-			Lightning.sendTelemetryData("Raw", AverageEncoderTest.this.motors.getAverageEncoderValue());
+			Telemetry.sendTelemetryData("Raw", AverageEncoderTest.this.motors.getAverageEncoderValue());
 		}
 		
 	}

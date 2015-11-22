@@ -19,6 +19,7 @@ package io.github.thunderbots.testing;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
+import io.github.thunderbots.lightning.utility.Telemetry;
 import io.github.thunderbots.lightning.utility.Util;
 
 public class EncoderTest extends LightningOpMode {
@@ -99,8 +100,8 @@ public class EncoderTest extends LightningOpMode {
 
 		@Override
 		public void run() {
-			Lightning.sendTelemetryData("Raw", EncoderTest.this.testMotor.getRawPosition());
-			Lightning.sendTelemetryData("Encoder", EncoderTest.this.testMotor.getEncoder().getPosition());
+			Telemetry.sendTelemetryData("Raw", EncoderTest.this.testMotor.getRawPosition());
+			Telemetry.sendTelemetryData("Encoder", EncoderTest.this.testMotor.getEncoder().getPosition());
 		}
 		
 	}
