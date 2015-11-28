@@ -19,9 +19,9 @@ public class MecanumLayoutTest extends TeleOpTest {
 	@Override 
 	protected void mainLoop() {
 		Joystick drivingGamepad = Lightning.getJoystick(1);
-		Telemetry.sendTelemetryData("Type", "Mecanum Control Layout");
+		Telemetry.sendData("Type", "Mecanum Control Layout");
 		double right = ((MecanumControlLayout) this.getControlLayout()).getRightStrafePower(drivingGamepad);
-		Telemetry.sendTelemetryData("right", right);
+		Telemetry.sendData("right", right);
 	}
 	
 }

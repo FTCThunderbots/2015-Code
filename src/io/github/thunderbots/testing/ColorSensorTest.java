@@ -47,10 +47,10 @@ public class ColorSensorTest extends LightningOpMode {
 
 		@Override
 		public void run() {
-			Telemetry.sendTelemetryData("red", ColorSensorTest.this.color.red());
-			Telemetry.sendTelemetryData("blue", ColorSensorTest.this.color.blue());
-			Telemetry.sendTelemetryData("green", ColorSensorTest.this.color.green());
-			Telemetry.sendTelemetryData("alpha", ColorSensorTest.this.color.alpha());
+			Telemetry.sendData("red", ColorSensorTest.this.color.red());
+			Telemetry.sendData("blue", ColorSensorTest.this.color.blue());
+			Telemetry.sendData("green", ColorSensorTest.this.color.green());
+			Telemetry.sendData("alpha", ColorSensorTest.this.color.alpha());
 		}
 		
 	}

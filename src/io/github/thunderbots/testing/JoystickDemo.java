@@ -47,8 +47,8 @@ public class JoystickDemo extends LightningOpMode {
 		while (this.opModeIsActive()) {
 			Joystick joy1 = Lightning.getJoystick(1);
 			Joystick joy2 = Lightning.getJoystick(2);
-			Telemetry.sendTelemetryData("Joy 1", joy1.toButtonList());
-			Telemetry.sendTelemetryData("Joy 2", joy2.toButtonList());
+			Telemetry.sendData("Joy 1", joy1.toButtonList());
+			Telemetry.sendData("Joy 2", joy2.toButtonList());
 			if (this.servo != null) {
 				this.servo.moveToPosition(joy1.leftStickY());
 			}

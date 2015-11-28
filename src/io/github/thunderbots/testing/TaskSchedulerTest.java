@@ -87,9 +87,9 @@ public class TaskSchedulerTest extends LightningOpMode {
 		Lightning.getTaskScheduler().removeTask(this.runnableB);
 		Lightning.getTaskScheduler().removeTask(this.runnableC);
 		Util.sleep(100);
-		Telemetry.sendTelemetryData("A", "done");
-		Telemetry.sendTelemetryData("B", "done");
-		Telemetry.sendTelemetryData("C", "done");
+		Telemetry.sendData("A", "done");
+		Telemetry.sendData("B", "done");
+		Telemetry.sendData("C", "done");
 		
 		Util.sleep(DELAY);
 	}
@@ -104,7 +104,7 @@ public class TaskSchedulerTest extends LightningOpMode {
 
 		@Override
 		public void run() {
-			Telemetry.sendTelemetryData(this.s, this.s);
+			Telemetry.sendData(this.s, this.s);
 		}
 
 	}

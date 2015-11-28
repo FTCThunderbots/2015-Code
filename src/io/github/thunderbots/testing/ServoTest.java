@@ -40,7 +40,7 @@ public class ServoTest extends LightningOpMode {
 	protected void main() {
 		while (this.opModeIsActive()) {
 			this.moveServoFromJoystick(Lightning.getJoystick(1));
-			Telemetry.sendTelemetryData("servo", this.testServo.getPosition());
+			Telemetry.sendData("servo", this.testServo.getPosition());
 		}
 	}
 
@@ -52,7 +52,7 @@ public class ServoTest extends LightningOpMode {
 			increment = -0.05;
 		}
 		this.testServo.move(increment);
-		Telemetry.sendTelemetryData("delta", increment);
+		Telemetry.sendData("delta", increment);
 	}
 
 }

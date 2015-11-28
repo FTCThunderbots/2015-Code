@@ -53,42 +53,42 @@ public class JoystickEventsTest extends LightningOpMode implements JoystickListe
 	
 	@ButtonHandler(button = JoystickButton.A, joystick = 1, type = PressType.PRESS)
 	public void onAButtonPress() {
-		Telemetry.sendTelemetryData("joy1", "A button pressed");
+		Telemetry.sendData("joy1", "A button pressed");
 	}
 	
 	@ButtonHandler(button = JoystickButton.A, joystick = 1, type = PressType.RELEASE)
 	public void onAButtonRelease() {
-		Telemetry.sendTelemetryData("joy1", "A button released");
+		Telemetry.sendData("joy1", "A button released");
 	}
 	
 	@ButtonHandler(button = JoystickButton.B, joystick = 1, type = PressType.PRESS)
 	public void onBButtonPress() {
-		Telemetry.sendTelemetryData("joy1", "B button pressed");
+		Telemetry.sendData("joy1", "B button pressed");
 	}
 	
 	@ButtonHandler(button = JoystickButton.B, joystick = 1, type = PressType.RELEASE)
 	public void onBButtonRelease() {
-		Telemetry.sendTelemetryData("joy1", "B button released");
+		Telemetry.sendData("joy1", "B button released");
 	}
 	
 	@ButtonHandler(button = JoystickButton.A, joystick = 2, type = PressType.PRESS)
 	public void onJ2AButtonPress() {
-		Telemetry.sendTelemetryData("joy2", "A button pressed");
+		Telemetry.sendData("joy2", "A button pressed");
 	}
 	
 	@ButtonHandler(button = JoystickButton.A, joystick = 2, type = PressType.RELEASE)
 	public void onJ2AButtonRelease() {
-		Telemetry.sendTelemetryData("joy2", "A button released");
+		Telemetry.sendData("joy2", "A button released");
 	}
 	
 	@ButtonHandler(button = JoystickButton.B, joystick = 2, type = PressType.PRESS)
 	public void onJ2BButtonPress() {
-		Telemetry.sendTelemetryData("joy2", "B button released");
+		Telemetry.sendData("joy2", "B button released");
 	}
 	
 	@ButtonHandler(button = JoystickButton.B, joystick = 2, type = PressType.RELEASE)
 	public void onJ2BButtonRelease() {
-		Telemetry.sendTelemetryData("joy2", "B button released");
+		Telemetry.sendData("joy2", "B button released");
 	}
 
 }

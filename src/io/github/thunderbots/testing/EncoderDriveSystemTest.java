@@ -55,12 +55,12 @@ public class EncoderDriveSystemTest extends ResQTeleOp {
 		@Override
 		public void run() {
 			for (int i = 0; i < 4; i++) {
-				Telemetry.sendTelemetryData("motor" + i, motorSet[i].getEncoder().getPosition());
+				Telemetry.sendData("motor" + i, motorSet[i].getEncoder().getPosition());
 			}
-			Telemetry.sendTelemetryData("drive", drive.getDriveTicks());
-			Telemetry.sendTelemetryData("rotate", drive.getRotateTicks());
-			Telemetry.sendTelemetryData("swingCW", drive.getSwingTicks(true));
-			Telemetry.sendTelemetryData("swingCCW", drive.getSwingTicks(false));
+			Telemetry.sendData("drive", drive.getDriveTicks());
+			Telemetry.sendData("rotate", drive.getRotateTicks());
+			Telemetry.sendData("swingCW", drive.getSwingTicks(true));
+			Telemetry.sendData("swingCCW", drive.getSwingTicks(false));
 		}
 		
 	}

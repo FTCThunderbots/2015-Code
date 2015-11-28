@@ -100,8 +100,8 @@ public class EncoderTest extends LightningOpMode {
 
 		@Override
 		public void run() {
-			Telemetry.sendTelemetryData("Raw", EncoderTest.this.testMotor.getRawPosition());
-			Telemetry.sendTelemetryData("Encoder", EncoderTest.this.testMotor.getEncoder().getPosition());
+			Telemetry.sendData("Raw", EncoderTest.this.testMotor.getRawPosition());
+			Telemetry.sendData("Encoder", EncoderTest.this.testMotor.getEncoder().getPosition());
 		}
 		
 	}

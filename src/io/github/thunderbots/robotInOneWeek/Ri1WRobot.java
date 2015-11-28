@@ -110,7 +110,7 @@ public class Ri1WRobot extends Robot {
 			this.bucketFingers1 = Lightning.getMotor(Ri1WRobot.BUCKET_FINGERS_NAMES[0]);
 			this.bucketFingers2 = Lightning.getMotor(Ri1WRobot.BUCKET_FINGERS_NAMES[1]);
 		} catch (Exception ex) {
-			Telemetry.sendTelemetryData("Null: ", "Fingers are null");
+			Telemetry.sendData("Null: ", "Fingers are null");
 		}
 	}
 
@@ -119,15 +119,15 @@ public class Ri1WRobot extends Robot {
 	 * through the telemetry link.
 	 */
 	public void addDebugInformation() {
-		Telemetry.sendTelemetryData("Sweeper", this.sweeper.getPower());
-		Telemetry.sendTelemetryData("Bucket", this.bucketTiltServo.getPosition());
-		Telemetry.sendTelemetryData("Left boop", this.leftBooperServo.getPosition());
-		Telemetry.sendTelemetryData("Right boop", this.rightBooperServo.getPosition());
+		Telemetry.sendData("Sweeper", this.sweeper.getPower());
+		Telemetry.sendData("Bucket", this.bucketTiltServo.getPosition());
+		Telemetry.sendData("Left boop", this.leftBooperServo.getPosition());
+		Telemetry.sendData("Right boop", this.rightBooperServo.getPosition());
 		if (this.bucketFingers1 != null) {
-			Telemetry.sendTelemetryData("Fingers 1", this.bucketFingers1.getPower());
+			Telemetry.sendData("Fingers 1", this.bucketFingers1.getPower());
 		}
 		if (this.bucketFingers2 != null) {
-			Telemetry.sendTelemetryData("Fingers 2", this.bucketFingers2.getPower());
+			Telemetry.sendData("Fingers 2", this.bucketFingers2.getPower());
 		}
 	}
 

@@ -55,8 +55,8 @@ public class GeneralSensorTest extends LightningOpMode {
 			// AccelerationSensor sensor =
 			// this.hardwareMap.accelerationSensor.get(SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Telemetry.sendTelemetryData("Type", "acceleration");
-				Telemetry.sendTelemetryData("Data", sensor.getAcceleration());
+				Telemetry.sendData("Type", "acceleration");
+				Telemetry.sendData("Data", sensor.getAcceleration());
 			}
 		} catch (Exception ignore) {
 		}
@@ -66,8 +66,8 @@ public class GeneralSensorTest extends LightningOpMode {
 			// AccelerationSensor sensor =
 			// this.hardwareMap.accelerationSensor.get(SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Telemetry.sendTelemetryData("Type", "color");
-				Telemetry.sendTelemetryData("Data", sensor.toString());
+				Telemetry.sendData("Type", "color");
+				Telemetry.sendData("Data", sensor.toString());
 			}
 		} catch (Exception ignore) {
 		}
@@ -75,8 +75,8 @@ public class GeneralSensorTest extends LightningOpMode {
 		try {
 			CompassSensor sensor = Lightning.getSensor(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Telemetry.sendTelemetryData("Type", "compass");
-				Telemetry.sendTelemetryData("Data", sensor.getDirection());
+				Telemetry.sendData("Type", "compass");
+				Telemetry.sendData("Data", sensor.getDirection());
 			}
 		} catch (Exception ignore) {
 		}
@@ -84,8 +84,8 @@ public class GeneralSensorTest extends LightningOpMode {
 		try {
 			GyroSensor sensor = Lightning.getSensor(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Telemetry.sendTelemetryData("Type", "gyro");
-				Telemetry.sendTelemetryData("Data", sensor.getRotation());
+				Telemetry.sendData("Type", "gyro");
+				Telemetry.sendData("Data", sensor.getRotation());
 			}
 		} catch (Exception ignore) {
 		}
@@ -93,8 +93,8 @@ public class GeneralSensorTest extends LightningOpMode {
 		try {
 			IrSeekerSensor sensor = Lightning.getSensor(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Telemetry.sendTelemetryData("Type", "ir seeker");
-				Telemetry.sendTelemetryData("Data", sensor.getAngle() + ", " + sensor.getStrength());
+				Telemetry.sendData("Type", "ir seeker");
+				Telemetry.sendData("Data", sensor.getAngle() + ", " + sensor.getStrength());
 			}
 		} catch (Exception ignore) {
 		}
@@ -102,8 +102,8 @@ public class GeneralSensorTest extends LightningOpMode {
 		try {
 			LightSensor sensor = this.hardwareMap.lightSensor.get(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Telemetry.sendTelemetryData("Type", "light");
-				Telemetry.sendTelemetryData("Data", sensor.getLightDetected());
+				Telemetry.sendData("Type", "light");
+				Telemetry.sendData("Data", sensor.getLightDetected());
 			}
 		} catch (Exception ignore) {
 		}
@@ -112,8 +112,8 @@ public class GeneralSensorTest extends LightningOpMode {
 			OpticalDistanceSensor sensor =
 					this.hardwareMap.opticalDistanceSensor.get(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Telemetry.sendTelemetryData("Type", "optical distance");
-				Telemetry.sendTelemetryData("Data", sensor.getLightDetected());
+				Telemetry.sendData("Type", "optical distance");
+				Telemetry.sendData("Data", sensor.getLightDetected());
 			}
 		} catch (Exception ignore) {
 		}
@@ -121,8 +121,8 @@ public class GeneralSensorTest extends LightningOpMode {
 		try {
 			TouchSensor sensor = this.hardwareMap.touchSensor.get(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Telemetry.sendTelemetryData("Type", "touch");
-				Telemetry.sendTelemetryData("Data", sensor.getValue());
+				Telemetry.sendData("Type", "touch");
+				Telemetry.sendData("Data", sensor.getValue());
 			}
 		} catch (Exception ignore) {
 		}
@@ -130,8 +130,8 @@ public class GeneralSensorTest extends LightningOpMode {
 		try {
 			UltrasonicSensor sensor = this.hardwareMap.ultrasonicSensor.get(GeneralSensorTest.SENSOR_NAME);
 			while (this.opModeIsActive()) {
-				Telemetry.sendTelemetryData("Type", "ultrasonic");
-				Telemetry.sendTelemetryData("Data", sensor.getUltrasonicLevel());
+				Telemetry.sendData("Type", "ultrasonic");
+				Telemetry.sendData("Data", sensor.getUltrasonicLevel());
 			}
 		} catch (Exception ignore) {
 		}

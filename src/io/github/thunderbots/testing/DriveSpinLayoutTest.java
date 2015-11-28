@@ -9,7 +9,7 @@ public class DriveSpinLayoutTest extends TeleOpTest {
 	
 	@Override 
 	protected void mainLoop() {
-		Telemetry.sendTelemetryData("Control", "Drive-Spin control layout");
+		Telemetry.sendData("Control", "Drive-Spin control layout");
 	}
 	
 }

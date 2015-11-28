@@ -46,7 +46,7 @@ public class AllMotorTest extends LightningOpMode {
 			double power = Lightning.getJoystick(1).leftStickY();
 			for (Motor m : this.allMotors) {
 				m.setPower(power);
-				Telemetry.sendTelemetryData(m.getName(), m.getRawPosition());
+				Telemetry.sendData(m.getName(), m.getRawPosition());
 			}
 		}
 	}

@@ -40,8 +40,8 @@ public class SensorTest extends LightningOpMode {
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
-			Telemetry.sendTelemetryData("pressed", this.touch.isPressed());
-			Telemetry.sendTelemetryData("value", this.touch.getValue());
+			Telemetry.sendData("pressed", this.touch.isPressed());
+			Telemetry.sendData("value", this.touch.getValue());
 		}
 	}
 

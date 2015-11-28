@@ -16,7 +16,7 @@ public class TankLayoutTest extends TeleOpTest {
 	
 	@Override 
 	protected void mainLoop() {
-		Telemetry.sendTelemetryData("Control", "Tank control layout");
+		Telemetry.sendData("Control", "Tank control layout");
 	}
 	
 }

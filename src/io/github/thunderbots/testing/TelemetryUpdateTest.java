@@ -29,7 +29,7 @@ public class TelemetryUpdateTest extends LightningOpMode {
 	@Override
 	protected void main() {
 		for (int i = 0; i < 10; i++) {
-			Telemetry.sendTelemetryData("Tag" + i, "Data" + i);
+			Telemetry.sendData("Tag" + i, "Data" + i);
 			Util.sleep(5000);
 		}
 	}

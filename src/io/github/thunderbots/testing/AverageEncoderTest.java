@@ -92,7 +92,7 @@ public class AverageEncoderTest extends LightningOpMode {
 
 		@Override
 		public void run() {
-			Telemetry.sendTelemetryData("Raw", AverageEncoderTest.this.motors.getAverageEncoderValue());
+			Telemetry.sendData("Raw", AverageEncoderTest.this.motors.getAverageEncoderValue());
 		}
 		
 	}
