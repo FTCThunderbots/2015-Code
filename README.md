@@ -6,7 +6,7 @@ This entire repository is open source, and is made available under the GNU Gener
 
 The license does provide a header that is recommended to be put at the top of every file in the repository. Some files in the repository here contain the header, but other files here may not, and they are all fully protected under the GPLv3 license. The header is provided as follows, and applies generically to all files in this repository, including other branches:
 
-> Copyright (C) 2015 Thunderbots-5604
+> Copyright (C) 2015-2016 Thunderbots Robotics
 > 
 > This program is free software: you can redistribute it and/or modify
 > it under the terms of the GNU General Public License as published by
