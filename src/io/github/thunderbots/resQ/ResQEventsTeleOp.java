@@ -42,18 +42,6 @@ public class ResQEventsTeleOp extends TeleOp implements JoystickListener {
 		this.getRobot().initializeRobot();
 	}
 	
-	@ButtonHandler(button=JoystickButton.A, joystick=2)
-	public void engageBoopServos() {
-		this.getRobot().boopLeft();
-		this.getRobot().boopRight();
-	}
-	
-	@ButtonHandler(button=JoystickButton.A, joystick=2)
-	public void disengageBoopServos() {
-		this.getRobot().unboopLeft();
-		this.getRobot().unboopRight();
-	}
-	
 	@ButtonHandler(button=JoystickButton.RIGHT_BUMPER, joystick=1)
 	public void walkForward() {
 		this.getRobot().walkForward();
@@ -78,33 +66,6 @@ public class ResQEventsTeleOp extends TeleOp implements JoystickListener {
 		Joystick driver = Lightning.getJoystick(1);
 		if (!driver.leftBumper()  && !driver.rightBumper()) {
 			this.getRobot().stopWalking();
-		}
-	}
-	
-	@ButtonHandler(button=JoystickButton.RIGHT_BUMPER, joystick=2)
-	public void extendPeople() {
-		this.getRobot().extendPeople();
-	}
-
-	@ButtonHandler(button=JoystickButton.RIGHT_BUMPER, joystick=2)
-	public void retractPeople() {
-		this.getRobot().extendPeople();
-	}
-
-	@ButtonHandler(button=JoystickButton.RIGHT_BUMPER, joystick=2, type=PressType.RELEASE)
-	public void stopExtendingPeople() {
-		this.stopMovingPeople();
-	}
-
-	@ButtonHandler(button=JoystickButton.RIGHT_BUMPER, joystick=2, type=PressType.RELEASE)
-	public void stopRetractingPeople() {
-		this.stopMovingPeople();
-	}
-	
-	public void stopMovingPeople() {
-		Joystick driver = Lightning.getJoystick(2);
-		if (!driver.leftBumper()  && !driver.rightBumper()) {
-			this.getRobot().stopMovingPeople();
 		}
 	}
 

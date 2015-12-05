@@ -10,7 +10,7 @@ public class EncoderTestAuto extends Autonomous{
 	
 	private static final double DRIVE_POWER = 0.80;
 	private static final double TURN_POWER = 0.80;
-	private static final double SWING_POWER = 0;
+	private static final double SWING_POWER = 0.80;
 	
 	@Override
 	protected ResQRobot getRobot() {

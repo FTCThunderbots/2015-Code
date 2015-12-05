@@ -18,18 +18,12 @@ package io.github.thunderbots.resQ;
 
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.hardware.Motor;
-import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.robot.Robot;
 
 public class ResQRobot extends Robot {
 	
 	private Motor leftLeg;
 	private Motor rightLeg;
-	
-	private Servo leftBooper;
-	private Servo rightBooper;
-	
-	private Motor peopleCRServo; // cr servo
 	
 	private static double BOOPER_UP_POSITION = .13;
 	private static double BOOPER_DOWN_POSITION = .82;
@@ -48,9 +42,6 @@ public class ResQRobot extends Robot {
 	public void initializeRobot() {
 		this.leftLeg = Lightning.getMotor("left_leg");
 		this.rightLeg = Lightning.getMotor("right_leg");
-		this.leftBooper = Lightning.getServo("left_booper");
-		this.rightBooper = Lightning.getServo("right_booper");
-		this.peopleCRServo = Lightning.getMotor("people");
 		
 		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("front_right").setReversed(true);
@@ -71,72 +62,6 @@ public class ResQRobot extends Robot {
 	
 	public void stopWalking() {
 		this.setLegPower(0);
-	}
-	
-	/**
-	 * Engages the left booper servo.
-	 */
-	public void boopLeft() {
-		this.leftBooper.moveToPosition(BOOPER_UP_POSITION);
-	}
-	
-	/**
-	 * Disengages the left booper servo.
-	 */
-	public void unboopLeft() {
-		this.leftBooper.moveToPosition(BOOPER_DOWN_POSITION);
-	}
-	
-	/**
-	 * Engages the right booper servo.
-	 */
-	public void boopRight() {
-		this.rightBooper.moveToPosition(BOOPER_UP_POSITION);
-	}
-	
-	/**
-	 * Disengages the right booper servo.
-	 */
-	public void unboopRight() {
-		this.rightBooper.moveToPosition(BOOPER_DOWN_POSITION);
-	}
-	
-	/**
-	 * Increment the right booper servo by BOOPER_INCREMENT.
-	 * 
-	 * @param forward Forward or backwards
-	 */
-	public void incrementRightBooper(boolean forward) {
-		if (forward) {
-			this.rightBooper.move(ResQRobot.BOOPER_INCREMENT);
-		} else {
-			this.rightBooper.move(-(ResQRobot.BOOPER_INCREMENT));
-		}
-	}
-	
-	/**
-	 * Increment the left booper servo by BOOPER_INCREMENT.
-	 * 
-	 * @param forward Forward or backwards
-	 */
-	public void incrementLeftBooper(boolean forward) {
-		if (forward) {
-			this.leftBooper.move(ResQRobot.BOOPER_INCREMENT);
-		} else {
-			this.leftBooper.move(-(ResQRobot.BOOPER_INCREMENT));
-		}
-	}
-	
-	public void extendPeople() {
-		this.peopleCRServo.setPower(PEOPLE_SERVO_SPEED);
-	}
-	
-	public void retractPeople() {
-		this.peopleCRServo.setPower(-PEOPLE_SERVO_SPEED);
-	}
-	
-	public void stopMovingPeople() {
-		this.peopleCRServo.stop();
 	}
 
 }
