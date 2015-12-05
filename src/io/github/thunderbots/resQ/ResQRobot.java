@@ -25,13 +25,7 @@ public class ResQRobot extends Robot {
 	private Motor leftLeg;
 	private Motor rightLeg;
 	
-	private static double BOOPER_UP_POSITION = .13;
-	private static double BOOPER_DOWN_POSITION = .82;
-	
 	private static double LEG_MOTOR_SPEED = 1.0;
-	private static double PEOPLE_SERVO_SPEED = 0.5;
-	
-	private static double BOOPER_INCREMENT = 0.01;
 	
 	@Override
 	public String[] getDriveMotorNames() {
