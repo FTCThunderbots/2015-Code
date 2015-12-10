@@ -46,6 +46,10 @@ public class ResQRobot extends Robot {
 //		this.leftBucketDoor = Lightning.getServo("left_bucket");
 //		this.rightBucketDoor = Lightning.getServo("right_bucket");
 		
+		// These values tested and accurate as of December 9
+		this.getDrive().setEncoderTicksPerDriveInch(131.25);
+		this.getDrive().setEncoderTicksPerRotationDegree(11.94);
+		
 		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("front_right").setReversed(true);
 	}
