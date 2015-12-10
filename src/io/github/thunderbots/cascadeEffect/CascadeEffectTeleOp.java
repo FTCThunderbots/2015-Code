@@ -22,7 +22,6 @@ import io.github.thunderbots.lightning.opmode.TeleOp;
 /**
  * @author Pranav Mathur
  */
-
 @OpMode(type = "TeleOp", name = "Cascade Effect")
 public class CascadeEffectTeleOp extends TeleOp {
 	
@@ -34,7 +33,6 @@ public class CascadeEffectTeleOp extends TeleOp {
 	@Override
 	protected void initializeOpMode() {
 		this.setRobot(new CascadeEffectRobot());
-		this.getRobot().initializeRobot();
 	}
 
 	@Override

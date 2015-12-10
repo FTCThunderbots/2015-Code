@@ -38,7 +38,6 @@ public abstract class ResQAutoMountainTime extends Autonomous {
 	protected void initializeOpMode() {
 		super.initializeOpMode();
 		this.setRobot(new ResQRobot());
-		this.getRobot().initializeRobot();
 	}
 	
 	@Override

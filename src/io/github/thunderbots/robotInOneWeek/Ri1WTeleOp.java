@@ -37,7 +37,6 @@ public class Ri1WTeleOp extends TeleOp {
 	@Override
 	protected void initializeOpMode() {
 		super.setRobot(new Ri1WRobot());
-		this.getRobot().initializeRobot();
 	}
 
 	@Override

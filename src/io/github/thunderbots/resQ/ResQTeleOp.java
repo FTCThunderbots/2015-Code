@@ -38,7 +38,6 @@ public class ResQTeleOp extends TeleOp implements JoystickListener {
 	protected void initializeOpMode() {
 		super.initializeOpMode();
 		this.setRobot(new ResQRobot());
-		this.getRobot().initializeRobot();
 		Lightning.getJoystickMonitor(1).registerJoystickListener(this);
 	}
 	

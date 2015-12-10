@@ -39,7 +39,6 @@ public class ResQEventsTeleOp extends TeleOp implements JoystickListener {
 		Lightning.getJoystickMonitor(1).registerJoystickListener(this);
 		Lightning.getJoystickMonitor(2).registerJoystickListener(this);
 		this.setRobot(new ResQRobot());
-		this.getRobot().initializeRobot();
 	}
 	
 	@ButtonHandler(button=JoystickButton.RIGHT_BUMPER, joystick=1)

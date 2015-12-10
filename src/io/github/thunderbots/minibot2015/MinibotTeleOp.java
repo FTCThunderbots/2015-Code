@@ -29,7 +29,6 @@ public class MinibotTeleOp extends TeleOp {
 	@Override
 	protected void initializeOpMode() {
 		this.setRobot(new MinibotRobot());
-		this.getRobot().initializeRobot();
 	}
 
 }

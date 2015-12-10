@@ -22,7 +22,6 @@ public class EncoderTestAuto extends Autonomous{
 	protected void initializeOpMode() {
 		super.initializeOpMode();
 		this.setRobot(new ResQRobot());
-		this.getRobot().initializeRobot();
 	}
 	
 	@Override
