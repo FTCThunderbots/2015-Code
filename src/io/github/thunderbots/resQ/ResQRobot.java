@@ -17,19 +17,18 @@
 package io.github.thunderbots.resQ;
 
 import io.github.thunderbots.lightning.Lightning;
-import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.robot.Robot;
 
 public class ResQRobot extends Robot {
 	
-	private Motor leftLeg;
-	private Motor rightLeg;
-	private Motor scoringArm;
+//	private Motor leftLeg;
+//	private Motor rightLeg;
+//	private Motor scoringArm;
 	
 	private Servo bucketTilt;
-	private Servo leftBucketDoor;
-	private Servo rightBucketDoor;
+//	private Servo leftBucketDoor;
+//	private Servo rightBucketDoor;
 	
 	private static double LEG_MOTOR_SPEED = 1.0;
 	
@@ -40,20 +39,20 @@ public class ResQRobot extends Robot {
 
 	@Override
 	public void initializeRobot() {
-		this.leftLeg = Lightning.getMotor("left_leg");
-		this.rightLeg = Lightning.getMotor("right_leg");
-		this.scoringArm = Lightning.getMotor("scoring_arm");
+//		this.leftLeg = Lightning.getMotor("left_leg");
+//		this.rightLeg = Lightning.getMotor("right_leg");
+//		this.scoringArm = Lightning.getMotor("scoring_arm");
 		this.bucketTilt = Lightning.getServo("bucket_tilt");
-		this.leftBucketDoor = Lightning.getServo("left_bucket");
-		this.rightBucketDoor = Lightning.getServo("right_bucket");
+//		this.leftBucketDoor = Lightning.getServo("left_bucket");
+//		this.rightBucketDoor = Lightning.getServo("right_bucket");
 		
 		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("front_right").setReversed(true);
 	}
 	
 	private void setLegPower(double pow) {
-		this.leftLeg.setPower(pow);
-		this.rightLeg.setPower(pow);
+//		this.leftLeg.setPower(pow);
+//		this.rightLeg.setPower(pow);
 	}
 	
 	public void walkForward() {
@@ -69,7 +68,7 @@ public class ResQRobot extends Robot {
 	}
 	
 	public void moveScoringArm(double pow) {
-		this.scoringArm.setPower(pow);
+//		this.scoringArm.setPower(pow);
 	}
 	
 	public void moveBucket(int pos) {
