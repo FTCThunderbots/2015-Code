@@ -18,12 +18,18 @@ package io.github.thunderbots.resQ;
 
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.hardware.Motor;
+import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.robot.Robot;
 
 public class ResQRobot extends Robot {
 	
 	private Motor leftLeg;
 	private Motor rightLeg;
+	private Motor scoringArm;
+	
+	private Servo bucketTilt;
+	private Servo leftBucketDoor;
+	private Servo rightBucketDoor;
 	
 	private static double LEG_MOTOR_SPEED = 1.0;
 	
@@ -36,6 +42,10 @@ public class ResQRobot extends Robot {
 	public void initializeRobot() {
 		this.leftLeg = Lightning.getMotor("left_leg");
 		this.rightLeg = Lightning.getMotor("right_leg");
+		this.scoringArm = Lightning.getMotor("scoring_arm");
+		this.bucketTilt = Lightning.getServo("bucket_tilt");
+		this.leftBucketDoor = Lightning.getServo("left_bucket");
+		this.rightBucketDoor = Lightning.getServo("right_bucket");
 		
 		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("front_right").setReversed(true);
@@ -56,6 +66,19 @@ public class ResQRobot extends Robot {
 	
 	public void stopWalking() {
 		this.setLegPower(0);
+	}
+	
+	public void moveScoringArm(double pow) {
+		this.scoringArm.setPower(pow);
+	}
+	
+	public void moveBucket(int pos) {
+		if (pos == -1)
+			this.bucketTilt.moveToPosition(0);
+		else if (pos == 0)
+			this.bucketTilt.moveToPosition(0.5);
+		else
+			this.bucketTilt.moveToPosition(1);
 	}
 
 }

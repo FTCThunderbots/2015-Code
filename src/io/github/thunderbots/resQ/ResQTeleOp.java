@@ -19,12 +19,15 @@ package io.github.thunderbots.resQ;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
+import io.github.thunderbots.lightning.control.ButtonHandler;
+import io.github.thunderbots.lightning.control.JoystickButton;
+import io.github.thunderbots.lightning.control.JoystickListener;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 import io.github.thunderbots.resQ.ResQRobot;
 
 @OpMode(name="Tele Op", type="TeleOp")
 @Active
-public class ResQTeleOp extends TeleOp {
+public class ResQTeleOp extends TeleOp implements JoystickListener {
 
 	@Override
 	protected ResQRobot getRobot() {
@@ -36,6 +39,7 @@ public class ResQTeleOp extends TeleOp {
 		super.initializeOpMode();
 		this.setRobot(new ResQRobot());
 		this.getRobot().initializeRobot();
+		Lightning.getJoystickMonitor(1).registerJoystickListener(this);
 	}
 	
 	protected void mainLoop() {
@@ -47,5 +51,26 @@ public class ResQTeleOp extends TeleOp {
 		} else {
 			this.getRobot().stopWalking();
 		}
+		
+		if (Lightning.getJoystick(2).leftStickY() < .1)
+			this.getRobot().moveScoringArm(Lightning.getJoystick(2).leftStickY());
+		else 
+			this.getRobot().moveScoringArm(0);
 	}
+	
+	@ButtonHandler(button = JoystickButton.A, joystick = 2)
+	public void onAButtonPress() {
+		this.getRobot().moveBucket(0);
+	}
+	
+	@ButtonHandler(button = JoystickButton.X, joystick = 2)
+	public void onXButtonPress() {
+		this.getRobot().moveBucket(-1);
+	}
+	
+	@ButtonHandler(button = JoystickButton.B, joystick = 2)
+	public void onBButtonPress() {
+		this.getRobot().moveBucket(1);
+	}
+	
 }
