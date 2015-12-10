@@ -16,14 +16,12 @@
 
 package io.github.thunderbots.testing;
 
-import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
 import io.github.thunderbots.lightning.utility.Telemetry;
 import io.github.thunderbots.lightning.utility.Util;
 
 @OpMode(type="Test", name="Telemetry Update Test")
-@Active
 public class TelemetryUpdateTest extends LightningOpMode {
 
 	@Override
