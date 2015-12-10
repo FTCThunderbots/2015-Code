@@ -71,5 +71,15 @@ public class ResQTeleOp extends TeleOp implements JoystickListener {
 	public void onBButtonPress() {
 		this.getRobot().moveBucket(1);
 	}
+
+	@ButtonHandler(button = JoystickButton.DPAD_UP, joystick = 2)
+	public void onUpButtonPress() {
+		this.getRobot().moveClimberArm(1);
+	}
+	
+	@ButtonHandler(button = JoystickButton.DPAD_DOWN, joystick = 2)
+	public void onDownButtonPress() {
+		this.getRobot().moveClimberArm(0);
+	}
 	
 }

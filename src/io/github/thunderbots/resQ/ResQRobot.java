@@ -29,6 +29,7 @@ public class ResQRobot extends Robot {
 	private Servo bucketTilt;
 //	private Servo leftBucketDoor;
 //	private Servo rightBucketDoor;
+	private Servo climberArm;
 	
 	private static double LEG_MOTOR_SPEED = 1.0;
 	
@@ -45,7 +46,7 @@ public class ResQRobot extends Robot {
 		this.bucketTilt = Lightning.getServo("bucket_tilt");
 //		this.leftBucketDoor = Lightning.getServo("left_bucket");
 //		this.rightBucketDoor = Lightning.getServo("right_bucket");
-		
+		this.climberArm = Lightning.getServo("climber_arm");
 		// These values tested and accurate as of December 9
 		this.getDrive().setEncoderTicksPerDriveInch(131.25);
 		this.getDrive().setEncoderTicksPerRotationDegree(11.94);
@@ -82,6 +83,10 @@ public class ResQRobot extends Robot {
 			this.bucketTilt.moveToPosition(0.5);
 		else
 			this.bucketTilt.moveToPosition(1);
+	}
+	
+	public void moveClimberArm(int pos) {
+		this.climberArm.moveToPosition(pos);
 	}
 
 }
