@@ -20,7 +20,7 @@ import io.github.thunderbots.lightning.drive.DriveSystem;
 import io.github.thunderbots.lightning.opmode.Autonomous;
 import io.github.thunderbots.resQ.ResQRobot;
 
-public abstract class ResQAutoSkydiversEnc extends Autonomous {
+public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 	
 	private static final double MOTOR_POWER = 0.8;
 	

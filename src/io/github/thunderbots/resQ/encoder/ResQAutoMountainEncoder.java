@@ -16,16 +16,35 @@
 
 package io.github.thunderbots.resQ.encoder;
 
-import io.github.thunderbots.lightning.annotation.Active;
-import io.github.thunderbots.lightning.annotation.OpMode;
+import io.github.thunderbots.lightning.opmode.Autonomous;
+import io.github.thunderbots.lightning.utility.Util;
+import io.github.thunderbots.resQ.ResQRobot;
 
-@OpMode(type="Autonomous", name="Auto Skydivers Blue")
-@Active
-public class ResQAutoSkydiversEncBlue extends ResQAutoSkydiversEnc {
+public abstract class ResQAutoMountainEncoder extends Autonomous {
 	
 	@Override
-	protected int getSide() {
-		return 1;
+	protected ResQRobot getRobot() {
+		return (ResQRobot) super.getRobot();
 	}
 	
+	/**
+	 * -1 is Red, 1 is Blue
+	 */
+	protected abstract int getSide();
+	
+	@Override
+	protected void initializeOpMode() {
+		super.initializeOpMode();
+		this.setRobot(new ResQRobot());
+	}
+
+	@Override
+	protected void main() {
+		this.getRobot().getDrive().driveInches(.5, 24);
+		Util.sleep(3000);
+		this.getRobot().getDrive().rotateDegrees(.5, 180);
+		Util.sleep(3000);
+		this.getRobot().getDrive().driveInches(.5, 24);
+	}
+
 }

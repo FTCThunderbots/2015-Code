@@ -19,14 +19,13 @@ package io.github.thunderbots.resQ.encoder;
 import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
 
-@OpMode(type="Autonomous", name="Auto Skydivers Red")
+@OpMode(type="Autonomous", name="Auto Skydivers [E][B]")
 @Active
-public class ResQAutoSkydiversEncRed extends ResQAutoSkydiversEnc {
+public class ResQAutoSkydiversEncoderBlue extends ResQAutoSkydiversEncoder {
 	
 	@Override
 	protected int getSide() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 	
 }
