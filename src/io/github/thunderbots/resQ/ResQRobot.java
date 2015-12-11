@@ -50,12 +50,12 @@ public class ResQRobot extends Robot {
 	public void initializeRobot() {
 		this.leftLeg = Lightning.getMotor("left_leg");
 		this.rightLeg = Lightning.getMotor("right_leg");
-		//this.scoringArm = Lightning.getMotor("scoring_arm");
-		//this.bucketTilt = Lightning.getServo("bucket_tilt");
-		//this.leftBucketDoor = Lightning.getServo("left_bucket");
-		//this.rightBucketDoor = Lightning.getServo("right_bucket");
-		//this.climberArm = Lightning.getServo("climber_arm");
-		// These values tested and accurate as of December 9
+		this.scoringArm = Lightning.getMotor("scoring_arm");
+		this.bucketTilt = Lightning.getServo("bucket_tilt");
+		this.blueBucketDoor = Lightning.getServo("left_bucket");
+		this.redBucketDoor = Lightning.getServo("right_bucket");
+		this.climberArm = Lightning.getServo("climber_arm");
+		//These values tested and accurate as of December 9
 		this.getDrive().setEncoderTicksPerDriveInch(131.25);
 		this.getDrive().setEncoderTicksPerRotationDegree(11.94);
 		
@@ -127,20 +127,20 @@ public class ResQRobot extends Robot {
 	 */
 	
 	public void moveScoringArm(double pow) {
-		//this.scoringArm.setPower(pow);
+		this.scoringArm.setPower(pow);
 	}
 	
 	public void moveBucket(int pos) {
-//		if (pos == -1)
-//			this.bucketTilt.moveToPosition(0);
-//		else if (pos == 0)
-//			this.bucketTilt.moveToPosition(0.5);
-//		else
-//			this.bucketTilt.moveToPosition(1);
+		if (pos == -1)
+			this.bucketTilt.moveToPosition(0);
+		else if (pos == 0)
+			this.bucketTilt.moveToPosition(0.5);
+		else
+			this.bucketTilt.moveToPosition(1);
 	}
 	
 	public void moveClimberArm(int pos) {
-		//this.climberArm.moveToPosition(pos);
+		this.climberArm.moveToPosition(pos);
 	}
 
 }
