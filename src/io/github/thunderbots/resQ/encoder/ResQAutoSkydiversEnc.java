@@ -14,10 +14,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.thunderbots.resQ;
+package io.github.thunderbots.resQ.encoder;
 
 import io.github.thunderbots.lightning.drive.DriveSystem;
 import io.github.thunderbots.lightning.opmode.Autonomous;
+import io.github.thunderbots.resQ.ResQRobot;
 
 public abstract class ResQAutoSkydiversEnc extends Autonomous {
 	

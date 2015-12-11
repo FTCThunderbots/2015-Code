@@ -14,15 +14,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.thunderbots.resQ;
+package io.github.thunderbots.resQ.encoder;
 
 import io.github.thunderbots.lightning.opmode.Autonomous;
 import io.github.thunderbots.lightning.utility.Util;
+import io.github.thunderbots.resQ.ResQRobot;
 
-public abstract class ResQAutoMountainTime extends Autonomous {
-	
-	private static final double DRIVE_POWER = 0.75;
-	private static final double TURN_POWER = 0.75;
+public abstract class ResQAutoEncoders extends Autonomous {
 	
 	@Override
 	protected ResQRobot getRobot() {
@@ -39,13 +37,14 @@ public abstract class ResQAutoMountainTime extends Autonomous {
 		super.initializeOpMode();
 		this.setRobot(new ResQRobot());
 	}
-	
+
 	@Override
 	protected void main() {
-		this.getRobot().getDrive().driveSeconds(DRIVE_POWER, 1.8);
-		Util.sleep(500);
-		this.getRobot().getDrive().rotateSeconds(TURN_POWER * this.getSide(), 0.9);
-		this.getRobot().getDrive().driveSeconds(DRIVE_POWER, 1.65);
+		this.getRobot().getDrive().driveInches(.5, 24);
+		Util.sleep(3000);
+		this.getRobot().getDrive().rotateDegrees(.5, 180);
+		Util.sleep(3000);
+		this.getRobot().getDrive().driveInches(.5, 24);
 	}
-	
+
 }

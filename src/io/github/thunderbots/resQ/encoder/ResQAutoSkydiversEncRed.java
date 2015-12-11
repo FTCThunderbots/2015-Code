@@ -14,18 +14,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package io.github.thunderbots.resQ;
+package io.github.thunderbots.resQ.encoder;
 
 import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
 
-@OpMode(type="Autonomous", name="Auto Skydivers Blue")
+@OpMode(type="Autonomous", name="Auto Skydivers Red")
 @Active
-public class ResQAutoSkydiversEncBlue extends ResQAutoSkydiversEnc {
+public class ResQAutoSkydiversEncRed extends ResQAutoSkydiversEnc {
 	
 	@Override
 	protected int getSide() {
-		return 1;
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }

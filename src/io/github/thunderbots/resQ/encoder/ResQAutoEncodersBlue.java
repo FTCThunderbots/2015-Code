@@ -1,4 +1,4 @@
-package io.github.thunderbots.resQ;
+package io.github.thunderbots.resQ.encoder;
 
 import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;

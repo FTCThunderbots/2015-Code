@@ -1,4 +1,4 @@
-package io.github.thunderbots.resQ;
+package io.github.thunderbots.resQ.time;
 
 import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
