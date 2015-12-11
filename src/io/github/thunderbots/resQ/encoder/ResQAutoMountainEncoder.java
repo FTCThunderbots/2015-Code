@@ -16,11 +16,15 @@
 
 package io.github.thunderbots.resQ.encoder;
 
+import io.github.thunderbots.lightning.drive.DriveSystem;
 import io.github.thunderbots.lightning.opmode.Autonomous;
 import io.github.thunderbots.lightning.utility.Util;
 import io.github.thunderbots.resQ.ResQRobot;
 
 public abstract class ResQAutoMountainEncoder extends Autonomous {
+	
+	private static final double MOVEMENT_POWER = 0.8;
+	private static final long STEP_DELAY = 1500; // in milliseconds
 	
 	@Override
 	protected ResQRobot getRobot() {
@@ -40,11 +44,19 @@ public abstract class ResQAutoMountainEncoder extends Autonomous {
 
 	@Override
 	protected void main() {
-		this.getRobot().getDrive().driveInches(.5, 24);
-		Util.sleep(3000);
-		this.getRobot().getDrive().rotateDegrees(.5, 180);
-		Util.sleep(3000);
-		this.getRobot().getDrive().driveInches(.5, 24);
+		DriveSystem ds = this.getRobot().getDrive(); // for brevity
+		
+		// start in front of the driver station
+		
+		// drive forward to mountain
+		ds.driveInches(MOVEMENT_POWER, 24);
+		Util.sleep(STEP_DELAY);
+		// rotate to face the mountain
+		ds.rotateDegrees(MOVEMENT_POWER * this.getSide(), 90 * this.getSide());
+		Util.sleep(STEP_DELAY);
+		// drive up the mountain
+		ds.driveInches(MOVEMENT_POWER, 10);
+		Util.sleep(STEP_DELAY);
 	}
 
 }

@@ -25,8 +25,7 @@ public class ResQAutoSkydiversEncoderRed extends ResQAutoSkydiversEncoder {
 	
 	@Override
 	protected int getSide() {
-		// TODO Auto-generated method stub
-		return 0;
+		return -1;
 	}
 	
 }
