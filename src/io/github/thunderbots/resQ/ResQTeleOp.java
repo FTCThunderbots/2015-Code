@@ -51,7 +51,7 @@ public class ResQTeleOp extends TeleOp implements JoystickListener {
 			this.getRobot().stopWalking();
 		}
 		
-		if (Lightning.getJoystick(2).leftStickY() < .1)
+		if (Math.abs(Lightning.getJoystick(2).leftStickY()) < .1)
 			this.getRobot().moveScoringArm(Lightning.getJoystick(2).leftStickY());
 		else 
 			this.getRobot().moveScoringArm(0);
