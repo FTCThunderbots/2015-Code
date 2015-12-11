@@ -28,11 +28,18 @@ public class ResQRobot extends Robot {
 	private Motor scoringArm;
 	
 	private Servo bucketTilt;
-	private Servo leftBucketDoor;
-	private Servo rightBucketDoor;
+	private Servo blueBucketDoor;
+	private Servo redBucketDoor;
 	private Servo climberArm;
 	
-	private static double LEG_MOTOR_SPEED = 1.0;
+	private static final double LEG_MOTOR_SPEED = 1.0;
+	
+	private static final double BUCKET_TILT_INCREMENT = 0.05;
+	
+	// These values are calculated for the blue side
+	// TODO set these values
+	private static final double BUCKET_DOOR_OPEN_POSITION = 1; 
+	private static final double BUCKET_DOOR_CLOSED_POSITION = 0;
 	
 	@Override
 	public String[] getDriveMotorNames() {
@@ -56,10 +63,9 @@ public class ResQRobot extends Robot {
 		Lightning.getMotor("front_right").setReversed(true);
 	}
 	
-	private void setLegPower(double pow) {
-//		this.leftLeg.setPower(pow);
-//		this.rightLeg.setPower(pow);
-	}
+	/*
+	 * Walking stuff
+	 */
 	
 	public void walkForward() {
 		this.setLegPower(LEG_MOTOR_SPEED);
@@ -72,6 +78,53 @@ public class ResQRobot extends Robot {
 	public void stopWalking() {
 		this.setLegPower(0);
 	}
+	
+	private void setLegPower(double pow) {
+		this.leftLeg.setPower(pow);
+		this.rightLeg.setPower(pow);
+	}
+	
+	/*
+	 * Bucket tilt stuff
+	 */
+	
+	public void tiltBucketCW() {
+		this.tiltBucket(1);
+	}
+	
+	public void tiltBucketCCW() {
+		this.tiltBucket(-1);
+	}
+	
+	private void tiltBucket(int direction) {
+		this.bucketTilt.move(BUCKET_TILT_INCREMENT * direction);
+	}
+	
+	/*
+	 * Bucket door opening/closing
+	 */
+	
+	public void openBlueBucketDoor() {
+		this.blueBucketDoor.moveToPosition(BUCKET_DOOR_OPEN_POSITION);
+	}
+	
+	public void closeBlueBucketDoor() {
+		this.blueBucketDoor.moveToPosition(BUCKET_DOOR_CLOSED_POSITION);
+	}
+	
+	public void openRedBucketDoor() {
+		this.redBucketDoor.moveToPosition(Servo.MAX_POSITION
+				- BUCKET_DOOR_OPEN_POSITION);
+	}
+	
+	public void closeRedBucketDoor() {
+		this.redBucketDoor.moveToPosition(Servo.MAX_POSITION
+				- BUCKET_DOOR_CLOSED_POSITION);
+	}
+	
+	/*
+	 * Old, outdated stuff
+	 */
 	
 	public void moveScoringArm(double pow) {
 		//this.scoringArm.setPower(pow);
