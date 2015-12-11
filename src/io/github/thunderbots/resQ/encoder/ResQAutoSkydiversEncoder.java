@@ -73,8 +73,6 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 		// drive up the mountain
 		ds.driveInches(MOVEMENT_POWER, 10);
 		Util.sleep(STEP_DELAY);
-		
-		// ayy lmao
 	}
 	
 }
