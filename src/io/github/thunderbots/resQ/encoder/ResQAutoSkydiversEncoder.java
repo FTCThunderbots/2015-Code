@@ -49,30 +49,33 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 		// start in front of the driver station
 		
 		// drive forward to the beacon repair area
-		ds.driveInches(MOVEMENT_POWER, 60);
+		ds.driveInches(MOVEMENT_POWER, 100);
 		Util.sleep(STEP_DELAY);
-		// rotate to square with the basket
-		ds.rotateDegrees(MOVEMENT_POWER * this.getSide(), 15 * this.getSide());
-		Util.sleep(STEP_DELAY);
-		// move forward a little bit to reach the bucket
-		ds.driveInches(MOVEMENT_POWER, 6);
-		Util.sleep(STEP_DELAY);
+		//commented until further notice
+//		// rotate to square with the basket
+//		ds.rotateDegrees(MOVEMENT_POWER * this.getSide(), 15 * this.getSide());
+//		Util.sleep(STEP_DELAY);
+//		// move forward a little bit to reach the bucket
+//		ds.driveInches(MOVEMENT_POWER, 6);
+//		Util.sleep(STEP_DELAY);
 		// TODO: drop the skydivers here
 		// back up to get room to rotate
-		ds.driveInches(-MOVEMENT_POWER, -6);
-		Util.sleep(STEP_DELAY);
-		// rotate to go back to the mountain
-		ds.rotateDegrees(-MOVEMENT_POWER * this.getSide(), -15 * this.getSide());
-		Util.sleep(STEP_DELAY);
-		// go back to the mountain
-		ds.driveInches(-MOVEMENT_POWER, -30);
-		Util.sleep(STEP_DELAY);
-		// rotate to face the mountain
-		ds.rotateDegrees(MOVEMENT_POWER * this.getSide(), 90 * this.getSide());
-		Util.sleep(STEP_DELAY);
-		// drive up the mountain
-		ds.driveInches(MOVEMENT_POWER, 10);
-		Util.sleep(STEP_DELAY);
+		//ds.moveScoringArm
+		//ds.driveInches(-MOVEMENT_POWER, -6);
+		//Util.sleep(STEP_DELAY);
+//		// rotate to go back to the mountain
+//		ds.rotateDegrees(-MOVEMENT_POWER * this.getSide(), -15 * this.getSide());
+//		Util.sleep(STEP_DELAY);
+//		// go back to the mountain
+//		ds.driveInches(-MOVEMENT_POWER, -30);
+//		Util.sleep(STEP_DELAY);
+//		// rotate to face the mountain
+//		ds.rotateDegrees(MOVEMENT_POWER * this.getSide(), 90 * this.getSide());
+//		Util.sleep(STEP_DELAY);
+//		// drive up the mountain
+//		ds.driveInches(MOVEMENT_POWER, 10);
+//		Util.sleep(STEP_DELAY);
+		
 	}
 	
 }
