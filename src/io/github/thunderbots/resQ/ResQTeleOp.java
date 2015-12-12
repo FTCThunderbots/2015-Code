@@ -19,8 +19,6 @@ package io.github.thunderbots.resQ;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
-import io.github.thunderbots.lightning.control.ButtonHandler;
-import io.github.thunderbots.lightning.control.JoystickButton;
 import io.github.thunderbots.lightning.control.JoystickListener;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 import io.github.thunderbots.resQ.ResQRobot;
@@ -55,31 +53,18 @@ public class ResQTeleOp extends TeleOp implements JoystickListener {
 			this.getRobot().moveScoringArm(Lightning.getJoystick(2).leftStickY());
 		else 
 			this.getRobot().moveScoringArm(0);
-	}
-	
-	@ButtonHandler(button = JoystickButton.A, joystick = 2)
-	public void onAButtonPress() {
-		this.getRobot().moveBucket(0);
-	}
-	
-	@ButtonHandler(button = JoystickButton.X, joystick = 2)
-	public void onXButtonPress() {
-		this.getRobot().moveBucket(-1);
-	}
-	
-	@ButtonHandler(button = JoystickButton.B, joystick = 2)
-	public void onBButtonPress() {
-		this.getRobot().moveBucket(1);
-	}
-
-	@ButtonHandler(button = JoystickButton.DPAD_UP, joystick = 2)
-	public void onUpButtonPress() {
-		this.getRobot().moveClimberArm(1);
-	}
-	
-	@ButtonHandler(button = JoystickButton.DPAD_DOWN, joystick = 2)
-	public void onDownButtonPress() {
-		this.getRobot().moveClimberArm(0);
+		
+		if (Lightning.getJoystick(2).aButton())
+			this.getRobot().moveBucket(0);
+		else if (Lightning.getJoystick(2).xButton())
+			this.getRobot().moveBucket(-1);
+		else if (Lightning.getJoystick(2).bButton())
+			this.getRobot().moveBucket(1);
+		
+		if (Lightning.getJoystick(2).upButton())
+			this.getRobot().moveClimberArm(1);
+		if (Lightning.getJoystick(2).downButton())
+			this.getRobot().moveClimberArm(0);
 	}
 	
 }
