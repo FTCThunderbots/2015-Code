@@ -40,6 +40,8 @@ public class ResQTeleOp extends TeleOp {
 		this.getRobot().closeRedBucketDoor();
 		this.getRobot().moveRightClimberArm(0);
 		this.getRobot().moveLeftClimberArm(1);
+		this.getRobot().closeLeftBooper();
+		this.getRobot().closeRightBooper();
 	}
 	
 	protected void mainLoop() {

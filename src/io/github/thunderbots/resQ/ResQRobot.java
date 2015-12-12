@@ -44,16 +44,16 @@ public class ResQRobot extends Robot {
 	// These values are calculated for the blue side
 	// TODO set these values
 	private static final double BLUE_BUCKET_DOOR_OPEN_POSITION = 0; 
-	private static final double BLUE_BUCKET_DOOR_CLOSED_POSITION = 1;
+	private static final double BLUE_BUCKET_DOOR_CLOSED_POSITION = .45;
 	
-	private static final double LEFT_BOOPER_OPEN_POSITION = 0;
-	private static final double LEFT_BOOPER_CLOSED_POSITION = 1;
+	private static final double LEFT_BOOPER_OPEN_POSITION = 1;
+	private static final double LEFT_BOOPER_CLOSED_POSITION = .45;
 	
 	private static final double RED_BUCKET_DOOR_OPEN_POSITION = 0; 
-	private static final double RED_BUCKET_DOOR_CLOSED_POSITION = 1;
+	private static final double RED_BUCKET_DOOR_CLOSED_POSITION = .45;
 	
-	private static final double RIGHT_BOOPER_OPEN_POSITION = 1;
-	private static final double RIGHT_BOOPER_CLOSED_POSITION = 0;
+	private static final double RIGHT_BOOPER_OPEN_POSITION = 0;
+	private static final double RIGHT_BOOPER_CLOSED_POSITION = .4;
 	
 	@Override
 	public String[] getDriveMotorNames() {
