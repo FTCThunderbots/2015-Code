@@ -38,6 +38,8 @@ public class ResQTeleOp extends TeleOp {
 		this.getRobot().moveBucket(0);
 		this.getRobot().closeBlueBucketDoor();
 		this.getRobot().closeRedBucketDoor();
+		this.getRobot().moveRightClimberArm(0);
+		this.getRobot().moveLeftClimberArm(1);
 	}
 	
 	protected void mainLoop() {
@@ -57,10 +59,15 @@ public class ResQTeleOp extends TeleOp {
 		else if (Lightning.getJoystick(2).xButton())
 			this.getRobot().moveBucket(1);
 		
-		if (Lightning.getJoystick(2).upButton())
-			this.getRobot().moveClimberArms(1);
-		else if (Lightning.getJoystick(2).downButton())
-			this.getRobot().moveClimberArms(0);
+		if (Lightning.getJoystick(2).upButton()) {
+			this.getRobot().moveRightClimberArm(1);
+			this.getRobot().moveLeftClimberArm(0);
+		}
+		
+		else if (Lightning.getJoystick(2).downButton()) {
+			this.getRobot().moveRightClimberArm(0);
+			this.getRobot().moveLeftClimberArm(1);
+		}
 		
 		if (Lightning.getJoystick(2).leftBumper())
 			this.getRobot().moveScoringArm(1);

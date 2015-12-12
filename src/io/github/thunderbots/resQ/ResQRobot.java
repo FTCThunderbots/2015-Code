@@ -173,10 +173,12 @@ public class ResQRobot extends Robot {
 			this.bucketTilt.moveToPosition(1);
 	}
 	
-	public void moveClimberArms(int pos) {
+	public void moveLeftClimberArm(int pos) {
 		this.leftClimberArm.moveToPosition(pos);
-		this.rightClimberArm.moveToPosition(pos);
 		
+	}
+	public void moveRightClimberArm(int pos) {
+		this.rightClimberArm.moveToPosition(pos);
 	}
 	
 	public void moveSweeper(int pow) {
