@@ -35,6 +35,9 @@ public class ResQTeleOp extends TeleOp {
 	protected void initializeOpMode() {
 		super.initializeOpMode();
 		this.setRobot(new ResQRobot());
+		this.getRobot().moveBucket(0);
+		this.getRobot().closeBlueBucketDoor();
+		this.getRobot().closeRedBucketDoor();
 	}
 	
 	protected void mainLoop() {
