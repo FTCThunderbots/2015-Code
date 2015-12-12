@@ -47,11 +47,6 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().stopWalking();
 		}
 		
-		if (Math.abs(Lightning.getJoystick(2).leftStickY()) < .1)
-			this.getRobot().moveScoringArm(Lightning.getJoystick(2).leftStickY());
-		else 
-			this.getRobot().moveScoringArm(0);
-		
 		if (Lightning.getJoystick(2).aButton())
 			this.getRobot().moveBucket(0);
 		else if (Lightning.getJoystick(2).xButton())
