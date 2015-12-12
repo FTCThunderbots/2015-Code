@@ -45,9 +45,8 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 	@Override
 	protected void main() {
 		DriveSystem ds = this.getRobot().getDrive(); // for brevity
-		
+		ResQRobot resQRobot = new ResQRobot(); //creating instance of the class here
 		// start in front of the driver station
-		
 		// drive forward to the beacon repair area
 		ds.driveInches(MOVEMENT_POWER, 100);
 		Util.sleep(STEP_DELAY);
@@ -60,7 +59,7 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 //		Util.sleep(STEP_DELAY);
 		// TODO: drop the skydivers here
 		// back up to get room to rotate
-		//ds.moveScoringArm
+		resQRobot.moveClimberArms(1);
 		//ds.driveInches(-MOVEMENT_POWER, -6);
 		//Util.sleep(STEP_DELAY);
 //		// rotate to go back to the mountain
