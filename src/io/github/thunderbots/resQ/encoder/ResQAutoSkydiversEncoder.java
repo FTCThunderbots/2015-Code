@@ -59,7 +59,8 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 //		Util.sleep(STEP_DELAY);
 		// TODO: drop the skydivers here
 		// back up to get room to rotate
-		resQRobot.moveClimberArms(1);
+		resQRobot.moveLeftClimberArm(0);
+		resQRobot.moveRightClimberArm(1);
 		//ds.driveInches(-MOVEMENT_POWER, -6);
 		//Util.sleep(STEP_DELAY);
 //		// rotate to go back to the mountain
