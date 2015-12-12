@@ -61,8 +61,6 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().moveClimberArms(1);
 		else if (Lightning.getJoystick(2).downButton())
 			this.getRobot().moveClimberArms(0);
-		else
-			this.getRobot().moveClimberArms(0);
 		
 		if (Lightning.getJoystick(2).leftBumper())
 			this.getRobot().moveScoringArm(1);
