@@ -50,12 +50,12 @@ public class ResQRobot extends Robot {
 	public void initializeRobot() {
 		this.leftLeg = Lightning.getMotor("left_leg");
 		this.rightLeg = Lightning.getMotor("right_leg");
-		this.scoringArm = Lightning.getMotor("scoring_arm");
+		//this.scoringArm = Lightning.getMotor("scoring_arm");
 		this.bucketTilt = Lightning.getServo("bucket_tilt");
 		this.blueBucketDoor = Lightning.getServo("left_bucket");
 		this.redBucketDoor = Lightning.getServo("right_bucket");
 		this.climberArm = Lightning.getServo("climber_arm");
-		//These values tested and accurate as of December 9
+		//These values tested and accurate as of December 9, 2015
 		this.getDrive().setEncoderTicksPerDriveInch(131.25);
 		this.getDrive().setEncoderTicksPerRotationDegree(11.94);
 		
@@ -127,7 +127,7 @@ public class ResQRobot extends Robot {
 	 */
 	
 	public void moveScoringArm(double pow) {
-		this.scoringArm.setPower(pow);
+		//this.scoringArm.setPower(pow);
 	}
 	
 	public void moveBucket(int pos) {
