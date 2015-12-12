@@ -25,7 +25,6 @@ public class ResQRobot extends Robot {
 	
 	private Motor leftLeg;
 	private Motor rightLeg;
-	private Motor scoringArm;
 	
 	private Servo bucketTilt;
 	private Servo blueBucketDoor;
@@ -34,7 +33,7 @@ public class ResQRobot extends Robot {
 	
 	private static final double LEG_MOTOR_SPEED = 1.0;
 	
-	private static final double BUCKET_TILT_INCREMENT = 0.05;
+	private static final double BUCKET_TILT_INCREMENT = 0.02;
 	
 	// These values are calculated for the blue side
 	// TODO set these values
@@ -50,7 +49,6 @@ public class ResQRobot extends Robot {
 	public void initializeRobot() {
 		this.leftLeg = Lightning.getMotor("left_leg");
 		this.rightLeg = Lightning.getMotor("right_leg");
-		//this.scoringArm = Lightning.getMotor("scoring_arm");
 		this.bucketTilt = Lightning.getServo("bucket_tilt");
 		this.blueBucketDoor = Lightning.getServo("left_bucket");
 		this.redBucketDoor = Lightning.getServo("right_bucket");
