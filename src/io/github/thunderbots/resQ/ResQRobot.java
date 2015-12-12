@@ -33,6 +33,8 @@ public class ResQRobot extends Robot {
 	private Servo redBucketDoor;
 	private Servo leftClimberArm;
 	private Servo rightClimberArm;
+	private Servo leftBooper;
+	private Servo rightBooper;
 	
 	
 	private static final double LEG_MOTOR_SPEED = 1.0;
@@ -44,6 +46,8 @@ public class ResQRobot extends Robot {
 	private static final double BUCKET_DOOR_OPEN_POSITION = 1; 
 	private static final double BUCKET_DOOR_CLOSED_POSITION = 0;
 	
+	private static final double BOOPER_OPEN_POSITION = 1;
+	private static final double BOOPER_CLOSED_POSITION = 0;
 	@Override
 	public String[] getDriveMotorNames() {
 		return new String[] {"front_left", "front_right", "back_left", "back_right"};
@@ -60,6 +64,8 @@ public class ResQRobot extends Robot {
 		this.redBucketDoor = Lightning.getServo("right_bucket");
 		this.leftClimberArm = Lightning.getServo("climber_arm_left");
 		this.rightClimberArm = Lightning.getServo("climber_arm_right");
+		this.leftBooper = Lightning.getServo("left_booper");
+		this.rightBooper = Lightning.getServo("right_booper");
 		//These values tested and accurate as of December 9, 2015
 		this.getDrive().setEncoderTicksPerDriveInch(131.25);
 		this.getDrive().setEncoderTicksPerRotationDegree(11.94);
@@ -125,6 +131,22 @@ public class ResQRobot extends Robot {
 	public void closeRedBucketDoor() {
 		this.redBucketDoor.moveToPosition(Servo.MAX_POSITION
 				- BUCKET_DOOR_CLOSED_POSITION);
+	}
+	
+	public void openLeftBooper() {
+		this.leftBooper.moveToPosition(BOOPER_OPEN_POSITION);
+	}
+	
+	public void openRightBooper() {
+		this.rightBooper.moveToPosition(BOOPER_OPEN_POSITION);
+	}
+	
+	public void closeLeftBooper() {
+		this.leftBooper.moveToPosition(BOOPER_CLOSED_POSITION);
+	}
+	
+	public void closeRightBooper() {
+		this.rightBooper.moveToPosition(BOOPER_CLOSED_POSITION);
 	}
 	
 	/*
