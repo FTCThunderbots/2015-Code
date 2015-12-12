@@ -43,11 +43,18 @@ public class ResQRobot extends Robot {
 	
 	// These values are calculated for the blue side
 	// TODO set these values
-	private static final double BUCKET_DOOR_OPEN_POSITION = 0; 
-	private static final double BUCKET_DOOR_CLOSED_POSITION = 1;
+	private static final double BLUE_BUCKET_DOOR_OPEN_POSITION = 0; 
+	private static final double BLUE_BUCKET_DOOR_CLOSED_POSITION = 1;
 	
-	private static final double BOOPER_OPEN_POSITION = 0;
-	private static final double BOOPER_CLOSED_POSITION = 1;
+	private static final double LEFT_BOOPER_OPEN_POSITION = 0;
+	private static final double LEFT_BOOPER_CLOSED_POSITION = 1;
+	
+	private static final double RED_BUCKET_DOOR_OPEN_POSITION = 0; 
+	private static final double RED_BUCKET_DOOR_CLOSED_POSITION = 1;
+	
+	private static final double RIGHT_BOOPER_OPEN_POSITION = 1;
+	private static final double RIGHT_BOOPER_CLOSED_POSITION = 0;
+	
 	@Override
 	public String[] getDriveMotorNames() {
 		return new String[] {"front_left", "front_right", "back_left", "back_right"};
@@ -116,37 +123,37 @@ public class ResQRobot extends Robot {
 	 */
 	
 	public void openBlueBucketDoor() {
-		this.blueBucketDoor.moveToPosition(BUCKET_DOOR_OPEN_POSITION);
+		this.blueBucketDoor.moveToPosition(BLUE_BUCKET_DOOR_OPEN_POSITION);
 	}
 	
 	public void closeBlueBucketDoor() {
-		this.blueBucketDoor.moveToPosition(BUCKET_DOOR_CLOSED_POSITION);
+		this.blueBucketDoor.moveToPosition(BLUE_BUCKET_DOOR_CLOSED_POSITION);
 	}
 	
 	public void openRedBucketDoor() {
 		this.redBucketDoor.moveToPosition(Servo.MAX_POSITION
-				- BUCKET_DOOR_OPEN_POSITION);
+				- RED_BUCKET_DOOR_OPEN_POSITION);
 	}
 	
 	public void closeRedBucketDoor() {
 		this.redBucketDoor.moveToPosition(Servo.MAX_POSITION
-				- BUCKET_DOOR_CLOSED_POSITION);
+				- RED_BUCKET_DOOR_CLOSED_POSITION);
 	}
 	
 	public void openLeftBooper() {
-		this.leftBooper.moveToPosition(BOOPER_OPEN_POSITION);
+		this.leftBooper.moveToPosition(LEFT_BOOPER_OPEN_POSITION);
 	}
 	
 	public void openRightBooper() {
-		this.rightBooper.moveToPosition(BOOPER_OPEN_POSITION);
+		this.rightBooper.moveToPosition(RIGHT_BOOPER_OPEN_POSITION);
 	}
 	
 	public void closeLeftBooper() {
-		this.leftBooper.moveToPosition(BOOPER_CLOSED_POSITION);
+		this.leftBooper.moveToPosition(LEFT_BOOPER_CLOSED_POSITION);
 	}
 	
 	public void closeRightBooper() {
-		this.rightBooper.moveToPosition(BOOPER_CLOSED_POSITION);
+		this.rightBooper.moveToPosition(RIGHT_BOOPER_CLOSED_POSITION);
 	}
 	
 	/*
@@ -158,7 +165,7 @@ public class ResQRobot extends Robot {
 	}
 	
 	public void moveBucket(int pos) {
-		if (pos == 1)
+		if (pos == -1)
 			this.bucketTilt.moveToPosition(0);
 		else if (pos == 0)
 			this.bucketTilt.moveToPosition(0.5);
@@ -167,7 +174,7 @@ public class ResQRobot extends Robot {
 	}
 	
 	public void moveClimberArms(int pos) {
-		this.leftClimberArm.moveToPosition(pos);
+		this.leftClimberArm.moveToPosition(-pos);
 		this.rightClimberArm.moveToPosition(-pos);
 		
 	}
