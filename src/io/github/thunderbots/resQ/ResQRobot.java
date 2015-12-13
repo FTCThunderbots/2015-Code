@@ -54,6 +54,9 @@ public class ResQRobot extends Robot {
 	private static final double RIGHT_BOOPER_OPEN_POSITION = 0;
 	private static final double RIGHT_BOOPER_CLOSED_POSITION = .4;
 	
+	private static final double ENCODER_TICKS_PER_DRIVE_INCH = 131.25;
+	private static final double ENCODER_TICKS_PER_ROTATION_DEGREE = 131.25;
+	
 	@Override
 	public String[] getDriveMotorNames() {
 		return new String[] {"front_left", "front_right", "back_left", "back_right"};
@@ -74,8 +77,8 @@ public class ResQRobot extends Robot {
 		this.rightBooper = Lightning.getServo("right_booper");
 		
 		//These values tested and accurate as of December 9, 2015
-		this.getDrive().setEncoderTicksPerDriveInch(131.25);
-		this.getDrive().setEncoderTicksPerRotationDegree(11.94);
+		this.getDrive().setEncoderTicksPerDriveInch(ENCODER_TICKS_PER_DRIVE_INCH);
+		this.getDrive().setEncoderTicksPerRotationDegree(ENCODER_TICKS_PER_ROTATION_DEGREE);
 		
 		Lightning.getMotor("front_left").setReversed(true);
 		Lightning.getMotor("front_right").setReversed(true);
