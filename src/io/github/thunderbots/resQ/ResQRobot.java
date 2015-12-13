@@ -88,7 +88,7 @@ public class ResQRobot extends Robot {
 		Lightning.getMotor("front_right").setReversed(true);
 	}
 	
-	/*
+	/**
 	 * Walking stuff
 	 */
 	
@@ -109,7 +109,7 @@ public class ResQRobot extends Robot {
 		this.rightLeg.setPower(pow);
 	}
 	
-	/*
+	/**
 	 * Bucket tilt stuff
 	 */
 	
@@ -125,8 +125,8 @@ public class ResQRobot extends Robot {
 		this.bucketTilt.move(BUCKET_TILT_INCREMENT * direction);
 	}
 	
-	/*
-	 * Bucket door opening/closing
+	/**
+	 * Setting up methods for movement that will be binded in ResQTeleOp to a button on a controller
 	 */
 	
 	public void openBlueBucketDoor() {
