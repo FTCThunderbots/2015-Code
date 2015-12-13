@@ -60,20 +60,22 @@ public class ResQTeleOp extends TeleOp {
 		}
 		
 		//Moves the sweepers on the robot by pressing and holding right and left trigger
-		if (Lightning.getJoystick(1).leftTriggerPressed())
+		if (Lightning.getJoystick(1).leftTriggerPressed()) {
 			this.getRobot().moveSweeper(1);
-		else if (Lightning.getJoystick(1).rightTriggerPressed())
+		} else if (Lightning.getJoystick(1).rightTriggerPressed()) {
 			this.getRobot().moveSweeper(-1);
-		else
+		} else {
 			this.getRobot().moveSweeper(0);
+		}
 		
 		//Tilts bucket by pressing A,B, and X button
-		if (Lightning.getJoystick(2).aButton())
+		if (Lightning.getJoystick(2).aButton()) {
 			this.getRobot().moveBucket(0);
-		else if (Lightning.getJoystick(2).bButton())
+		} else if (Lightning.getJoystick(2).bButton()) {
 			this.getRobot().moveBucket(-1);
-		else if (Lightning.getJoystick(2).xButton())
+		} else if (Lightning.getJoystick(2).xButton()) {
 			this.getRobot().moveBucket(1);
+		}
 		
 		//Moves the climber arms forward by hitting the Up Button on the D-PAD
 		if (Lightning.getJoystick(2).upButton()) {
@@ -90,12 +92,13 @@ public class ResQTeleOp extends TeleOp {
 		//Moves the Scoring Arm that holds the bucket forward by holding the left bumper
 		//Moves the Scoring Arm that holds the bucket back by holding the right bumper
 		//If no button is pressed then it will stay in it's current position
-		if (Lightning.getJoystick(2).leftBumper())
+		if (Lightning.getJoystick(2).leftBumper()) {
 			this.getRobot().moveScoringArm(1);
-		else if (Lightning.getJoystick(2).rightBumper())
+		} else if (Lightning.getJoystick(2).rightBumper()) {
 			this.getRobot().moveScoringArm(-1);
-		else
+		} else {
 			this.getRobot().moveScoringArm(0);
+		}
 		
 		//Closes the bucket doors by pressing the left stick button
 		if (Lightning.getJoystick(2).leftStickButton()) {
@@ -110,16 +113,19 @@ public class ResQTeleOp extends TeleOp {
 		}
 		
 		//Opens the left booper by pressing and holding the left button on the D-PAD, if it is not pressed and held then it will return to its regular position.
-		if (Lightning.getJoystick(2).leftButton())
+		if (Lightning.getJoystick(2).leftButton()) {
 			this.getRobot().openLeftBooper();
-		else 
+		} else {
 			this.getRobot().closeLeftBooper();
+		}
 		
 		//Opens the right booper by pressing and holding the right button on the D-PAD, if it is not pressed and held then it will return to its regular position.
-		if (Lightning.getJoystick(2).rightButton())
+		if (Lightning.getJoystick(2).rightButton()) {
 			this.getRobot().openRightBooper();
-		else 
+		} else {
 			this.getRobot().closeRightBooper();
+		}
+		
 	}
 	
 }
