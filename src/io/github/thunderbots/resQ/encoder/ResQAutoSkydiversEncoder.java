@@ -55,17 +55,6 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 		ds.driveInches(MOVEMENT_POWER, 100);
 		Util.sleep(STEP_DELAY);
 		
-		
-		//commented until further notice
-//		// rotate to square with the basket
-//		ds.rotateDegrees(MOVEMENT_POWER * this.getSide(), 15 * this.getSide());
-//		Util.sleep(STEP_DELAY);
-//		// move forward a little bit to reach the bucket
-//		ds.driveInches(MOVEMENT_POWER, 6);
-//		Util.sleep(STEP_DELAY);
-		// TODO: drop the skydivers here
-		// back up to get room to rotate
-		
 		/**
 		 * Moves the Climber Arm forwards to drop the skydivers. Then sleeps for 1500 milliseconds
 		 */
@@ -80,6 +69,9 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 		resQRobot.moveRightClimberArm(0);
 		Util.sleep(500);
 		
+		
+		//The following code is ALL USING ESTIMATES and needs testing before it may be used!
+		
 		/**
 		 * The Robot then turns all the way around and sleeps for 500 milliseconds.
 		 */
@@ -87,7 +79,7 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 		Util.sleep(500);
 		
 		/**
-		 * Moves the Robot forward 24 inches at a speed of MOVEMENT_POWER. Then waits for 1500 milliseconds.
+		 * Moves the Robot forward 24 inches at a power of 0.8. Then waits for 1500 milliseconds.
 		 */
 		ds.driveInches(MOVEMENT_POWER, 24);
 		Util.sleep(STEP_DELAY);
@@ -106,22 +98,6 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 		 */
 		ds.driveInches(MOVEMENT_POWER, 10);
 		Util.sleep(500);
-		
-		
-		//ds.driveInches(-MOVEMENT_POWER, -6);
-		//Util.sleep(STEP_DELAY);
-//		// rotate to go back to the mountain
-//		ds.rotateDegrees(-MOVEMENT_POWER * this.getSide(), -15 * this.getSide());
-//		Util.sleep(STEP_DELAY);
-//		// go back to the mountain
-//		ds.driveInches(-MOVEMENT_POWER, -30);
-//		Util.sleep(STEP_DELAY);
-//		// rotate to face the mountain
-//		ds.rotateDegrees(MOVEMENT_POWER * this.getSide(), 90 * this.getSide());
-//		Util.sleep(STEP_DELAY);
-//		// drive up the mountain
-//		ds.driveInches(MOVEMENT_POWER, 10);
-//		Util.sleep(STEP_DELAY);
 		
 	}
 	
