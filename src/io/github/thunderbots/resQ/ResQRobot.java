@@ -156,10 +156,6 @@ public class ResQRobot extends Robot {
 		this.rightBooper.moveToPosition(RIGHT_BOOPER_CLOSED_POSITION);
 	}
 	
-	/*
-	 * Old, outdated stuff
-	 */
-	
 	public void moveScoringArm(double pow) {
 		this.scoringArm.setPower(pow);
 	}
