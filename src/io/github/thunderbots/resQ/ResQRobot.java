@@ -41,16 +41,20 @@ public class ResQRobot extends Robot {
 	
 	private static final double BUCKET_TILT_INCREMENT = 0.02;
 	
-	// These values are calculated for the blue side
-	// TODO set these values
+	/**
+	 * 
+	 * We find closed position by subtracting 1 by the other buckets closed position.
+	 * This sets up the positions of the boopers and buckets
+	 * 
+	 */
 	private static final double BLUE_BUCKET_DOOR_OPEN_POSITION = 0; 
-	private static final double BLUE_BUCKET_DOOR_CLOSED_POSITION = 1;
+	private static final double BLUE_BUCKET_DOOR_CLOSED_POSITION = .6;
 	
 	private static final double LEFT_BOOPER_OPEN_POSITION = 1;
 	private static final double LEFT_BOOPER_CLOSED_POSITION = .45;
 	
-	private static final double RED_BUCKET_DOOR_OPEN_POSITION = 0; 
-	private static final double RED_BUCKET_DOOR_CLOSED_POSITION = 1;
+	private static final double RED_BUCKET_DOOR_OPEN_POSITION = 1; 
+	private static final double RED_BUCKET_DOOR_CLOSED_POSITION = .4;
 	
 	private static final double RIGHT_BOOPER_OPEN_POSITION = 0;
 	private static final double RIGHT_BOOPER_CLOSED_POSITION = .45;
@@ -131,13 +135,11 @@ public class ResQRobot extends Robot {
 	}
 	
 	public void openRedBucketDoor() {
-		this.redBucketDoor.moveToPosition(Servo.MAX_POSITION
-				- RED_BUCKET_DOOR_OPEN_POSITION);
+		this.redBucketDoor.moveToPosition(RED_BUCKET_DOOR_OPEN_POSITION);
 	}
 	
 	public void closeRedBucketDoor() {
-		this.redBucketDoor.moveToPosition(Servo.MAX_POSITION
-				- RED_BUCKET_DOOR_CLOSED_POSITION);
+		this.redBucketDoor.moveToPosition(RED_BUCKET_DOOR_CLOSED_POSITION);
 	}
 	
 	public void openLeftBooper() {

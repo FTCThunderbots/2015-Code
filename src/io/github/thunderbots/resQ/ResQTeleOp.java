@@ -30,7 +30,12 @@ public class ResQTeleOp extends TeleOp {
 	protected ResQRobot getRobot() {
 		return (ResQRobot) super.getRobot();
 	}
-
+	
+	//Initializes the robot
+	//This is here to set the Robot into the correct stance
+	//The bucket will be centered, both doors on the bucket will be closed
+	//Both climber arms will move in to regular position
+	//Closes both the boopers
 	@Override
 	protected void initializeOpMode() {
 		super.initializeOpMode();
@@ -45,7 +50,7 @@ public class ResQTeleOp extends TeleOp {
 	}
 	
 	protected void mainLoop() {
-		// Set the leg motors
+		//Moves the legs on the robot by pressing and holding left and right bumpers
 		if (Lightning.getJoystick(1).rightBumper()) {
 			this.getRobot().walkForward();
 		} else if (Lightning.getJoystick(1).leftBumper()) {
@@ -54,30 +59,7 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().stopWalking();
 		}
 		
-		if (Lightning.getJoystick(2).aButton())
-			this.getRobot().moveBucket(0);
-		else if (Lightning.getJoystick(2).bButton())
-			this.getRobot().moveBucket(-1);
-		else if (Lightning.getJoystick(2).xButton())
-			this.getRobot().moveBucket(1);
-		
-		if (Lightning.getJoystick(2).upButton()) {
-			this.getRobot().moveRightClimberArm(1);
-			this.getRobot().moveLeftClimberArm(0);
-		}
-		
-		else if (Lightning.getJoystick(2).downButton()) {
-			this.getRobot().moveRightClimberArm(0);
-			this.getRobot().moveLeftClimberArm(1);
-		}
-		
-		if (Lightning.getJoystick(2).leftBumper())
-			this.getRobot().moveScoringArm(1);
-		else if (Lightning.getJoystick(2).rightBumper())
-			this.getRobot().moveScoringArm(-1);
-		else
-			this.getRobot().moveScoringArm(0);
-		
+		//Moves the sweepers on the robot by pressing and holding right and left trigger
 		if (Lightning.getJoystick(1).leftTriggerPressed())
 			this.getRobot().moveSweeper(1);
 		else if (Lightning.getJoystick(1).rightTriggerPressed())
@@ -85,22 +67,56 @@ public class ResQTeleOp extends TeleOp {
 		else
 			this.getRobot().moveSweeper(0);
 		
+		//Tilts bucket by pressing A,B, and X button
+		if (Lightning.getJoystick(2).aButton())
+			this.getRobot().moveBucket(0);
+		else if (Lightning.getJoystick(2).bButton())
+			this.getRobot().moveBucket(-1);
+		else if (Lightning.getJoystick(2).xButton())
+			this.getRobot().moveBucket(1);
+		
+		//Moves the climber arms forward by hitting the Up Button on the D-PAD
+		if (Lightning.getJoystick(2).upButton()) {
+			this.getRobot().moveRightClimberArm(1);
+			this.getRobot().moveLeftClimberArm(0);
+		}
+		
+		//Moves the climber arms back to position by hitting the Down Button on the D-PAD
+		else if (Lightning.getJoystick(2).downButton()) {
+			this.getRobot().moveRightClimberArm(0);
+			this.getRobot().moveLeftClimberArm(1);
+		}
+		
+		//Moves the Scoring Arm that holds the bucket forward by holding the left bumper
+		//Moves the Scoring Arm that holds the bucket back by holding the right bumper
+		//If no button is pressed then it will stay in it's current position
+		if (Lightning.getJoystick(2).leftBumper())
+			this.getRobot().moveScoringArm(1);
+		else if (Lightning.getJoystick(2).rightBumper())
+			this.getRobot().moveScoringArm(-1);
+		else
+			this.getRobot().moveScoringArm(0);
+		
+		//Closes the bucket doors by pressing the left stick button
 		if (Lightning.getJoystick(2).leftStickButton()) {
 			this.getRobot().closeBlueBucketDoor();
 			this.getRobot().closeRedBucketDoor();
 		}
 		
+		//Opens the bucket doors by pressing the right stick button
 		if (Lightning.getJoystick(2).rightStickButton()) {
 			this.getRobot().openBlueBucketDoor();
 			this.getRobot().openRedBucketDoor();
 		}
 		
+		//Opens the left booper by pressing and holding the left button on the D-PAD, if it is not pressed and held then it will return to its regular position.
 		if (Lightning.getJoystick(2).leftButton()) {
 			this.getRobot().openLeftBooper();
 		}
 		else 
 			this.getRobot().closeLeftBooper();
 		
+		//Opens the right booper by pressing and holding the right button on the D-PAD, if it is not pressed and held then it will return to its regular position.
 		if (Lightning.getJoystick(2).rightButton()) {
 			this.getRobot().openRightBooper();
 		}

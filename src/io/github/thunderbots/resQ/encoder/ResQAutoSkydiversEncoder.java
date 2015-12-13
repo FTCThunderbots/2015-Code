@@ -48,8 +48,14 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 		ResQRobot resQRobot = new ResQRobot(); //creating instance of the class here
 		// start in front of the driver station
 		// drive forward to the beacon repair area
+		
+		/**
+		 * Drives forward using MOVEMENT_POWER for 100 inches up until the beacon zone, it then stops for 1500 milliseconds.
+		 */
 		ds.driveInches(MOVEMENT_POWER, 100);
 		Util.sleep(STEP_DELAY);
+		
+		
 		//commented until further notice
 //		// rotate to square with the basket
 //		ds.rotateDegrees(MOVEMENT_POWER * this.getSide(), 15 * this.getSide());
@@ -59,8 +65,49 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 //		Util.sleep(STEP_DELAY);
 		// TODO: drop the skydivers here
 		// back up to get room to rotate
+		
+		/**
+		 * Moves the Climber Arm forwards to drop the skydivers. Then sleeps for 1500 milliseconds
+		 */
 		resQRobot.moveLeftClimberArm(0);
 		resQRobot.moveRightClimberArm(1);
+		Util.sleep(STEP_DELAY);
+		
+		/**
+		 * Moves the Climber Arm back to default position and sleeps for 500 milliseconds.
+		 */
+		resQRobot.moveLeftClimberArm(1);
+		resQRobot.moveRightClimberArm(0);
+		Util.sleep(500);
+		
+		/**
+		 * The Robot then turns all the way around and sleeps for 500 milliseconds.
+		 */
+		ds.rotateDegrees(MOVEMENT_POWER, 180);
+		Util.sleep(500);
+		
+		/**
+		 * Moves the Robot forward 24 inches at a speed of MOVEMENT_POWER. Then waits for 1500 milliseconds.
+		 */
+		ds.driveInches(MOVEMENT_POWER, 24);
+		Util.sleep(STEP_DELAY);
+		
+		/**
+		 * Turns the robot 90 degrees depending which side it's on. Waits for 1500 milliseconds.
+		 */
+		ds.rotateDegrees(MOVEMENT_POWER, 90 *this.getSide());
+		Util.sleep(STEP_DELAY);
+		
+		/**
+		 * Moves the robot up the ramp and waits for 500 milliseconds
+		 * 
+		 * NOTE: YOU WANT TO WAIT FOR THE DRIVER STATION TO SHOW INIT AGAIN ON THE SCREEN, DO NOT HIT STOP, IT HAS CAUSED PROBLEMS IN A PREVIOUS COMPETITION.
+		 * HAVE PATIENCE MY CHILDREN.
+		 */
+		ds.driveInches(MOVEMENT_POWER, 10);
+		Util.sleep(500);
+		
+		
 		//ds.driveInches(-MOVEMENT_POWER, -6);
 		//Util.sleep(STEP_DELAY);
 //		// rotate to go back to the mountain
