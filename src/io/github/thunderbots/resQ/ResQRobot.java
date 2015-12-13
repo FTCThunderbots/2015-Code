@@ -36,7 +36,6 @@ public class ResQRobot extends Robot {
 	private Servo leftBooper;
 	private Servo rightBooper;
 	
-	
 	private static final double LEG_MOTOR_SPEED = 1.0;
 	
 	private static final double BUCKET_TILT_INCREMENT = 0.02;
@@ -73,6 +72,7 @@ public class ResQRobot extends Robot {
 		this.rightClimberArm = Lightning.getServo("climber_arm_right");
 		this.leftBooper = Lightning.getServo("left_booper");
 		this.rightBooper = Lightning.getServo("right_booper");
+		
 		//These values tested and accurate as of December 9, 2015
 		this.getDrive().setEncoderTicksPerDriveInch(131.25);
 		this.getDrive().setEncoderTicksPerRotationDegree(11.94);
