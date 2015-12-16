@@ -176,8 +176,8 @@ public class ResQRobot extends Robot {
 	
 	public void moveLeftClimberArm(int pos) {
 		this.leftClimberArm.moveToPosition(pos);
-		
 	}
+	
 	public void moveRightClimberArm(int pos) {
 		this.rightClimberArm.moveToPosition(pos);
 	}
