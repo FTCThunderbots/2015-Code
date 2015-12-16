@@ -95,11 +95,11 @@ public class ResQTeleOp extends TeleOp {
 		//Moves the scoring arm that moves the bucket forward using the bumpers
 		//on the secondary joystick
 		if (Lightning.getJoystick(2).leftBumper()) {
-			this.getRobot().moveScoringArm(1);
+			this.getRobot().moveBucketExtensor(1);
 		} else if (Lightning.getJoystick(2).rightBumper()) {
-			this.getRobot().moveScoringArm(-1);
+			this.getRobot().moveBucketExtensor(-1);
 		} else {
-			this.getRobot().moveScoringArm(0);
+			this.getRobot().moveBucketExtensor(0);
 		}
 		
 		//Closes the bucket doors by pressing the left stick button

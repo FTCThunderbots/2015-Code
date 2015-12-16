@@ -25,7 +25,7 @@ public class ResQRobot extends Robot {
 	
 	private Motor leftLeg;
 	private Motor rightLeg;
-	private Motor scoringArm;
+	private Motor bucketExtensor;
 	private Motor sweeper;
 	
 	private Servo bucketTilt;
@@ -70,7 +70,7 @@ public class ResQRobot extends Robot {
 	public void initializeRobot() {
 		this.leftLeg = Lightning.getMotor("left_leg");
 		this.rightLeg = Lightning.getMotor("right_leg");
-		this.scoringArm = Lightning.getMotor("scoring_arm");
+		this.bucketExtensor = Lightning.getMotor("scoring_arm");
 		this.sweeper = Lightning.getMotor("sweeper");
 		this.bucketTilt = Lightning.getServo("bucket_tilt");
 		this.blueBucketDoor = Lightning.getServo("left_bucket");
@@ -161,8 +161,8 @@ public class ResQRobot extends Robot {
 		this.rightBooper.moveToPosition(RIGHT_BOOPER_CLOSED_POSITION);
 	}
 	
-	public void moveScoringArm(double pow) {
-		this.scoringArm.setPower(pow);
+	public void moveBucketExtensor(double pow) {
+		this.bucketExtensor.setPower(pow);
 	}
 	
 	public void moveBucket(int pos) {
