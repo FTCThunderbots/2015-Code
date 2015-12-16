@@ -16,6 +16,8 @@
 
 package io.github.thunderbots.resQ.encoder;
 
+import io.github.thunderbots.lightning.annotation.Active;
+import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.drive.DriveSystem;
 import io.github.thunderbots.lightning.opmode.Autonomous;
 import io.github.thunderbots.lightning.utility.Util;
@@ -98,6 +100,28 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 		 */
 		ds.driveInches(MOVEMENT_POWER, 10);
 		Util.sleep(500);
+		
+	}
+	
+	@OpMode(type="Autonomous", name="Auto Skydivers [E][B]")
+	@Active
+	public static class ResQAutoSkydiversEncoderBlue extends ResQAutoSkydiversEncoder {
+		
+		@Override
+		protected int getSide() {
+			return 1;
+		}
+		
+	}
+	
+	@OpMode(type="Autonomous", name="Auto Skydivers [E][R]")
+	@Active
+	public static class ResQAutoSkydiversEncoderRed extends ResQAutoSkydiversEncoder {
+		
+		@Override
+		protected int getSide() {
+			return -1;
+		}
 		
 	}
 	

@@ -16,6 +16,8 @@
 
 package io.github.thunderbots.resQ.time;
 
+import io.github.thunderbots.lightning.annotation.Active;
+import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
 import io.github.thunderbots.lightning.utility.Util;
 import io.github.thunderbots.resQ.ResQRobot;
@@ -48,6 +50,28 @@ public abstract class ResQAutoMountainTime extends Autonomous {
 		this.getRobot().getDrive().rotateSeconds(TURN_POWER * this.getSide(), 0.6);
 		Util.sleep(500);
 		this.getRobot().getDrive().driveSeconds(DRIVE_POWER, 1.65);
+	}
+	
+	@OpMode(type="Autonomous", name="Auto Mountain [T][R]")
+	@Active
+	public static class ResQAutoMountainRedTime extends ResQAutoMountainTime {
+
+		@Override
+		protected int getSide() {
+			return -1;
+		}
+		
+	}
+	
+	@OpMode(type="Autonomous", name="Auto Mountain [T][B]")
+	@Active
+	public static class ResQAutoMountainBlueTime extends ResQAutoMountainTime {
+
+		@Override
+		protected int getSide() {
+			return 1;
+		}
+		
 	}
 	
 }

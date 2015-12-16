@@ -16,6 +16,8 @@
 
 package io.github.thunderbots.resQ.encoder;
 
+import io.github.thunderbots.lightning.annotation.Active;
+import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.drive.DriveSystem;
 import io.github.thunderbots.lightning.opmode.Autonomous;
 import io.github.thunderbots.lightning.utility.Util;
@@ -57,6 +59,28 @@ public abstract class ResQAutoMountainEncoder extends Autonomous {
 		// drive up the mountain
 		ds.driveInches(MOVEMENT_POWER, 10);
 		Util.sleep(STEP_DELAY);
+	}
+	
+	@OpMode(type="Autonomous", name="Auto Mountain [E][B]")
+	@Active
+	public static class ResQAutoMountainEncoderBlue extends ResQAutoMountainEncoder {
+
+		@Override
+		protected int getSide() {
+			return 1;
+		}
+
+	}
+	
+	@OpMode(type="Autonomous", name="Auto Mountain [E][R]")
+	@Active
+	public static class ResQAutoMountainEncoderRed extends ResQAutoMountainEncoder {
+
+		@Override
+		protected int getSide() {
+			return -1;
+		}
+
 	}
 
 }
