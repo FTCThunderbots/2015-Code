@@ -17,7 +17,6 @@
 package io.github.thunderbots.testing;
 
 import io.github.thunderbots.lightning.Lightning;
-import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.drive.DriveSystem;
 import io.github.thunderbots.lightning.hardware.Motor;
@@ -25,7 +24,6 @@ import io.github.thunderbots.lightning.utility.Telemetry;
 import io.github.thunderbots.resQ.ResQTeleOp;
 
 @OpMode(type="Test", name="Encoder Drive Test")
-@Active
 public class EncoderDriveSystemTest extends ResQTeleOp {
 	
 	@Override
