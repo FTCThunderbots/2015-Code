@@ -77,7 +77,7 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 		/**
 		 * The Robot then turns all the way around and sleeps for 500 milliseconds.
 		 */
-		ds.rotateDegrees(MOVEMENT_POWER, 180);
+		ds.rotateDegrees(MOVEMENT_POWER, 56);
 		Util.sleep(500);
 		
 		/**
