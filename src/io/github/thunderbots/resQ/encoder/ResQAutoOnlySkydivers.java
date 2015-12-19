@@ -32,7 +32,9 @@ public class ResQAutoOnlySkydivers extends Autonomous {
 	protected void main() {
 		DriveSystem ds = this.getRobot().getDrive(); // for brevity
 		ResQRobot resQRobot = this.getRobot(); //creating instance of the class here
-		// start in front of the driver station
+		
+		// start in front of the driver station, should be lined up in a straight line
+		// directly to the beacon repair area
 		// drive forward to the beacon repair area
 		
 		/**
