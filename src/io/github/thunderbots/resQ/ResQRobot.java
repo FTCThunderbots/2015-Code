@@ -84,8 +84,7 @@ public class ResQRobot extends Robot {
 		this.getDrive().setEncoderTicksPerDriveInch(ENCODER_TICKS_PER_DRIVE_INCH);
 		this.getDrive().setEncoderTicksPerRotationDegree(ENCODER_TICKS_PER_ROTATION_DEGREE);
 		
-		Lightning.getMotor("front_left").setReversed(true);
-		Lightning.getMotor("front_right").setReversed(true);
+
 	}
 	
 	/**
