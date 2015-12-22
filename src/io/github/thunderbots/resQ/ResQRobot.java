@@ -25,20 +25,23 @@ public class ResQRobot extends Robot {
 	
 	private Motor leftLeg;
 	private Motor rightLeg;
-	private Motor bucketExtensor;
-	private Motor sweeper;
+/*	private Motor bucketExtensor;*/
+	private Motor rotatingArmBucket;
+/*	private Motor sweeper;*/
 	
-	private Servo bucketTilt;
+/*	private Servo bucketTilt;
 	private Servo blueBucketDoor;
-	private Servo redBucketDoor;
-	private Servo leftClimberArm;
-	private Servo rightClimberArm;
+	private Servo redBucketDoor;*/
+/*	private Servo leftClimberArm;
+	private Servo rightClimberArm;*/
 	private Servo leftBooper;
 	private Servo rightBooper;
 	
 	private static final double LEG_MOTOR_SPEED = 1.0;
 	
-	private static final double BUCKET_TILT_INCREMENT = 0.02;
+	private static final double ARM_BUCKET_ROTATION_SPEED = 1.0;
+	
+/*	private static final double BUCKET_TILT_INCREMENT = 0.02;*/
 	
 	/**
 	 * 
@@ -46,15 +49,15 @@ public class ResQRobot extends Robot {
 	 * This sets up the positions of the boopers and buckets
 	 * 
 	 */
-	private static final double BLUE_BUCKET_DOOR_OPEN_POSITION = 0; 
-	private static final double BLUE_BUCKET_DOOR_CLOSED_POSITION = .6;
+/*	private static final double BLUE_BUCKET_DOOR_OPEN_POSITION = 0; 
+	private static final double BLUE_BUCKET_DOOR_CLOSED_POSITION = .6;*/
 	
 	private static final double LEFT_BOOPER_OPEN_POSITION = 1;
 	private static final double LEFT_BOOPER_CLOSED_POSITION = .45;
 	
-	private static final double RED_BUCKET_DOOR_OPEN_POSITION = 1; 
+/*	private static final double RED_BUCKET_DOOR_OPEN_POSITION = 1; 
 	private static final double RED_BUCKET_DOOR_CLOSED_POSITION = .4;
-	
+	*/
 	private static final double RIGHT_BOOPER_OPEN_POSITION = 0;
 	private static final double RIGHT_BOOPER_CLOSED_POSITION = .45;
 	
@@ -70,13 +73,14 @@ public class ResQRobot extends Robot {
 	public void initializeRobot() {
 		this.leftLeg = Lightning.getMotor("left_leg");
 		this.rightLeg = Lightning.getMotor("right_leg");
-		this.bucketExtensor = Lightning.getMotor("scoring_arm");
-		this.sweeper = Lightning.getMotor("sweeper");
-		this.bucketTilt = Lightning.getServo("bucket_tilt");
+/*		this.bucketExtensor = Lightning.getMotor("scoring_arm");*/
+/*		this.sweeper = Lightning.getMotor("sweeper");*/
+		this.rotatingArmBucket = Lightning.getMotor("rotating_arm_bucket");
+/*		this.bucketTilt = Lightning.getServo("bucket_tilt");
 		this.blueBucketDoor = Lightning.getServo("left_bucket");
-		this.redBucketDoor = Lightning.getServo("right_bucket");
-		this.leftClimberArm = Lightning.getServo("climber_arm_left");
-		this.rightClimberArm = Lightning.getServo("climber_arm_right");
+		this.redBucketDoor = Lightning.getServo("right_bucket");*/
+/*		this.leftClimberArm = Lightning.getServo("climber_arm_left");
+		this.rightClimberArm = Lightning.getServo("climber_arm_right");*/
 		this.leftBooper = Lightning.getServo("left_booper");
 		this.rightBooper = Lightning.getServo("right_booper");
 		
@@ -109,10 +113,30 @@ public class ResQRobot extends Robot {
 	}
 	
 	/**
+	 * Bucket Rotation stuff
+	 */
+	
+	public void bucketFoward() {
+		this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
+	}
+	
+	public void bucketBackward() {
+		this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);;
+	}
+	
+	public void stopBucketRotation() {
+		this.setArmBucketRotation(0);
+	}
+	
+	private void setArmBucketRotation(double pow) {
+		this.rotatingArmBucket.setPower(pow);
+	}
+	
+	/**
 	 * Bucket tilt stuff
 	 */
 	
-	public void tiltBucketCW() {
+/*	public void tiltBucketCW() {
 		this.tiltBucket(1);
 	}
 	
@@ -122,13 +146,13 @@ public class ResQRobot extends Robot {
 	
 	private void tiltBucket(int direction) {
 		this.bucketTilt.move(BUCKET_TILT_INCREMENT * direction);
-	}
+	}*/
 	
 	/**
 	 * Setting up methods for movement that will be binded in ResQTeleOp to a button on a controller
 	 */
 	
-	public void openBlueBucketDoor() {
+/*	public void openBlueBucketDoor() {
 		this.blueBucketDoor.moveToPosition(BLUE_BUCKET_DOOR_OPEN_POSITION);
 	}
 	
@@ -142,7 +166,7 @@ public class ResQRobot extends Robot {
 	
 	public void closeRedBucketDoor() {
 		this.redBucketDoor.moveToPosition(RED_BUCKET_DOOR_CLOSED_POSITION);
-	}
+	}*/
 	
 	public void openLeftBooper() {
 		this.leftBooper.moveToPosition(LEFT_BOOPER_OPEN_POSITION);
@@ -160,11 +184,12 @@ public class ResQRobot extends Robot {
 		this.rightBooper.moveToPosition(RIGHT_BOOPER_CLOSED_POSITION);
 	}
 	
-	public void moveBucketExtensor(double pow) {
+/*	public void moveBucketExtensor(double pow) {
 		this.bucketExtensor.setPower(pow);
-	}
+	}*/
+}
 	
-	public void moveBucket(int pos) {
+/*	public void moveBucket(int pos) {
 		if (pos == -1)
 			this.bucketTilt.moveToPosition(0);
 		else if (pos == 0)
@@ -185,4 +210,4 @@ public class ResQRobot extends Robot {
 		this.sweeper.setPower(pow);
 	}
 
-}
+}*/

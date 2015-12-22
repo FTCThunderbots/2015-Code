@@ -42,13 +42,13 @@ public class ResQTeleOp extends TeleOp {
 	protected void initializeOpMode() {
 		super.initializeOpMode();
 		this.setRobot(new ResQRobot());
-		this.getRobot().moveBucket(0);
+/*		this.getRobot().moveBucket(0);
 		this.getRobot().closeBlueBucketDoor();
-		this.getRobot().closeRedBucketDoor();
-		this.getRobot().moveRightClimberArm(0);
-		this.getRobot().moveLeftClimberArm(1);
-		this.getRobot().closeLeftBooper();
-		this.getRobot().closeRightBooper();
+		this.getRobot().closeRedBucketDoor();*/
+/*		this.getRobot().moveRightClimberArm(0);
+		this.getRobot().moveLeftClimberArm(1);*/
+/*		this.getRobot().closeLeftBooper();
+		this.getRobot().closeRightBooper();*/
 	}
 	
 	protected void mainLoop() {
@@ -63,46 +63,46 @@ public class ResQTeleOp extends TeleOp {
 		}
 		
 		//Moves the sweepers on the robot by pressing and holding right and left trigger
-		if (Lightning.getJoystick(1).leftTriggerPressed()) {
+/*		if (Lightning.getJoystick(1).leftTriggerPressed()) {
 			this.getRobot().moveSweeper(1);
 		} else if (Lightning.getJoystick(1).rightTriggerPressed()) {
 			this.getRobot().moveSweeper(-1);
 		} else {
 			this.getRobot().moveSweeper(0);
-		}
+		}*/
 		
 		//Tilts bucket by pressing A,B, and X button*/ 
-		if (Lightning.getJoystick(2).aButton()) {
+/*		if (Lightning.getJoystick(2).aButton()) {
 			this.getRobot().moveBucket(0);
 		} else if (Lightning.getJoystick(2).bButton()) {
 			this.getRobot().moveBucket(-1);
 		} else if (Lightning.getJoystick(2).xButton()) {
 			this.getRobot().moveBucket(1);
-		}
+		}*/
 		
 		//Moves the climber arms forward by hitting the Up Button on the D-PAD
-		if (Lightning.getJoystick(2).upButton()) {
+/*		if (Lightning.getJoystick(2).upButton()) {
 			this.getRobot().moveRightClimberArm(1);
 			this.getRobot().moveLeftClimberArm(0);
-		}
+		}*/
 		
 		//Moves the climber arms back to position by hitting the Down Button on the D-PAD
-		else if (Lightning.getJoystick(2).downButton()) {
+/*		else if (Lightning.getJoystick(2).downButton()) {
 			this.getRobot().moveRightClimberArm(0);
 			this.getRobot().moveLeftClimberArm(1);
-		}
+		}*/
 		
 		//Moves the scoring arm that moves the bucket forward using the bumpers
 		//on the secondary joystick
-		if (Lightning.getJoystick(2).leftBumper()) {
+/*		if (Lightning.getJoystick(2).leftBumper()) {
 			this.getRobot().moveBucketExtensor(1);
 		} else if (Lightning.getJoystick(2).rightBumper()) {
 			this.getRobot().moveBucketExtensor(-1);
 		} else {
 			this.getRobot().moveBucketExtensor(0);
-		}
+		}*/
 		
-		//Closes the bucket doors by pressing the left stick button
+/*		//Closes the bucket doors by pressing the left stick button
 		if (Lightning.getJoystick(2).leftStickButton()) {
 			this.getRobot().closeBlueBucketDoor();
 			this.getRobot().closeRedBucketDoor();
@@ -126,6 +126,14 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().openRightBooper();
 		} else {
 			this.getRobot().closeRightBooper();
+		}*/
+		
+		if (Lightning.getJoystick(2).upButton()) {
+			this.getRobot().bucketFoward();
+		} else if (Lightning.getJoystick(2).downButton()) {
+			this.getRobot().bucketBackward();
+		} else {
+			this.getRobot().stopBucketRotation();
 		}
 		
 	}
