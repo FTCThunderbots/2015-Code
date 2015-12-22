@@ -117,7 +117,7 @@ public class ResQRobot extends Robot {
 	 */
 	
 	public void bucketFoward() {
-		this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
+		this.setArmBucketRotation(-ARM_BUCKET_ROTATION_SPEED);
 	}
 	
 	public void bucketBackward() {
