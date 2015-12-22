@@ -49,15 +49,15 @@ public class ResQRobot extends Robot {
 	 * This sets up the positions of the boopers and buckets
 	 * 
 	 */
-/*	private static final double BLUE_BUCKET_DOOR_OPEN_POSITION = 0; 
-	private static final double BLUE_BUCKET_DOOR_CLOSED_POSITION = .6;*/
+//	private static final double BLUE_BUCKET_DOOR_OPEN_POSITION = 0; 
+//	private static final double BLUE_BUCKET_DOOR_CLOSED_POSITION = .6;
 	
 	private static final double LEFT_BOOPER_OPEN_POSITION = 1;
 	private static final double LEFT_BOOPER_CLOSED_POSITION = .45;
 	
-/*	private static final double RED_BUCKET_DOOR_OPEN_POSITION = 1; 
-	private static final double RED_BUCKET_DOOR_CLOSED_POSITION = .4;
-	*/
+//	private static final double RED_BUCKET_DOOR_OPEN_POSITION = 1; 
+//	private static final double RED_BUCKET_DOOR_CLOSED_POSITION = .4;
+	
 	private static final double RIGHT_BOOPER_OPEN_POSITION = 0;
 	private static final double RIGHT_BOOPER_CLOSED_POSITION = .45;
 	
@@ -73,14 +73,14 @@ public class ResQRobot extends Robot {
 	public void initializeRobot() {
 		this.leftLeg = Lightning.getMotor("left_leg");
 		this.rightLeg = Lightning.getMotor("right_leg");
-/*		this.bucketExtensor = Lightning.getMotor("scoring_arm");*/
-/*		this.sweeper = Lightning.getMotor("sweeper");*/
+//		this.bucketExtensor = Lightning.getMotor("scoring_arm");
+//		this.sweeper = Lightning.getMotor("sweeper");
 		this.rotatingArmBucket = Lightning.getMotor("rotating_arm_bucket");
-/*		this.bucketTilt = Lightning.getServo("bucket_tilt");
-		this.blueBucketDoor = Lightning.getServo("left_bucket");
-		this.redBucketDoor = Lightning.getServo("right_bucket");*/
-/*		this.leftClimberArm = Lightning.getServo("climber_arm_left");
-		this.rightClimberArm = Lightning.getServo("climber_arm_right");*/
+//		this.bucketTilt = Lightning.getServo("bucket_tilt");
+//		this.blueBucketDoor = Lightning.getServo("left_bucket");
+//		this.redBucketDoor = Lightning.getServo("right_bucket");
+//		this.leftClimberArm = Lightning.getServo("climber_arm_left");
+//		this.rightClimberArm = Lightning.getServo("climber_arm_right");
 		this.leftBooper = Lightning.getServo("left_booper");
 		this.rightBooper = Lightning.getServo("right_booper");
 		
