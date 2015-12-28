@@ -26,7 +26,7 @@ public class ResQRobot extends Robot {
 	private Motor leftLeg;
 	private Motor rightLeg;
 	private Motor rotatingArm;
-/*	private Motor sweeper;*/
+//	private Motor sweeper;
 	private Motor armExtensor;
 	
 /*	private Servo bucketTilt;
