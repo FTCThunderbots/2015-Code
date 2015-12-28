@@ -25,7 +25,7 @@ public class ResQRobot extends Robot {
 	
 	private Motor leftLeg;
 	private Motor rightLeg;
-	private Motor rotatingArmBucket;
+	private Motor rotatingArm;
 /*	private Motor sweeper;*/
 	private Motor armExtensor;
 	
@@ -74,7 +74,7 @@ public class ResQRobot extends Robot {
 		this.leftLeg = Lightning.getMotor("left_leg");
 		this.rightLeg = Lightning.getMotor("right_leg");
 //		this.sweeper = Lightning.getMotor("sweeper");
-		this.rotatingArmBucket = Lightning.getMotor("rotating_arm_bucket");
+		this.rotatingArm = Lightning.getMotor("rotating_arm");
 		this.armExtensor = Lightning.getMotor("arm_extensor");
 //		this.bucketTilt = Lightning.getServo("bucket_tilt");
 //		this.blueBucketDoor = Lightning.getServo("left_bucket");
@@ -113,6 +113,14 @@ public class ResQRobot extends Robot {
 	}
 	
 	/**
+	 * Sweeper Stuff
+	 */
+	
+/*	public void moveSweeper(int pow) {
+		this.sweeper.setPower(pow);
+	}*/
+	
+	/**
 	 * Bucket Rotation stuff
 	 */
 	
@@ -129,9 +137,17 @@ public class ResQRobot extends Robot {
 	}
 	
 	private void setArmBucketRotation(double pow) {
-		this.rotatingArmBucket.setPower(pow);
+		this.rotatingArm.setPower(pow);
 	}
 	
+	/**
+	 * Extending the Arm and retracting it
+	 * @param pow
+	 */
+	
+	public void moveArmExtensor(double pow) {
+		this.armExtensor.setPower(pow);
+	}
 	/**
 	 * Bucket tilt stuff
 	 */
@@ -200,12 +216,5 @@ public class ResQRobot extends Robot {
 	public void moveRightClimberArm(int pos) {
 		this.rightClimberArm.moveToPosition(pos);
 	}
-	
-	public void moveSweeper(int pow) {
-		this.sweeper.setPower(pow);
-	}
 	*/
-	public void moveArmExtensor(double pow) {
-		this.armExtensor.setPower(pow);
-	}
 }
