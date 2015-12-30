@@ -140,6 +140,12 @@ public class ResQRobot extends Robot {
 		this.rotatingArm.setPower(pow);
 	}
 	
+	public void setArmBucketPositionDefault() {
+		if(rotatingArm.getEncoder().getPosition() < 0) {
+			this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
+		}
+	}
+	
 	/**
 	 * Extending the Arm and retracting it
 	 * @param pow
