@@ -91,7 +91,7 @@ public class ResQRobot extends Robot {
 
 	}
 	
-	/**
+	/*
 	 * Walking stuff
 	 */
 	
@@ -112,7 +112,7 @@ public class ResQRobot extends Robot {
 		this.rightLeg.setPower(pow);
 	}
 	
-	/**
+	/*
 	 * Sweeper Stuff
 	 */
 	
@@ -120,11 +120,11 @@ public class ResQRobot extends Robot {
 		this.sweeper.setPower(pow);
 	}*/
 	
-	/**
+	/*
 	 * Bucket Rotation stuff
 	 */
 	
-	public void bucketFoward() {
+	public void armBucketFoward() {
 		this.setArmBucketRotation(-ARM_BUCKET_ROTATION_SPEED);
 	}
 	
@@ -142,7 +142,7 @@ public class ResQRobot extends Robot {
 		}
 	}
 	
-	/**
+	/*
 	 * Extending the Arm and retracting it
 	 * @param pow
 	 */
@@ -150,7 +150,7 @@ public class ResQRobot extends Robot {
 	public void moveArmExtensor(double pow) {
 		this.armExtensor.setPower(pow);
 	}
-	/**
+	/*
 	 * Bucket tilt stuff
 	 */
 	
@@ -166,7 +166,7 @@ public class ResQRobot extends Robot {
 		this.bucketTilt.move(BUCKET_TILT_INCREMENT * direction);
 	}*/
 	
-	/**
+	/*
 	 * Setting up methods for movement that will be binded in ResQTeleOp to a button on a controller
 	 */
 	
