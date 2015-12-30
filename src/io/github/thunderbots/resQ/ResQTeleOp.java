@@ -62,6 +62,14 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().stopWalking();
 		}
 		
+		if (Lightning.getJoystick(1).upButton()) {
+			this.getRobot().bucketFoward();
+		} else if (Lightning.getJoystick(1).downButton()) {
+			this.getRobot().bucketBackward();
+		} else {
+			this.getRobot().stopBucketRotation();
+		}
+		
 		//Moves the sweepers on the robot by pressing and holding right and left trigger
 /*		if (Lightning.getJoystick(1).leftTriggerPressed()) {
 			this.getRobot().moveSweeper(1);
@@ -116,14 +124,6 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().openRightBooper();
 		} else {
 			this.getRobot().closeRightBooper();
-		}
-		
-		if (Lightning.getJoystick(2).upButton()) {
-			this.getRobot().bucketFoward();
-		} else if (Lightning.getJoystick(2).downButton()) {
-			this.getRobot().bucketBackward();
-		} else {
-			this.getRobot().stopBucketRotation();
 		}
 		
 		if (Lightning.getJoystick(2).yButton()) {
