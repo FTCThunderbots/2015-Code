@@ -67,7 +67,7 @@ public class ResQTeleOp extends TeleOp {
 		} else if (Lightning.getJoystick(1).downButton()) {
 			this.getRobot().bucketBackward();
 		} else {
-			this.getRobot().stopBucketRotation();
+			this.getRobot().stopArmBucketRotation();
 		}
 		
 		//Moves the sweepers on the robot by pressing and holding right and left trigger
