@@ -121,7 +121,7 @@ public class ResQRobot extends Robot {
 	}*/
 	
 	/*
-	 * Bucket Rotation stuff
+	 * Arm bucket rotation methods
 	 */
 	
 	public void armBucketFoward() {
