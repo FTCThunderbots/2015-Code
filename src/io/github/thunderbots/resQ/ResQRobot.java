@@ -112,7 +112,7 @@ public class ResQRobot extends Robot {
 		this.rightLeg.setPower(pow);
 	}
 	
-	/**
+	/*
 	 * Sweeper Stuff
 	 */
 	
@@ -120,16 +120,16 @@ public class ResQRobot extends Robot {
 		this.sweeper.setPower(pow);
 	}*/
 	
-	/**
-	 * Bucket Rotation stuff
+	/*
+	 * Arm bucket rotation methods
 	 */
 	
-	public void bucketFoward() {
+	public void armBucketFoward() {
 		this.setArmBucketRotation(-ARM_BUCKET_ROTATION_SPEED);
 	}
 	
-	public void bucketBackward() {
-		this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);;
+	public void armBucketBackward() {
+		this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
 	}
 	
 	public void stopArmBucketRotation() {
