@@ -24,4 +24,4 @@ This code is dependent on the code found in the [LightningSDK](https://github.co
 
 This repository, the [LightningSDK](https://github.com/Thunderbots5604/LightningSDK), and the [Annotations](https://github.com/Thunderbots5604/Annotations) repository must all be compiled with JDK 1.6 in order to work with the Thunderbots Robot Controller.
 
-An [ant](ant.apache.org) script to compile all three and create JARs for 2015-Code and LightningSDK is available [here](https://gist.githubusercontent.com/PranavMathur/447f1047ffe55a86111b/raw/1f97b22badc86216b85e3b093847dfe4f8d87c34/build.xml)
+An [ant](https://ant.apache.org) script to compile all three and create JARs for 2015-Code and LightningSDK is available [here](https://gist.githubusercontent.com/PranavMathur/447f1047ffe55a86111b/raw/1f97b22badc86216b85e3b093847dfe4f8d87c34/build.xml)
