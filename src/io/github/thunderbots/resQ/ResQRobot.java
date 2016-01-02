@@ -74,7 +74,7 @@ public class ResQRobot extends Robot {
 		this.leftLeg = Lightning.getMotor("left_leg");
 		this.rightLeg = Lightning.getMotor("right_leg");
 //		this.sweeper = Lightning.getMotor("sweeper");
-		this.armBucket = Lightning.getMotor("rotating_arm");
+		this.armBucket = Lightning.getMotor("arm_bucket");
 		this.armExtensor = Lightning.getMotor("arm_extensor");
 //		this.bucketTilt = Lightning.getServo("bucket_tilt");
 //		this.blueBucketDoor = Lightning.getServo("left_bucket");
