@@ -92,7 +92,7 @@ public class ResQRobot extends Robot {
 	}
 	
 	/*
-	 * Walking stuff
+	 * Walking method (legs)
 	 */
 	
 	public void walkForward() {
@@ -113,7 +113,7 @@ public class ResQRobot extends Robot {
 	}
 	
 	/*
-	 * Sweeper Stuff
+	 * Sweeper method
 	 */
 	
 /*	public void moveSweeper(int pow) {
@@ -142,17 +142,16 @@ public class ResQRobot extends Robot {
 		}
 	}
 	
-	/*
-	 * Extending the Arm and retracting it
+	/**
+	 * Extends or retracts the arm, based off of it's power
 	 * @param pow
 	 */
-	
 	public void moveArmExtensor(double pow) {
 		this.armExtensor.setPower(pow);
 	}
 	
 	/*
-	 * Bucket tilt stuff
+	 * Bucket tilting methods
 	 */
 	
 /*	public void tiltBucketCW() {
