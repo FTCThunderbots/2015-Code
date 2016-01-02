@@ -33,17 +33,17 @@ public class ResQRobot extends Robot {
 	private Servo blueBucketDoor;
 	private Servo redBucketDoor;
 	private Servo leftClimberArm;
-	private Servo rightClimberArm;*/
-	private Servo leftBooper;
+	private Servo rightClimberArm;
+*/	private Servo leftBooper;
 	private Servo rightBooper;
 	
 	private static final double LEG_MOTOR_SPEED = 1.0;
 	
 	private static final double ARM_BUCKET_ROTATION_SPEED = 1.0;
 	
-/*	private static final double BUCKET_TILT_INCREMENT = 0.02;*/
+//	private static final double BUCKET_TILT_INCREMENT = 0.02;
 	
-	/**
+	/*
 	 * 
 	 * We find closed position by subtracting 1 by the other buckets closed position.
 	 * This sets up the positions of the boopers and buckets
@@ -92,7 +92,7 @@ public class ResQRobot extends Robot {
 	}
 	
 	/*
-	 * Walking method (legs)
+	 * Walking methods (legs)
 	 */
 	
 	public void walkForward() {
@@ -118,8 +118,8 @@ public class ResQRobot extends Robot {
 	
 /*	public void moveSweeper(int pow) {
 		this.sweeper.setPower(pow);
-	}*/
-	
+	}
+*/	
 	/*
 	 * Arm bucket rotation methods
 	 */
@@ -164,7 +164,8 @@ public class ResQRobot extends Robot {
 	
 	private void tiltBucket(int direction) {
 		this.bucketTilt.move(BUCKET_TILT_INCREMENT * direction);
-	}*/
+	}
+*/
 	
 	/*
 	 * Setting up methods for movement that will be binded in ResQTeleOp to a button on a controller
@@ -184,7 +185,8 @@ public class ResQRobot extends Robot {
 	
 	public void closeRedBucketDoor() {
 		this.redBucketDoor.moveToPosition(RED_BUCKET_DOOR_CLOSED_POSITION);
-	}*/
+	}
+*/
 	
 	public void openLeftBooper() {
 		this.leftBooper.moveToPosition(LEFT_BOOPER_OPEN_POSITION);
@@ -218,5 +220,5 @@ public class ResQRobot extends Robot {
 	public void moveRightClimberArm(int pos) {
 		this.rightClimberArm.moveToPosition(pos);
 	}
-	*/
+*/
 }
