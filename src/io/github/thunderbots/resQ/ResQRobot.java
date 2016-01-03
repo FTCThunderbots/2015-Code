@@ -52,14 +52,14 @@ public class ResQRobot extends Robot {
 //	private static final double BLUE_BUCKET_DOOR_OPEN_POSITION = 0; 
 //	private static final double BLUE_BUCKET_DOOR_CLOSED_POSITION = .6;
 	
-	private static final double LEFT_BOOPER_OPEN_POSITION = 1;
-	private static final double LEFT_BOOPER_CLOSED_POSITION = .45;
+	private static final double LEFT_BOOPER_OPEN_POSITION = .80;
+	private static final double LEFT_BOOPER_CLOSED_POSITION = .35;
 	
 //	private static final double RED_BUCKET_DOOR_OPEN_POSITION = 1; 
 //	private static final double RED_BUCKET_DOOR_CLOSED_POSITION = .4;
 	
 	private static final double RIGHT_BOOPER_OPEN_POSITION = 0;
-	private static final double RIGHT_BOOPER_CLOSED_POSITION = .45;
+	private static final double RIGHT_BOOPER_CLOSED_POSITION = .53;
 	
 	private static final double ENCODER_TICKS_PER_DRIVE_INCH = 131.25;
 	private static final double ENCODER_TICKS_PER_ROTATION_DEGREE = 131.25;
