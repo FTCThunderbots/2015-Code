@@ -37,13 +37,13 @@ public class ResQAutoOnlySkydivers extends Autonomous {
 		// directly to the beacon repair area
 		// drive forward to the beacon repair area
 		
-		/**
+		/*
 		 * Drives forward using MOVEMENT_POWER for 100 inches up until the beacon zone, it then stops for 1500 milliseconds.
 		 */
 		ds.driveInches(MOVEMENT_POWER, 100);
 		Util.sleep(STEP_DELAY);
 		
-		/**
+		/*
 		 * Moves the Climber Arm forwards to drop the skydivers. Then sleeps for 1500 milliseconds
 		 */
 		//moveClimberArm methods commented out because they are currently commented out in ResQRobot
@@ -51,7 +51,7 @@ public class ResQAutoOnlySkydivers extends Autonomous {
 		//resQRobot.moveRightClimberArm(1);
 		Util.sleep(STEP_DELAY);
 		
-		/**
+		/*
 		 * Moves the Climber Arm back to default position and sleeps for 500 milliseconds.
 		 */
 		//resQRobot.moveLeftClimberArm(1);
