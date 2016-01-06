@@ -43,23 +43,24 @@ public class ResQRobot extends Robot {
 	
 //	private static final double BUCKET_TILT_INCREMENT = 0.02;
 	
-	/*
-	 * 
-	 * We find closed position by subtracting 1 by the other buckets closed position.
-	 * This sets up the positions of the boopers and buckets
-	 * 
+	/**
+	 * Values representing the positions for each booper in the open and 
+	 * close positions. These were found by trial and error.
 	 */
-//	private static final double BLUE_BUCKET_DOOR_OPEN_POSITION = 0; 
-//	private static final double BLUE_BUCKET_DOOR_CLOSED_POSITION = .6;
+	private static final double LEFT_BOOPER_OPEN_POSITION = 1,
+			LEFT_BOOPER_CLOSED_POSITION = .45, 
+			RIGHT_BOOPER_OPEN_POSITION = 0, 
+			RIGHT_BOOPER_CLOSED_POSITION = .45;
 	
-	private static final double LEFT_BOOPER_OPEN_POSITION = .80;
-	private static final double LEFT_BOOPER_CLOSED_POSITION = .35;
-	
-//	private static final double RED_BUCKET_DOOR_OPEN_POSITION = 1; 
-//	private static final double RED_BUCKET_DOOR_CLOSED_POSITION = .4;
-	
-	private static final double RIGHT_BOOPER_OPEN_POSITION = 0;
-	private static final double RIGHT_BOOPER_CLOSED_POSITION = .53;
+//	/**
+//	 * Values represemting positions for the door servos in the open and
+//	 * close positions. These were found by trial and error.
+//	 */
+//	private static final double BLUE_BUCKET_DOOR_OPEN_POSITION = 0,
+//			BLUE_BUCKET_DOOR_CLOSED_POSITION = .6,
+//			RED_BUCKET_DOOR_OPEN_POSITION = 1,
+//			RED_BUCKET_DOOR_CLOSED_POSITION = .4;
+
 	
 	private static final double ENCODER_TICKS_PER_DRIVE_INCH = 131.25;
 	private static final double ENCODER_TICKS_PER_ROTATION_DEGREE = 131.25;
