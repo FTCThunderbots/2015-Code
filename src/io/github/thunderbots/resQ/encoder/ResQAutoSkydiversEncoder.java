@@ -47,7 +47,6 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 	@Override
 	protected void main() {
 		DriveSystem ds = this.getRobot().getDrive(); // for brevity
-		ResQRobot resQRobot = this.getRobot(); //creating instance of the class here
 		// start in front of the driver station
 		// drive forward to the beacon repair area
 		//TODO: Implement color sensor on the robot, and hit the beacon.
