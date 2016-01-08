@@ -19,6 +19,9 @@ package io.github.thunderbots.resQ;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
+import io.github.thunderbots.lightning.control.Joystick;
+import io.github.thunderbots.lightning.control.layout.ControlLayout;
+import io.github.thunderbots.lightning.control.layout.DriveSpinControlLayout;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 import io.github.thunderbots.resQ.ResQRobot;
 
@@ -134,6 +137,26 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().moveArmExtensor(0);
 		}
 		
+	}
+	
+	public ControlLayout createControlLayout() {
+		return new DriveSpinControlLayout() {
+			
+			@Override
+			public double getForwardPower(Joystick joy) {
+				if (!joy.aButton())
+					return super.getForwardPower(joy);
+				return super.getForwardPower(joy)/2;
+			}
+
+			@Override
+			public double getClockwisePower(Joystick joy) {
+				if (!joy.aButton())
+					return super.getClockwisePower(joy);
+				return super.getClockwisePower(joy)/2;
+			}
+			
+		};
 	}
 	
 }
