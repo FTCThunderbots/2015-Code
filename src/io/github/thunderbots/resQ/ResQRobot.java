@@ -126,6 +126,10 @@ public class ResQRobot extends Robot {
 	 */
 	
 	public void armBucketFoward() {
+		this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
+	}
+	
+	public void armBucketBackwards() {
 		this.setArmBucketRotation(-ARM_BUCKET_ROTATION_SPEED);
 	}
 	
@@ -138,8 +142,8 @@ public class ResQRobot extends Robot {
 	}
 	
 	public void setArmBucketPositionDefault() {
-		if(armBucket.getEncoder().getPosition() < 0) {
-			this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
+		if(armBucket.getEncoder().getPosition() > 0) {
+			this.setArmBucketRotation(-ARM_BUCKET_ROTATION_SPEED);
 		}
 	}
 	
