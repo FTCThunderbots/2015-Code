@@ -26,15 +26,15 @@ public class ResQRobot extends Robot {
 	private Motor leftLeg;
 	private Motor rightLeg;
 	private Motor armBucket;
-//	private Motor sweeper;
 	private Motor armExtensor;
 	
 /*	private Servo bucketTilt;
 	private Servo blueBucketDoor;
 	private Servo redBucketDoor;
-	private Servo leftClimberArm;
+
+*/	private Servo leftClimberArm;
 	private Servo rightClimberArm;
-*/	private Servo leftBooper;
+	private Servo leftBooper;
 	private Servo rightBooper;
 	
 	private static final double LEG_MOTOR_SPEED = 1.0;
@@ -74,14 +74,13 @@ public class ResQRobot extends Robot {
 	public void initializeRobot() {
 		this.leftLeg = Lightning.getMotor("left_leg");
 		this.rightLeg = Lightning.getMotor("right_leg");
-//		this.sweeper = Lightning.getMotor("sweeper");
 		this.armBucket = Lightning.getMotor("arm_bucket");
 		this.armExtensor = Lightning.getMotor("arm_extensor");
 //		this.bucketTilt = Lightning.getServo("bucket_tilt");
 //		this.blueBucketDoor = Lightning.getServo("left_bucket");
 //		this.redBucketDoor = Lightning.getServo("right_bucket");
-//		this.leftClimberArm = Lightning.getServo("climber_arm_left");
-//		this.rightClimberArm = Lightning.getServo("climber_arm_right");
+		this.leftClimberArm = Lightning.getServo("climber_arm_left");
+		this.rightClimberArm = Lightning.getServo("climber_arm_right");
 		this.leftBooper = Lightning.getServo("left_booper");
 		this.rightBooper = Lightning.getServo("right_booper");
 		
@@ -112,25 +111,16 @@ public class ResQRobot extends Robot {
 		this.leftLeg.setPower(pow);
 		this.rightLeg.setPower(pow);
 	}
-	
-	/*
-	 * Sweeper method
-	 */
-	
-/*	public void moveSweeper(int pow) {
-		this.sweeper.setPower(pow);
-	}
-*/	
 	/*
 	 * Arm bucket rotation methods
 	 */
 	
 	public void armBucketFoward() {
-		this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
+		this.setArmBucketRotation(-ARM_BUCKET_ROTATION_SPEED);
 	}
 	
 	public void armBucketBackwards() {
-		this.setArmBucketRotation(-ARM_BUCKET_ROTATION_SPEED);
+		this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
 	}
 	
 	public void stopArmBucketRotation() {
@@ -143,7 +133,7 @@ public class ResQRobot extends Robot {
 	
 	public void setArmBucketPositionDefault() {
 		if(armBucket.getEncoder().getPosition() > 0) {
-			this.setArmBucketRotation(-ARM_BUCKET_ROTATION_SPEED);
+			this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
 		}
 	}
 	
@@ -217,7 +207,7 @@ public class ResQRobot extends Robot {
 		else
 			this.bucketTilt.moveToPosition(1);
 	}
-	
+	*/
 	public void moveLeftClimberArm(int pos) {
 		this.leftClimberArm.moveToPosition(pos);
 	}
@@ -225,5 +215,5 @@ public class ResQRobot extends Robot {
 	public void moveRightClimberArm(int pos) {
 		this.rightClimberArm.moveToPosition(pos);
 	}
-*/
+
 }
