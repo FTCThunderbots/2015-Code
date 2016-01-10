@@ -45,15 +45,15 @@ public class ResQRobot extends Robot {
 	 * Values representing the positions for each booper in the open and 
 	 * close positions. These were found by trial and error.
 	 */
-	private static final double LEFT_BOOPER_OPEN_POSITION = 1,
-			LEFT_BOOPER_CLOSED_POSITION = .45, 
-			RIGHT_BOOPER_OPEN_POSITION = 0, 
-			RIGHT_BOOPER_CLOSED_POSITION = .45;
+	private static final double LEFT_BOOPER_OPEN_POSITION = 1;
+	private static final double	LEFT_BOOPER_CLOSED_POSITION = .45;
+	private static final double	RIGHT_BOOPER_OPEN_POSITION = .45;
+	private static final double	RIGHT_BOOPER_CLOSED_POSITION = 1;
 	
-	private static final double LEFT_BUCKET_BLOCKER_CLOSED_POSITION = 1,
-			LEFT_BUCKET_BLOCKER_OPEN_POSITION = .25,
-			RIGHT_BUCKET_BLOCKER_CLOSED_POSITION = .25,
-			RIGHT_BUCKET_BLOCKER_OPEN_POSITION = 1;
+	private static final double LEFT_BUCKET_BLOCKER_CLOSED_POSITION = 0;
+	private static final double	LEFT_BUCKET_BLOCKER_OPEN_POSITION = 1;
+	private static final double	RIGHT_BUCKET_BLOCKER_CLOSED_POSITION = 1;
+	private static final double	RIGHT_BUCKET_BLOCKER_OPEN_POSITION = 0;
 	
 //	/**
 //	 * Values represemting positions for the door servos in the open and
@@ -151,13 +151,19 @@ public class ResQRobot extends Robot {
 	 * Bucket tilting methods
 	 */
 	
-	public void openBlocker() {
+	public void openLeftBlocker() {
 		this.leftBucketBlocker.moveToPosition(LEFT_BUCKET_BLOCKER_OPEN_POSITION);
+	}
+	
+	public void openRightBlocker() {
 		this.rightBucketBlocker.moveToPosition(RIGHT_BUCKET_BLOCKER_OPEN_POSITION);
 	}
 	
-	public void closeBlocker() {
+	public void closeLeftBlocker() {
 		this.leftBucketBlocker.moveToPosition(LEFT_BUCKET_BLOCKER_CLOSED_POSITION);
+	}
+	
+	public void closeRightBlocker() {
 		this.rightBucketBlocker.moveToPosition(RIGHT_BUCKET_BLOCKER_CLOSED_POSITION);
 	}
 	
