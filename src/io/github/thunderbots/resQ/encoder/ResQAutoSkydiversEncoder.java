@@ -47,6 +47,7 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 	@Override
 	protected void main() {
 		DriveSystem ds = this.getRobot().getDrive(); // for brevity
+		ResQRobot resQRobot = this.getRobot(); //creating instance of the class here
 		// start in front of the driver station
 		// drive forward to the beacon repair area
 		//TODO: Implement color sensor on the robot, and hit the beacon.
@@ -61,15 +62,15 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 		 * Moves the Climber Arm forwards to drop the skydivers. Then sleeps for 1500 milliseconds
 		 */
 		//moveClimberArm methods commented out because they are currently commented out in ResQRobot
-		//resQRobot.moveLeftClimberArm(0);
-		//resQRobot.moveRightClimberArm(1);
+		resQRobot.moveLeftClimberArm(0);
+		resQRobot.moveRightClimberArm(1);
 		Util.sleep(STEP_DELAY);
 		
 		/*
 		 * Moves the Climber Arm back to default position and sleeps for 500 milliseconds.
 		 */
-		//resQRobot.moveLeftClimberArm(1);
-		//resQRobot.moveRightClimberArm(0);
+		resQRobot.moveLeftClimberArm(1);
+		resQRobot.moveRightClimberArm(0);
 		Util.sleep(500);
 		
 		

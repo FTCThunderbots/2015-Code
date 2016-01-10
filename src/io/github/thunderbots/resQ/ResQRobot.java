@@ -28,14 +28,12 @@ public class ResQRobot extends Robot {
 	private Motor armBucket;
 	private Motor armExtensor;
 	
-/*	private Servo bucketTilt;
-	private Servo blueBucketDoor;
-	private Servo redBucketDoor;
-
-*/	private Servo leftClimberArm;
+	private Servo leftClimberArm;
 	private Servo rightClimberArm;
 	private Servo leftBooper;
 	private Servo rightBooper;
+	private Servo leftBucketBlocker;
+	private Servo rightBucketBlocker;
 	
 	private static final double LEG_MOTOR_SPEED = 1.0;
 	
@@ -51,6 +49,11 @@ public class ResQRobot extends Robot {
 			LEFT_BOOPER_CLOSED_POSITION = .45, 
 			RIGHT_BOOPER_OPEN_POSITION = 0, 
 			RIGHT_BOOPER_CLOSED_POSITION = .45;
+	
+	private static final double LEFT_BUCKET_BLOCKER_CLOSED_POSITION = 1,
+			LEFT_BUCKET_BLOCKER_OPEN_POSITION = .25,
+			RIGHT_BUCKET_BLOCKER_CLOSED_POSITION = .25,
+			RIGHT_BUCKET_BLOCKER_OPEN_POSITION = 1;
 	
 //	/**
 //	 * Values represemting positions for the door servos in the open and
@@ -76,13 +79,12 @@ public class ResQRobot extends Robot {
 		this.rightLeg = Lightning.getMotor("right_leg");
 		this.armBucket = Lightning.getMotor("arm_bucket");
 		this.armExtensor = Lightning.getMotor("arm_extensor");
-//		this.bucketTilt = Lightning.getServo("bucket_tilt");
-//		this.blueBucketDoor = Lightning.getServo("left_bucket");
-//		this.redBucketDoor = Lightning.getServo("right_bucket");
 		this.leftClimberArm = Lightning.getServo("climber_arm_left");
 		this.rightClimberArm = Lightning.getServo("climber_arm_right");
 		this.leftBooper = Lightning.getServo("left_booper");
 		this.rightBooper = Lightning.getServo("right_booper");
+		this.leftBucketBlocker = Lightning.getServo("left_blocker");
+		this.rightBucketBlocker = Lightning.getServo("right_blocker");
 		
 		//These values tested and accurate as of December 9, 2015
 		this.getDrive().setEncoderTicksPerDriveInch(ENCODER_TICKS_PER_DRIVE_INCH);
@@ -149,39 +151,15 @@ public class ResQRobot extends Robot {
 	 * Bucket tilting methods
 	 */
 	
-/*	public void tiltBucketCW() {
-		this.tiltBucket(1);
+	public void openBlocker() {
+		this.leftBucketBlocker.moveToPosition(LEFT_BUCKET_BLOCKER_OPEN_POSITION);
+		this.rightBucketBlocker.moveToPosition(RIGHT_BUCKET_BLOCKER_OPEN_POSITION);
 	}
 	
-	public void tiltBucketCCW() {
-		this.tiltBucket(-1);
+	public void closeBlocker() {
+		this.leftBucketBlocker.moveToPosition(LEFT_BUCKET_BLOCKER_CLOSED_POSITION);
+		this.rightBucketBlocker.moveToPosition(RIGHT_BUCKET_BLOCKER_CLOSED_POSITION);
 	}
-	
-	private void tiltBucket(int direction) {
-		this.bucketTilt.move(BUCKET_TILT_INCREMENT * direction);
-	}
-*/
-	
-	/*
-	 * Setting up methods for movement that will be binded in ResQTeleOp to a button on a controller
-	 */
-	
-/*	public void openBlueBucketDoor() {
-		this.blueBucketDoor.moveToPosition(BLUE_BUCKET_DOOR_OPEN_POSITION);
-	}
-	
-	public void closeBlueBucketDoor() {
-		this.blueBucketDoor.moveToPosition(BLUE_BUCKET_DOOR_CLOSED_POSITION);
-	}
-	
-	public void openRedBucketDoor() {
-		this.redBucketDoor.moveToPosition(RED_BUCKET_DOOR_OPEN_POSITION);
-	}
-	
-	public void closeRedBucketDoor() {
-		this.redBucketDoor.moveToPosition(RED_BUCKET_DOOR_CLOSED_POSITION);
-	}
-*/
 	
 	public void openLeftBooper() {
 		this.leftBooper.moveToPosition(LEFT_BOOPER_OPEN_POSITION);

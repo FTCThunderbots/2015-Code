@@ -52,6 +52,7 @@ public class ResQTeleOp extends TeleOp {
 		this.getRobot().moveLeftClimberArm(1);
 */		this.getRobot().closeLeftBooper();
 		this.getRobot().closeRightBooper();
+		this.getRobot().openBlocker();
 	}
 	
 	protected void mainLoop() {
@@ -75,16 +76,6 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().stopArmBucketRotation();
 		}
 		
-		/*
-		//Tilts bucket by pressing A,B, and X button 
-		if (Lightning.getJoystick(2).aButton()) {
-			this.getRobot().moveBucket(0);
-		} else if (Lightning.getJoystick(2).bButton()) {
-			this.getRobot().moveBucket(-1);
-		} else if (Lightning.getJoystick(2).xButton()) {
-			this.getRobot().moveBucket(1);
-		}
-		*/
 		//Moves the climber arms forward by hitting the rightTrigger button
 		if (Lightning.getJoystick(2).rightTriggerPressed()) {
 			this.getRobot().moveRightClimberArm(1);
@@ -96,18 +87,6 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().moveRightClimberArm(0);
 			this.getRobot().moveLeftClimberArm(1);
 		}
-		/*
-		//Closes the bucket doors by pressing the left stick button
-		if (Lightning.getJoystick(2).leftStickButton()) {
-			this.getRobot().closeBlueBucketDoor();
-			this.getRobot().closeRedBucketDoor();
-		}
-		
-		//Opens the bucket doors by pressing the right stick button
-		if (Lightning.getJoystick(2).rightStickButton()) {
-			this.getRobot().openBlueBucketDoor();
-			this.getRobot().openRedBucketDoor();
-		}*/
 		
 		//Opens the left booper using the left button of the DPAD
 		if (Lightning.getJoystick(2).leftButton()) {
@@ -131,8 +110,12 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().moveArmExtensor(0);
 		}
 		
+		if (Lightning.getJoystick(2).upButton()) {
+			this.getRobot().openBlocker();
+		} else if (Lightning.getJoystick(2).downButton()) {
+			this.getRobot().closeBlocker();
+		}
 	}
-	
 	public ControlLayout createControlLayout() {
 		return new DriveSpinControlLayout() {
 			
