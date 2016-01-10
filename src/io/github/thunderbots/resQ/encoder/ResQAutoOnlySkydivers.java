@@ -1,7 +1,7 @@
 package io.github.thunderbots.resQ.encoder;
 
-import io.github.thunderbots.lightning.annotation.Active;
-import io.github.thunderbots.lightning.annotation.OpMode;
+import io.github.thunderbots.annotation.Active;
+import io.github.thunderbots.annotation.OpMode;
 import io.github.thunderbots.lightning.drive.DriveSystem;
 import io.github.thunderbots.lightning.opmode.Autonomous;
 import io.github.thunderbots.lightning.utility.Util;
