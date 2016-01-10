@@ -47,7 +47,8 @@ public class ResQTeleOp extends TeleOp {
 		this.setRobot(new ResQRobot());
 		this.getRobot().closeLeftBooper();
 		this.getRobot().closeRightBooper();
-		this.getRobot().openBlocker();
+		this.getRobot().openLeftBlocker();
+		this.getRobot().openRightBlocker();
 	}
 	
 	protected void mainLoop() {
@@ -98,17 +99,19 @@ public class ResQTeleOp extends TeleOp {
 		}
 		
 		if (Lightning.getJoystick(2).yButton()) {
-			this.getRobot().moveArmExtensor(1);
-		} else if (Lightning.getJoystick(2).aButton()) {
 			this.getRobot().moveArmExtensor(-1);
+		} else if (Lightning.getJoystick(2).aButton()) {
+			this.getRobot().moveArmExtensor(1);
 		} else {
 			this.getRobot().moveArmExtensor(0);
 		}
 		
 		if (Lightning.getJoystick(2).upButton()) {
-			this.getRobot().openBlocker();
+			this.getRobot().openLeftBlocker();
+			this.getRobot().openRightBlocker();
 		} else if (Lightning.getJoystick(2).downButton()) {
-			this.getRobot().closeBlocker();
+			this.getRobot().closeLeftBlocker();
+			this.getRobot().closeRightBlocker();
 		}
 	}
 	public ControlLayout createControlLayout() {
