@@ -40,7 +40,8 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 	}
 	
 	/**
-	 * -1 is Red, 1 is Blue
+	 * Used by subclasses to determine which side of the field the robot is on.
+	 * @return -1 for red, 1 for blue
 	 */
 	protected abstract int getSide();
 
