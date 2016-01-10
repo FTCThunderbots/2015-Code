@@ -119,14 +119,14 @@ public class ResQTeleOp extends TeleOp {
 			
 			@Override
 			public double getForwardPower(Joystick joy) {
-				if (!joy.aButton())
+				if (!joy.rightTriggerPressed())
 					return super.getForwardPower(joy);
 				return super.getForwardPower(joy)/2;
 			}
 
 			@Override
 			public double getClockwisePower(Joystick joy) {
-				if (!joy.aButton())
+				if (!joy.rightTriggerPressed())
 					return super.getClockwisePower(joy);
 				return super.getClockwisePower(joy)/2;
 			}
