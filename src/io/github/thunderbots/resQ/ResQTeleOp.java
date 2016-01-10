@@ -63,7 +63,7 @@ public class ResQTeleOp extends TeleOp {
 		}
 		
 		if (Lightning.getJoystick(1).upButton()) {
-			this.getRobot().armBucketFoward();
+			this.getRobot().armBucketForward();
 		} else if (Lightning.getJoystick(1).downButton()) {
 			this.getRobot().armBucketBackwards();
 		} else if (Lightning.getJoystick(1).yButton()) {
