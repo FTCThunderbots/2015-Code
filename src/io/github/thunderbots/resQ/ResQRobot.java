@@ -39,30 +39,23 @@ public class ResQRobot extends Robot {
 	
 	private static final double ARM_BUCKET_ROTATION_SPEED = 1.0;
 	
-//	private static final double BUCKET_TILT_INCREMENT = 0.02;
-	
 	/**
 	 * Values representing the positions for each booper in the open and 
 	 * close positions. These were found by trial and error.
 	 */
-	private static final double LEFT_BOOPER_OPEN_POSITION = 1;
-	private static final double	LEFT_BOOPER_CLOSED_POSITION = .45;
-	private static final double	RIGHT_BOOPER_OPEN_POSITION = .45;
-	private static final double	RIGHT_BOOPER_CLOSED_POSITION = 1;
+	private static final double LEFT_BOOPER_OPEN_POSITION = .80;
+	private static final double	LEFT_BOOPER_CLOSED_POSITION = .35;
+	private static final double	RIGHT_BOOPER_OPEN_POSITION = 0;
+	private static final double	RIGHT_BOOPER_CLOSED_POSITION = .45;
 	
-	private static final double LEFT_BUCKET_BLOCKER_CLOSED_POSITION = 0;
-	private static final double	LEFT_BUCKET_BLOCKER_OPEN_POSITION = 1;
-	private static final double	RIGHT_BUCKET_BLOCKER_CLOSED_POSITION = 1;
-	private static final double	RIGHT_BUCKET_BLOCKER_OPEN_POSITION = 0;
-	
-//	/**
-//	 * Values represemting positions for the door servos in the open and
-//	 * close positions. These were found by trial and error.
-//	 */
-//	private static final double BLUE_BUCKET_DOOR_OPEN_POSITION = 0,
-//			BLUE_BUCKET_DOOR_CLOSED_POSITION = .6,
-//			RED_BUCKET_DOOR_OPEN_POSITION = 1,
-//			RED_BUCKET_DOOR_CLOSED_POSITION = .4;
+	/**
+	 * Values representing the positions for each bucket blocker in the open
+	 * and closed positions. These have yet to be tested
+	 */
+	private static final double LEFT_BUCKET_BLOCKER_BLOCKED_POSITION = .90;
+	private static final double	LEFT_BUCKET_BLOCKER_OPEN_POSITION = 0;
+	private static final double	RIGHT_BUCKET_BLOCKER_BLOCKED_POSITION = 0;
+	private static final double	RIGHT_BUCKET_BLOCKER_OPEN_POSITION = .90;
 
 	
 	private static final double ENCODER_TICKS_PER_DRIVE_INCH = 131.25;
@@ -160,11 +153,11 @@ public class ResQRobot extends Robot {
 	}
 	
 	public void closeLeftBlocker() {
-		this.leftBucketBlocker.moveToPosition(LEFT_BUCKET_BLOCKER_CLOSED_POSITION);
+		this.leftBucketBlocker.moveToPosition(LEFT_BUCKET_BLOCKER_BLOCKED_POSITION);
 	}
 	
 	public void closeRightBlocker() {
-		this.rightBucketBlocker.moveToPosition(RIGHT_BUCKET_BLOCKER_CLOSED_POSITION);
+		this.rightBucketBlocker.moveToPosition(RIGHT_BUCKET_BLOCKER_BLOCKED_POSITION);
 	}
 	
 	public void openLeftBooper() {
