@@ -135,9 +135,10 @@ public class ResQRobot extends Robot {
 	}
 	
 	public void setArmBucketPositionDefault() {
-		if(armBucket.getEncoder().getPosition() < 0) {
+		while (armBucket.getEncoder().getPosition() < 0) {
 			this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
 		}
+		this.setArmBucketRotation(0);
 	}
 	
 	/**
