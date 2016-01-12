@@ -43,8 +43,8 @@ public class ResQRobot extends Robot {
 	 * Values representing the positions for each booper in the open and 
 	 * close positions. These were found by trial and error.
 	 */
-	private static final double LEFT_BOOPER_OPEN_POSITION = 1,
-			LEFT_BOOPER_CLOSED_POSITION = .45, 
+	private static final double LEFT_BOOPER_OPEN_POSITION = .8,
+			LEFT_BOOPER_CLOSED_POSITION = .35, 
 			RIGHT_BOOPER_OPEN_POSITION = 0, 
 			RIGHT_BOOPER_CLOSED_POSITION = .45;
 	
@@ -52,19 +52,10 @@ public class ResQRobot extends Robot {
 	 * Values representing the positions for each bucket blocker in the open
 	 * and closed positions. These have yet to be tested
 	 */
-	private static final double LEFT_BUCKET_BLOCKER_CLOSED_POSITION = 1,
-			LEFT_BUCKET_BLOCKER_OPEN_POSITION = .25,
-			RIGHT_BUCKET_BLOCKER_CLOSED_POSITION = .25,
-			RIGHT_BUCKET_BLOCKER_OPEN_POSITION = 1;
-	
-//	/**
-//	 * Values represemting positions for the door servos in the open and
-//	 * close positions. These were found by trial and error.
-//	 */
-//	private static final double BLUE_BUCKET_DOOR_OPEN_POSITION = 0,
-//			BLUE_BUCKET_DOOR_CLOSED_POSITION = .6,
-//			RED_BUCKET_DOOR_OPEN_POSITION = 1,
-//			RED_BUCKET_DOOR_CLOSED_POSITION = .4;
+	private static final double LEFT_BUCKET_BLOCKER_BLOCKED_POSITION = .9,
+			LEFT_BUCKET_BLOCKER_OPEN_POSITION = 0,
+			RIGHT_BUCKET_BLOCKER_BLOCKED_POSITION = 0,
+			RIGHT_BUCKET_BLOCKER_OPEN_POSITION = .9;
 	
 	private static final double ENCODER_TICKS_PER_DRIVE_INCH = 131.25;
 	private static final double ENCODER_TICKS_PER_ROTATION_DEGREE = 131.25;
@@ -162,11 +153,11 @@ public class ResQRobot extends Robot {
 	}
 	
 	public void closeLeftBlocker() {
-		this.leftBucketBlocker.moveToPosition(LEFT_BUCKET_BLOCKER_CLOSED_POSITION);
+		this.leftBucketBlocker.moveToPosition(LEFT_BUCKET_BLOCKER_BLOCKED_POSITION);
 	}
 	
 	public void closeRightBlocker() {
-		this.rightBucketBlocker.moveToPosition(RIGHT_BUCKET_BLOCKER_CLOSED_POSITION);
+		this.rightBucketBlocker.moveToPosition(RIGHT_BUCKET_BLOCKER_BLOCKED_POSITION);
 	}
 	
 	public void openLeftBooper() {
@@ -185,15 +176,6 @@ public class ResQRobot extends Robot {
 		this.rightBooper.moveToPosition(RIGHT_BOOPER_CLOSED_POSITION);
 	}
 	
-/*	public void moveBucket(int pos) {
-		if (pos == -1)
-			this.bucketTilt.moveToPosition(0);
-		else if (pos == 0)
-			this.bucketTilt.moveToPosition(0.5);
-		else
-			this.bucketTilt.moveToPosition(1);
-	}
-	*/
 	public void moveLeftClimberArm(int pos) {
 		this.leftClimberArm.moveToPosition(pos);
 	}
