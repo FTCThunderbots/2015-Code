@@ -18,8 +18,8 @@ package io.github.thunderbots.testing;
 
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
-import io.github.thunderbots.annotation.OpMode;
 import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
 import io.github.thunderbots.lightning.utility.Telemetry;
 
