@@ -25,7 +25,7 @@ public class ResQRobot extends Robot {
 	
 	private Motor leftLeg;
 	private Motor rightLeg;
-	private Motor armBucket;
+	private Motor armPivot;
 	private Motor armExtensor;
 	
 	private Servo leftClimberArm;
@@ -69,7 +69,7 @@ public class ResQRobot extends Robot {
 	public void initializeRobot() {
 		this.leftLeg = Lightning.getMotor("left_leg");
 		this.rightLeg = Lightning.getMotor("right_leg");
-		this.armBucket = Lightning.getMotor("arm_bucket");
+		this.armPivot = Lightning.getMotor("arm_bucket");
 		this.armExtensor = Lightning.getMotor("arm_extensor");
 		this.leftClimberArm = Lightning.getServo("climber_arm_left");
 		this.rightClimberArm = Lightning.getServo("climber_arm_right");
@@ -131,11 +131,11 @@ public class ResQRobot extends Robot {
 	}
 	
 	private void setArmBucketRotation(double pow) {
-		this.armBucket.setPower(pow);
+		this.armPivot.setPower(pow);
 	}
 	
 	public void setArmBucketPositionDefault() {
-		while (armBucket.getEncoder().getPosition() < 0) {
+		while (armPivot.getEncoder().getPosition() < 0) {
 			this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
 		}
 		this.setArmBucketRotation(0);
