@@ -43,7 +43,7 @@ public class ResQRobot extends Robot {
 	 * Values representing the positions for each booper in the open and 
 	 * close positions. These were found by trial and error.
 	 */
-	private static final double LEFT_BOOPER_OPEN_POSITION = .8,
+	private static final double LEFT_BOOPER_OPEN_POSITION = .9,
 			LEFT_BOOPER_CLOSED_POSITION = .35, 
 			RIGHT_BOOPER_OPEN_POSITION = 0, 
 			RIGHT_BOOPER_CLOSED_POSITION = .45;
