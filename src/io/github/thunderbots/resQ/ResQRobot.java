@@ -82,9 +82,15 @@ public class ResQRobot extends Robot {
 		this.getDrive().setEncoderTicksPerDriveInch(ENCODER_TICKS_PER_DRIVE_INCH);
 		this.getDrive().setEncoderTicksPerRotationDegree(ENCODER_TICKS_PER_ROTATION_DEGREE);
 		
-		//Initialize the climber arm servos in their down position
+		//Initialize the climber arm servos in their down positions
 		this.moveRightClimberArm(0);
 		this.moveLeftClimberArm(1);
+		
+		//Initialize the booper and blocker servos to their closed positions
+		this.closeLeftBlocker();
+		this.closeRightBlocker();
+		this.closeLeftBooper();
+		this.closeRightBooper();
 
 	}
 	
