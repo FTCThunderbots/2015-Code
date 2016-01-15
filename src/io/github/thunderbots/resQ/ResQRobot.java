@@ -43,10 +43,10 @@ public class ResQRobot extends Robot {
 	 * Values representing the positions for each booper in the open and 
 	 * close positions. These were found by trial and error.
 	 */
-	private static final double LEFT_BOOPER_OPEN_POSITION = .9,
-			LEFT_BOOPER_CLOSED_POSITION = .35, 
-			RIGHT_BOOPER_OPEN_POSITION = 0, 
-			RIGHT_BOOPER_CLOSED_POSITION = .55;
+	private static final double LEFT_BOOPER_UP_POSITION = .9,
+			LEFT_BOOPER_DOWN_POSITION = .35, 
+			RIGHT_BOOPER_UP_POSITION = 0, 
+			RIGHT_BOOPER_DOWN_POSITION = .55;
 	
 	/**
 	 * Values representing the positions for each bucket blocker in the open
@@ -170,19 +170,19 @@ public class ResQRobot extends Robot {
 	}
 	
 	public void openLeftBooper() {
-		this.leftBooper.moveToPosition(LEFT_BOOPER_OPEN_POSITION);
+		this.leftBooper.moveToPosition(LEFT_BOOPER_UP_POSITION);
 	}
 	
 	public void openRightBooper() {
-		this.rightBooper.moveToPosition(RIGHT_BOOPER_OPEN_POSITION);
+		this.rightBooper.moveToPosition(RIGHT_BOOPER_UP_POSITION);
 	}
 	
 	public void closeLeftBooper() {
-		this.leftBooper.moveToPosition(LEFT_BOOPER_CLOSED_POSITION);
+		this.leftBooper.moveToPosition(LEFT_BOOPER_DOWN_POSITION);
 	}
 	
 	public void closeRightBooper() {
-		this.rightBooper.moveToPosition(RIGHT_BOOPER_CLOSED_POSITION);
+		this.rightBooper.moveToPosition(RIGHT_BOOPER_DOWN_POSITION);
 	}
 	
 	public void moveLeftClimberArm(int pos) {
