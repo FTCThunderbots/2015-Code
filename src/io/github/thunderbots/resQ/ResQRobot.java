@@ -46,7 +46,7 @@ public class ResQRobot extends Robot {
 	private static final double LEFT_BOOPER_OPEN_POSITION = .9,
 			LEFT_BOOPER_CLOSED_POSITION = .35, 
 			RIGHT_BOOPER_OPEN_POSITION = 0, 
-			RIGHT_BOOPER_CLOSED_POSITION = .45;
+			RIGHT_BOOPER_CLOSED_POSITION = .55;
 	
 	/**
 	 * Values representing the positions for each bucket blocker in the open
