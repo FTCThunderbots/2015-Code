@@ -69,7 +69,7 @@ public class ResQRobot extends Robot {
 	public void initializeRobot() {
 		this.leftLeg = Lightning.getMotor("left_leg");
 		this.rightLeg = Lightning.getMotor("right_leg");
-		this.armPivot = Lightning.getMotor("arm_bucket");
+		this.armPivot = Lightning.getMotor("arm_pivot");
 		this.armExtensor = Lightning.getMotor("arm_extensor");
 		this.leftClimberArm = Lightning.getServo("climber_arm_left");
 		this.rightClimberArm = Lightning.getServo("climber_arm_right");
