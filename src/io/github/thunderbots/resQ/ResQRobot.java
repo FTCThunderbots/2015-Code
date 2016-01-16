@@ -43,19 +43,19 @@ public class ResQRobot extends Robot {
 	 * Values representing the positions for each booper in the open and 
 	 * close positions. These were found by trial and error.
 	 */
-	private static final double LEFT_BOOPER_UP_POSITION = .9,
-			LEFT_BOOPER_DOWN_POSITION = .35, 
-			RIGHT_BOOPER_UP_POSITION = 0, 
-			RIGHT_BOOPER_DOWN_POSITION = .55;
+	private static final double LEFT_BOOPER_UP_POSITION = 0.9,
+			LEFT_BOOPER_DOWN_POSITION = 0.35, 
+			RIGHT_BOOPER_UP_POSITION = 0.0, 
+			RIGHT_BOOPER_DOWN_POSITION = 0.55;
 	
 	/**
 	 * Values representing the positions for each bucket blocker in the open
 	 * and closed positions. These have yet to be tested
 	 */
-	private static final double LEFT_BUCKET_BLOCKER_BLOCKED_POSITION = .9,
-			LEFT_BUCKET_BLOCKER_OPEN_POSITION = 0,
-			RIGHT_BUCKET_BLOCKER_BLOCKED_POSITION = 0,
-			RIGHT_BUCKET_BLOCKER_OPEN_POSITION = .9;
+	private static final double LEFT_BUCKET_BLOCKER_BLOCKED_POSITION = 0.9,
+			LEFT_BUCKET_BLOCKER_OPEN_POSITION = 0.0,
+			RIGHT_BUCKET_BLOCKER_BLOCKED_POSITION = 0.0,
+			RIGHT_BUCKET_BLOCKER_OPEN_POSITION = 0.9;
 	
 	private static final double ENCODER_TICKS_PER_DRIVE_INCH = 131.25;
 	private static final double ENCODER_TICKS_PER_ROTATION_DEGREE = 131.25;
