@@ -73,10 +73,11 @@ public class ResQRobot extends Robot {
 		this.armExtensor = Lightning.getMotor("arm_extensor");
 		this.leftClimberArm = Lightning.getServo("climber_arm_left");
 		this.rightClimberArm = Lightning.getServo("climber_arm_right");
-		this.leftBooper = Lightning.getServo("left_booper");
-		this.rightBooper = Lightning.getServo("right_booper");
 		this.leftBucketBlocker = Lightning.getServo("left_blocker");
 		this.rightBucketBlocker = Lightning.getServo("right_blocker");
+		this.leftBooper = Lightning.getServo("left_booper");
+		this.rightBooper = Lightning.getServo("right_booper");
+		
 		
 		//These values tested and accurate as of December 9, 2015
 		this.getDrive().setEncoderTicksPerDriveInch(ENCODER_TICKS_PER_DRIVE_INCH);
