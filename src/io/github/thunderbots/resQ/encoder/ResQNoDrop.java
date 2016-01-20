@@ -44,12 +44,6 @@ public class ResQNoDrop extends Autonomous {
 		Util.sleep(STEP_DELAY);
 		
 		Util.sleep(STEP_DELAY);
-		
-		/*
-		 * Moves the Climber Arm back to default position and sleeps for 500 milliseconds.
-		 */
-
-		Util.sleep(500);
 
 	}
 	
