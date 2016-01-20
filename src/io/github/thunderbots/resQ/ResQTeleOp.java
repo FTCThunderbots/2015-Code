@@ -59,13 +59,13 @@ public class ResQTeleOp extends TeleOp {
 		}
 		
 		if (Lightning.getJoystick(1).upButton()) {
-			this.getRobot().armBucketForward();
+			this.getRobot().armPivotForward();
 		} else if (Lightning.getJoystick(1).downButton()) {
-			this.getRobot().armBucketBackwards();
+			this.getRobot().armPivotBackwards();
 		} else if (Lightning.getJoystick(1).bButton()) {
-			this.getRobot().setArmBucketPositionDefault();
+			this.getRobot().setArmPivotPositionDefault();
 		} else {
-			this.getRobot().stopArmBucketRotation();
+			this.getRobot().stopArmPivotRotation();
 		}
 		
 		//Moves the climber arms forward by hitting the rightTrigger button

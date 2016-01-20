@@ -118,27 +118,27 @@ public class ResQRobot extends Robot {
 	 * Arm bucket rotation methods
 	 */
 	
-	public void armBucketForward() {
-		this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
+	public void armPivotForward() {
+		this.setArmPivotPower(ARM_BUCKET_ROTATION_SPEED);
 	}
 	
-	public void armBucketBackwards() {
-		this.setArmBucketRotation(-ARM_BUCKET_ROTATION_SPEED);
+	public void armPivotBackwards() {
+		this.setArmPivotPower(-ARM_BUCKET_ROTATION_SPEED);
 	}
 	
-	public void stopArmBucketRotation() {
-		this.setArmBucketRotation(0);
+	public void stopArmPivotRotation() {
+		this.setArmPivotPower(0);
 	}
 	
-	private void setArmBucketRotation(double pow) {
+	private void setArmPivotPower(double pow) {
 		this.armPivot.setPower(pow);
 	}
 	
-	public void setArmBucketPositionDefault() {
+	public void setArmPivotPositionDefault() {
 		while (armPivot.getEncoder().getPosition() < 0) {
-			this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
+			this.setArmPivotPower(ARM_BUCKET_ROTATION_SPEED);
 		}
-		this.setArmBucketRotation(0);
+		this.setArmPivotPower(0);
 	}
 	
 	/**
