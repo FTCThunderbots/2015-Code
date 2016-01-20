@@ -38,9 +38,9 @@ public class ResQAutoOnlySkydivers extends Autonomous {
 		// drive forward to the beacon repair area
 		
 		/*
-		 * Drives forward using MOVEMENT_POWER for 100 inches up until the beacon zone, it then stops for 1500 milliseconds.
+		 * Drives forward using MOVEMENT_POWER for some inches up until the beacon zone, it then stops for 1500 milliseconds.
 		 */
-		ds.driveInches(MOVEMENT_POWER, 100);
+		ds.driveInches(MOVEMENT_POWER, 89);
 		Util.sleep(STEP_DELAY);
 		
 		/*
