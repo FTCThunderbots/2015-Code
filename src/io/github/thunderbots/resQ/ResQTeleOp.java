@@ -110,6 +110,7 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().closeRightBlocker();
 		}
 	}
+	
 	public ControlLayout createControlLayout() {
 		return new DriveSpinControlLayout() {
 			
