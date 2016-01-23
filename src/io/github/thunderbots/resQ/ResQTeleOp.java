@@ -17,8 +17,8 @@
 package io.github.thunderbots.resQ;
 
 import io.github.thunderbots.lightning.Lightning;
-import io.github.thunderbots.lightning.annotation.Active;
-import io.github.thunderbots.lightning.annotation.OpMode;
+import io.github.thunderbots.annotation.Active;
+import io.github.thunderbots.annotation.OpMode;
 import io.github.thunderbots.lightning.control.Joystick;
 import io.github.thunderbots.lightning.control.layout.ControlLayout;
 import io.github.thunderbots.lightning.control.layout.DriveSpinControlLayout;

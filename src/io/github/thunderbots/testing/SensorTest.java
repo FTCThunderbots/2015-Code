@@ -16,22 +16,29 @@
 
 package io.github.thunderbots.testing;
 
+import com.qualcomm.robotcore.hardware.TouchSensor;
+
+import io.github.thunderbots.annotation.Active;
+import io.github.thunderbots.annotation.OpMode;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
 import io.github.thunderbots.lightning.utility.Telemetry;
 
-import com.qualcomm.robotcore.hardware.TouchSensor;
-
-/**
- * @author Zach Ohara
- */
+@OpMode(name = "Touch test", type = "")
+@Active
 public class SensorTest extends LightningOpMode {
-
-	private TouchSensor touch;
+	
+	private TouchSensor sensor;
 
 	@Override
 	protected void initializeOpMode() {
-		this.touch = (TouchSensor) Lightning.getSensor("touchsensor");
+		super.initializeOpMode();
+		try {
+			sensor = Lightning.getSensor("touch");
+		} catch (IllegalArgumentException e) {
+			System.out.println("P-dog: caught");
+			sensor = hardwareMap.touchSensor.get("touch");
+		}
 	}
 
 	/**
@@ -40,8 +47,8 @@ public class SensorTest extends LightningOpMode {
 	@Override
 	protected void main() {
 		while (this.opModeIsActive()) {
-			Telemetry.sendData("pressed", this.touch.isPressed());
-			Telemetry.sendData("value", this.touch.getValue());
+			Telemetry.sendData("Value: ", sensor.getValue());
+			Telemetry.sendData("Bool: ", sensor.isPressed());
 		}
 	}
 
