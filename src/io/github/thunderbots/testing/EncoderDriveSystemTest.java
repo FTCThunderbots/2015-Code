@@ -16,8 +16,8 @@
 
 package io.github.thunderbots.testing;
 
-import io.github.thunderbots.annotation.OpMode;
 import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.drive.DriveSystem;
 import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.utility.Telemetry;
