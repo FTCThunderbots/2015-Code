@@ -16,9 +16,11 @@
 
 package io.github.thunderbots.testing;
 
-import io.github.thunderbots.annotation.OpMode;
+import io.github.thunderbots.lightning.annotation.Active;
+import io.github.thunderbots.lightning.annotation.OpMode;
 
 @OpMode(name="Color Sensor Refl", type = "Test")
+@Active
 public class ColorSensorTest2 extends ColorSensorTest {
 	
 	@Override

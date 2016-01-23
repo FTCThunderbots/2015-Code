@@ -148,7 +148,7 @@ public class ResQRobot extends Robot {
 	}
 	
 	/**
-	 * Extends or retracts the arm, based off of it's power
+	 * Extends or retracts the arm, based off of its power
 	 * @param pow the power to which to set the arm extensor
 	 */
 	public void moveArmExtensor(double pow) {

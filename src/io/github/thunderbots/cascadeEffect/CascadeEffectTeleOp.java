@@ -16,7 +16,7 @@
 
 package io.github.thunderbots.cascadeEffect;
 
-import io.github.thunderbots.annotation.OpMode;
+import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.TeleOp;
 
 /**
