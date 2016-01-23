@@ -19,11 +19,13 @@ package io.github.thunderbots.testing;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
 import io.github.thunderbots.lightning.Lightning;
+import io.github.thunderbots.lightning.annotation.Active;
 import io.github.thunderbots.lightning.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.LightningOpMode;
 import io.github.thunderbots.lightning.utility.Telemetry;
 
 @OpMode(type="Test", name="Color Sensor Ambt")
+@Active
 public class ColorSensorTest extends LightningOpMode {
 	
 	protected ColorSensor color;
