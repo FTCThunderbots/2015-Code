@@ -16,7 +16,7 @@
 
 package io.github.thunderbots.testing;
 
-import io.github.thunderbots.lightning.annotation.OpMode;
+import io.github.thunderbots.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
 import io.github.thunderbots.lightning.utility.Util;
 import io.github.thunderbots.resQ.ResQRobot;
