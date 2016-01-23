@@ -56,7 +56,7 @@ public abstract class ResQAutoSkydiversEncoder extends Autonomous {
 		/*
 		 * Drives forward using MOVEMENT_POWER for 100 inches up until the beacon zone, it then stops for 1500 milliseconds.
 		 */
-		ds.driveInches(MOVEMENT_POWER, 100);
+		ds.driveInches(MOVEMENT_POWER, 95);
 		Util.sleep(STEP_DELAY);
 		
 		/*

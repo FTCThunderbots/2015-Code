@@ -25,7 +25,7 @@ public class ResQRobot extends Robot {
 	
 	private Motor leftLeg;
 	private Motor rightLeg;
-	private Motor armBucket;
+	private Motor armPivot;
 	private Motor armExtensor;
 	
 	private Servo leftClimberArm;
@@ -43,19 +43,19 @@ public class ResQRobot extends Robot {
 	 * Values representing the positions for each booper in the open and 
 	 * close positions. These were found by trial and error.
 	 */
-	private static final double LEFT_BOOPER_OPEN_POSITION = .8,
-			LEFT_BOOPER_CLOSED_POSITION = .35, 
-			RIGHT_BOOPER_OPEN_POSITION = 0, 
-			RIGHT_BOOPER_CLOSED_POSITION = .45;
+	private static final double LEFT_BOOPER_UP_POSITION = 1.0,
+			LEFT_BOOPER_DOWN_POSITION = 0.45, 
+			RIGHT_BOOPER_UP_POSITION = 0.0, 
+			RIGHT_BOOPER_DOWN_POSITION = 0.55;
 	
 	/**
 	 * Values representing the positions for each bucket blocker in the open
 	 * and closed positions. These have yet to be tested
 	 */
-	private static final double LEFT_BUCKET_BLOCKER_BLOCKED_POSITION = .9,
-			LEFT_BUCKET_BLOCKER_OPEN_POSITION = 0,
-			RIGHT_BUCKET_BLOCKER_BLOCKED_POSITION = 0,
-			RIGHT_BUCKET_BLOCKER_OPEN_POSITION = .9;
+	private static final double LEFT_BUCKET_BLOCKER_BLOCKED_POSITION = 0.9,
+			LEFT_BUCKET_BLOCKER_OPEN_POSITION = 0.0,
+			RIGHT_BUCKET_BLOCKER_BLOCKED_POSITION = 0.0,
+			RIGHT_BUCKET_BLOCKER_OPEN_POSITION = 0.9;
 	
 	private static final double ENCODER_TICKS_PER_DRIVE_INCH = 131.25;
 	private static final double ENCODER_TICKS_PER_ROTATION_DEGREE = 131.25;
@@ -69,7 +69,7 @@ public class ResQRobot extends Robot {
 	public void initializeRobot() {
 		this.leftLeg = Lightning.getMotor("left_leg");
 		this.rightLeg = Lightning.getMotor("right_leg");
-		this.armBucket = Lightning.getMotor("arm_bucket");
+		this.armPivot = Lightning.getMotor("arm_pivot");
 		this.armExtensor = Lightning.getMotor("arm_extensor");
 		this.leftClimberArm = Lightning.getServo("climber_arm_left");
 		this.rightClimberArm = Lightning.getServo("climber_arm_right");
@@ -82,6 +82,15 @@ public class ResQRobot extends Robot {
 		this.getDrive().setEncoderTicksPerDriveInch(ENCODER_TICKS_PER_DRIVE_INCH);
 		this.getDrive().setEncoderTicksPerRotationDegree(ENCODER_TICKS_PER_ROTATION_DEGREE);
 		
+		//Initialize the climber arm servos in their down positions
+		this.moveRightClimberArm(0);
+		this.moveLeftClimberArm(1);
+		
+		//Initialize the booper and blocker servos to their closed positions
+		this.closeLeftBlocker();
+		this.closeRightBlocker();
+		this.closeLeftBooper();
+		this.closeRightBooper();
 
 	}
 	
@@ -109,27 +118,27 @@ public class ResQRobot extends Robot {
 	 * Arm bucket rotation methods
 	 */
 	
-	public void armBucketForward() {
-		this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
+	public void armPivotForward() {
+		this.setArmPivotPower(ARM_BUCKET_ROTATION_SPEED);
 	}
 	
-	public void armBucketBackwards() {
-		this.setArmBucketRotation(-ARM_BUCKET_ROTATION_SPEED);
+	public void armPivotBackwards() {
+		this.setArmPivotPower(-ARM_BUCKET_ROTATION_SPEED);
 	}
 	
-	public void stopArmBucketRotation() {
-		this.setArmBucketRotation(0);
+	public void stopArmPivotRotation() {
+		this.setArmPivotPower(0);
 	}
 	
-	private void setArmBucketRotation(double pow) {
-		this.armBucket.setPower(pow);
+	private void setArmPivotPower(double pow) {
+		this.armPivot.setPower(pow);
 	}
 	
-	public void setArmBucketPositionDefault() {
-		while (armBucket.getEncoder().getPosition() < 0) {
-			this.setArmBucketRotation(ARM_BUCKET_ROTATION_SPEED);
+	public void setArmPivotPositionDefault() {
+		while (armPivot.getEncoder().getPosition() < 0) {
+			this.setArmPivotPower(ARM_BUCKET_ROTATION_SPEED);
 		}
-		this.setArmBucketRotation(0);
+		this.setArmPivotPower(0);
 	}
 	
 	/**
@@ -161,19 +170,19 @@ public class ResQRobot extends Robot {
 	}
 	
 	public void openLeftBooper() {
-		this.leftBooper.moveToPosition(LEFT_BOOPER_OPEN_POSITION);
+		this.leftBooper.moveToPosition(LEFT_BOOPER_UP_POSITION);
 	}
 	
 	public void openRightBooper() {
-		this.rightBooper.moveToPosition(RIGHT_BOOPER_OPEN_POSITION);
+		this.rightBooper.moveToPosition(RIGHT_BOOPER_UP_POSITION);
 	}
 	
 	public void closeLeftBooper() {
-		this.leftBooper.moveToPosition(LEFT_BOOPER_CLOSED_POSITION);
+		this.leftBooper.moveToPosition(LEFT_BOOPER_DOWN_POSITION);
 	}
 	
 	public void closeRightBooper() {
-		this.rightBooper.moveToPosition(RIGHT_BOOPER_CLOSED_POSITION);
+		this.rightBooper.moveToPosition(RIGHT_BOOPER_DOWN_POSITION);
 	}
 	
 	public void moveLeftClimberArm(int pos) {

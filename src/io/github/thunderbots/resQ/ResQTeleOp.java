@@ -45,10 +45,6 @@ public class ResQTeleOp extends TeleOp {
 	protected void initializeOpMode() {
 		super.initializeOpMode();
 		this.setRobot(new ResQRobot());
-		this.getRobot().closeLeftBooper();
-		this.getRobot().closeRightBooper();
-		this.getRobot().openLeftBlocker();
-		this.getRobot().openRightBlocker();
 	}
 	
 	protected void mainLoop() {
@@ -62,14 +58,14 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().stopWalking();
 		}
 		
-		if (Lightning.getJoystick(1).upButton()) {
-			this.getRobot().armBucketForward();
-		} else if (Lightning.getJoystick(1).downButton()) {
-			this.getRobot().armBucketBackwards();
-		} else if (Lightning.getJoystick(1).yButton()) {
-			this.getRobot().setArmBucketPositionDefault();
+		if (Lightning.getJoystick(1).upButton() || Lightning.getJoystick(2).upButton()) {
+			this.getRobot().armPivotForward();
+		} else if (Lightning.getJoystick(1).downButton() || Lightning.getJoystick(2).downButton()) {
+			this.getRobot().armPivotBackwards();
+		} else if (Lightning.getJoystick(1).bButton() || Lightning.getJoystick(2).bButton()) {
+			this.getRobot().setArmPivotPositionDefault();
 		} else {
-			this.getRobot().stopArmBucketRotation();
+			this.getRobot().stopArmPivotRotation();
 		}
 		
 		//Moves the climber arms forward by hitting the rightTrigger button
@@ -106,14 +102,15 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().moveArmExtensor(0);
 		}
 		
-		if (Lightning.getJoystick(2).upButton()) {
+		if (Lightning.getJoystick(2).rightBumper()) {
 			this.getRobot().openLeftBlocker();
 			this.getRobot().openRightBlocker();
-		} else if (Lightning.getJoystick(2).downButton()) {
+		} else if (Lightning.getJoystick(2).leftBumper()) {
 			this.getRobot().closeLeftBlocker();
 			this.getRobot().closeRightBlocker();
 		}
 	}
+	
 	public ControlLayout createControlLayout() {
 		return new DriveSpinControlLayout() {
 			
