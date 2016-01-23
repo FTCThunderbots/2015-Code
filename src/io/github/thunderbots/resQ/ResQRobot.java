@@ -156,10 +156,6 @@ public class ResQRobot extends Robot {
 			this.armExtensor.setPower(pow);
 	}
 	
-	/*
-	 * Bucket tilting methods
-	 */
-	
 	public void openLeftBlocker() {
 		this.leftBucketBlocker.moveToPosition(LEFT_BUCKET_BLOCKER_OPEN_POSITION);
 	}
