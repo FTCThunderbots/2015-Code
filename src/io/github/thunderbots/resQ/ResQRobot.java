@@ -16,6 +16,8 @@
 
 package io.github.thunderbots.resQ;
 
+import com.qualcomm.robotcore.hardware.TouchSensor;
+
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.hardware.Servo;
@@ -34,6 +36,8 @@ public class ResQRobot extends Robot {
 	private Servo rightBooper;
 	private Servo leftBucketBlocker;
 	private Servo rightBucketBlocker;
+	
+	private TouchSensor touch;
 	
 	private static final double LEG_MOTOR_SPEED = 1.0;
 	
@@ -77,6 +81,8 @@ public class ResQRobot extends Robot {
 		this.rightBooper = Lightning.getServo("right_booper");
 		this.leftBucketBlocker = Lightning.getServo("left_blocker");
 		this.rightBucketBlocker = Lightning.getServo("right_blocker");
+		
+		this.touch = Lightning.getRobotHardware().touchSensor.get("touch");
 		
 		//These values tested and accurate as of December 9, 2015
 		this.getDrive().setEncoderTicksPerDriveInch(ENCODER_TICKS_PER_DRIVE_INCH);
@@ -146,7 +152,8 @@ public class ResQRobot extends Robot {
 	 * @param pow the power to which to set the arm extensor
 	 */
 	public void moveArmExtensor(double pow) {
-		this.armExtensor.setPower(pow);
+		if (!this.touch.isPressed() || pow >= 0)
+			this.armExtensor.setPower(pow);
 	}
 	
 	/*
