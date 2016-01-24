@@ -33,9 +33,9 @@ public class ColorSensorTest extends LightningOpMode {
 	@Override
 	protected void initializeOpMode() {
 		super.initializeOpMode();
-		Lightning.getTaskScheduler().registerTask(new SensorDataDisplayRunnable());
 		this.color = Lightning.getSensor("color");
 		this.color.enableLed(false);
+		Lightning.getTaskScheduler().registerTask(new SensorDataDisplayRunnable());
 	}
 	
 	@Override
