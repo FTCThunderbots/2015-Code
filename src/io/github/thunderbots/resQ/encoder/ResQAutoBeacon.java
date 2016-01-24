@@ -1,12 +1,7 @@
 package io.github.thunderbots.resQ.encoder;
 
-import com.qualcomm.robotcore.hardware.ColorSensor;
-
-import io.github.thunderbots.lightning.Lightning;
-import io.github.thunderbots.lightning.annotation.Active;
-import io.github.thunderbots.lightning.annotation.OpMode;
+import io.github.thunderbots.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
-import io.github.thunderbots.lightning.opmode.LightningOpMode;
 import io.github.thunderbots.resQ.ResQRobot;
 
 public abstract class ResQAutoBeacon extends Autonomous {
