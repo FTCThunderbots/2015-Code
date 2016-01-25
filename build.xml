@@ -24,5 +24,16 @@
 	<target name="jar" depends="compile">
 		<jar destfile="2015-Code.jar" basedir="bin"/>
 	</target>
+	
+	<target name="doc">
+		<delete dir="docs"/>
+		<javadoc sourcepath="src" destdir="docs">
+			<classpath>
+				<pathelement location="lib/Annotations.jar"/>
+				<pathelement location="lib/LightningSDK.jar"/>
+				<pathelement location="lib/robotcore.jar"/>
+			</classpath>
+		</javadoc>
+	</target>
 
 </project>
