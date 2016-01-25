@@ -1,0 +1,28 @@
+<project default="jar">
+
+	<property name="java-6-home" value="C:/Program Files/Java/jre6/lib/rt.jar"/>
+	
+	<target name="clean">
+		<delete dir="bin"/>
+		<delete file="2015-Code.jar"/>
+	</target>
+	
+	<target name="compile" depends="clean">
+		<mkdir dir="bin"/>
+		<javac target="1.6" source="1.6" srcdir="src" destdir="bin" createMissingPackageInfoClass="false" includeAntRuntime="false">
+			<classpath>
+				<pathelement location="lib/Annotations.jar"/>
+				<pathelement location="lib/LightningSDK.jar"/>
+				<pathelement location="lib/robotcore.jar"/>
+			</classpath>
+			<bootclasspath>
+				<pathelement location="${java-6-home}"/>
+			</bootclasspath>
+		</javac>
+	</target>
+	
+	<target name="jar" depends="compile">
+		<jar destfile="2015-Code.jar" basedir="bin"/>
+	</target>
+
+</project>
