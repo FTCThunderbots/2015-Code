@@ -148,7 +148,8 @@ public class ResQRobot extends Robot {
 	}
 	
 	/**
-	 * Extends or retracts the arm, based off of its power
+	 * Extends or retracts the arm, based off of its power, if and only if the
+	 * touch sensor is not engaged or the arm is to move upward.
 	 * @param pow the power to which to set the arm extensor
 	 */
 	public void moveArmExtensor(double pow) {
