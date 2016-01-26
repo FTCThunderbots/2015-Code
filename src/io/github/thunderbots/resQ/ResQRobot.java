@@ -16,12 +16,14 @@
 
 package io.github.thunderbots.resQ;
 
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.robot.Robot;
+import io.github.thunderbots.lightning.utility.Alliance;
 
 public class ResQRobot extends Robot {
 	
@@ -38,6 +40,7 @@ public class ResQRobot extends Robot {
 	private Servo rightBucketBlocker;
 	
 	private TouchSensor touch;
+	private ColorSensor color;
 	
 	private static final double LEG_MOTOR_SPEED = 1.0;
 	
@@ -84,6 +87,10 @@ public class ResQRobot extends Robot {
 		
 		try {
 			this.touch = Lightning.getRobotHardware().touchSensor.get("touch");
+		} catch (IllegalArgumentException ignore) {}
+		
+		try {
+			this.color = Lightning.getRobotHardware().colorSensor.get("color");
 		} catch (IllegalArgumentException ignore) {}
 		
 		//These values tested and accurate as of December 9, 2015
@@ -197,6 +204,12 @@ public class ResQRobot extends Robot {
 	
 	public void moveRightClimberArm(int pos) {
 		this.rightClimberArm.moveToPosition(pos);
+	}
+	
+	public Alliance getBeaconColor() {
+		if (color.red() > color.blue())
+			return Alliance.RED;
+		return Alliance.BLUE;
 	}
 
 }
