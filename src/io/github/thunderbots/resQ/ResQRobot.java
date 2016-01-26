@@ -82,7 +82,9 @@ public class ResQRobot extends Robot {
 		this.leftBucketBlocker = Lightning.getServo("left_blocker");
 		this.rightBucketBlocker = Lightning.getServo("right_blocker");
 		
-		this.touch = Lightning.getRobotHardware().touchSensor.get("touch");
+		try {
+			this.touch = Lightning.getRobotHardware().touchSensor.get("touch");
+		} catch (IllegalArgumentException ignore) {}
 		
 		//These values tested and accurate as of December 9, 2015
 		this.getDrive().setEncoderTicksPerDriveInch(ENCODER_TICKS_PER_DRIVE_INCH);
