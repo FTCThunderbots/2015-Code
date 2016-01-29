@@ -18,6 +18,8 @@ package io.github.thunderbots.resQ.encoder;
 
 import io.github.thunderbots.annotation.OpMode;
 import io.github.thunderbots.lightning.opmode.Autonomous;
+import io.github.thunderbots.lightning.utility.Alliance;
+import io.github.thunderbots.lightning.utility.Telemetry;
 import io.github.thunderbots.resQ.ResQRobot;
 
 public abstract class ResQAutoBeacon extends Autonomous {
@@ -41,7 +43,21 @@ public abstract class ResQAutoBeacon extends Autonomous {
 	
 	@Override 
 	protected void main() {
-		//TODO: drive forward 90-ish inches
+		this.getRobot().getDrive().driveInches(50, 60);
+		this.getRobot().getDrive().rotateDegrees(50, 45);
+		this.getRobot().getDrive().driveInches(25, 10);
+		
+		Alliance ourColor = Alliance.fromInt(this.getSide());
+		Alliance beaconLeftColor = this.getRobot().getBeaconColor();
+		
+		if (ourColor == beaconLeftColor) {
+			Telemetry.sendData("Thingy: ", "Same Color");
+		} else {
+			Telemetry.sendData("Thingy: ", "Diff Color");
+		}
+		
+		this.getRobot().getDrive().driveInches(50, -15);
+		
 	}
 	
 	@OpMode(type="Autonomous", name="Beacon Auto [E][R]")
