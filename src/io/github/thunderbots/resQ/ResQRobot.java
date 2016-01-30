@@ -20,7 +20,6 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 
 import io.github.thunderbots.lightning.Lightning;
-import io.github.thunderbots.lightning.hardware.CRServo;
 import io.github.thunderbots.lightning.hardware.Motor;
 import io.github.thunderbots.lightning.hardware.Servo;
 import io.github.thunderbots.lightning.robot.Robot;
@@ -40,15 +39,10 @@ public class ResQRobot extends Robot {
 	private Servo leftBucketBlocker;
 	private Servo rightBucketBlocker;
 	
-	private CRServo blockSweeperLeft;
-	private CRServo blockSweeperRight;
-	
 	private TouchSensor touch;
 	private ColorSensor color;
 	
 	private static final double LEG_MOTOR_SPEED = 1.0;
-	
-	private static final double SWEEPER_SERVO_SPEED = 1.0;
 	
 	private static final double ARM_BUCKET_ROTATION_SPEED = 1.0;
 	
@@ -73,8 +67,6 @@ public class ResQRobot extends Robot {
 	private static final double ENCODER_TICKS_PER_DRIVE_INCH = 131.25;
 	private static final double ENCODER_TICKS_PER_ROTATION_DEGREE = 131.25;
 	
-	private boolean objectTrack = false;
-	
 	@Override
 	public String[] getDriveMotorNames() {
 		return new String[] {"front_left", "front_right", "back_left", "back_right"};
@@ -92,8 +84,6 @@ public class ResQRobot extends Robot {
 		this.rightBooper = Lightning.getServo("right_booper");
 		this.leftBucketBlocker = Lightning.getServo("left_blocker");
 		this.rightBucketBlocker = Lightning.getServo("right_blocker");
-		this.blockSweeperRight = (CRServo) Lightning.getMotor("block_sweeper_right");
-		this.blockSweeperLeft = (CRServo) Lightning.getMotor("block_sweeper_left");
 		
 		try {
 			this.touch = Lightning.getRobotHardware().touchSensor.get("touch");
@@ -140,33 +130,6 @@ public class ResQRobot extends Robot {
 	private void setLegPower(double pow) {
 		this.leftLeg.setPower(pow);
 		this.rightLeg.setPower(pow);
-	}
-	
-	/*
-	 * Sweeper Servo methods
-	 */
-	
-	private void setSweeperPower(double pow) {
-		this.blockSweeperLeft.setPower(-pow);
-		this.blockSweeperRight.setPower(pow);
-	}
-	
-	public void blockObject() {
-		this.setSweeperPower(SWEEPER_SERVO_SPEED);
-	}
-	
-	public void letObject() {
-		this.setSweeperPower(0);
-	}
-	
-	public void toggleObject() {
-		if (this.objectTrack) {
-			this.blockObject();
-		} else {
-			this.letObject();
-		}
-		
-		this.objectTrack = !(this.objectTrack);
 	}
 	/*
 	 * Arm bucket rotation methods

@@ -71,17 +71,6 @@ public class ResQTeleOp extends TeleOp implements JoystickListener {
 			this.getRobot().stopArmPivotRotation();
 		}
 		
-//		if (Lightning.getJoystick(2).xButton()) {
-//			this.getRobot().toggleObject();
-//			/*
-//			if (this.xTrack)
-//				this.getRobot().blockObject();
-//			else
-//				this.getRobot().letObject();
-//			
-//			this.xTrack = !(this.xTrack);*/
-//		}
-		
 		//Moves the climber arms forward by hitting the rightTrigger button
 		if (Lightning.getJoystick(2).rightTriggerPressed()) {
 			this.getRobot().moveRightClimberArm(1);
@@ -125,9 +114,9 @@ public class ResQTeleOp extends TeleOp implements JoystickListener {
 		}
 	}
 	
-	@ButtonHandler(button=JoystickButton.X, joystick=2)
-	public void toggleObject() {
-		this.getRobot().toggleObject();
+	@ButtonHandler(button = JoystickButton.B, joystick = 2)
+	public void retractExtensor() {
+		this.getRobot().retractExtensor();
 	}
 	
 	public ControlLayout createControlLayout() {
