@@ -43,9 +43,9 @@ public abstract class ResQAutoBeacon extends Autonomous {
 	
 	@Override 
 	protected void main() {
-		this.getRobot().getDrive().driveInches(50, 60);
-		this.getRobot().getDrive().rotateDegrees(50, 45);
-		this.getRobot().getDrive().driveInches(25, 10);
+		this.getRobot().getDrive().driveInches(.50, 92);
+		this.getRobot().getDrive().rotateDegrees(.50, 45);
+		this.getRobot().getDrive().driveInches(.25, 10);
 		
 		Alliance ourColor = Alliance.fromInt(this.getSide());
 		Alliance beaconLeftColor = this.getRobot().getBeaconColor();
@@ -70,6 +70,7 @@ public abstract class ResQAutoBeacon extends Autonomous {
 		}
 		
 	}
+	
 	
 	@OpMode(type="Autonomous", name="Beacon Auto [E][B]")
 	//TODO: add @active
