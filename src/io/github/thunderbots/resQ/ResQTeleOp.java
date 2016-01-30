@@ -28,7 +28,6 @@ import io.github.thunderbots.resQ.ResQRobot;
 @OpMode(name="Tele Op", type="TeleOp")
 @Active
 public class ResQTeleOp extends TeleOp {
-
 	@Override
 	protected ResQRobot getRobot() {
 		return (ResQRobot) super.getRobot();
@@ -66,6 +65,16 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().setArmPivotPositionDefault();
 		} else {
 			this.getRobot().stopArmPivotRotation();
+		}
+		
+		if (Lightning.getJoystick(2).xButton()) {
+			this.getRobot().toggleObject();/*
+			if (this.xTrack)
+				this.getRobot().blockObject();
+			else
+				this.getRobot().letObject();
+			
+			this.xTrack = !(this.xTrack);*/
 		}
 		
 		//Moves the climber arms forward by hitting the rightTrigger button
