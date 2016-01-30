@@ -19,7 +19,10 @@ package io.github.thunderbots.resQ;
 import io.github.thunderbots.lightning.Lightning;
 import io.github.thunderbots.annotation.Active;
 import io.github.thunderbots.annotation.OpMode;
+import io.github.thunderbots.lightning.control.ButtonHandler;
 import io.github.thunderbots.lightning.control.Joystick;
+import io.github.thunderbots.lightning.control.JoystickButton;
+import io.github.thunderbots.lightning.control.JoystickListener;
 import io.github.thunderbots.lightning.control.layout.ControlLayout;
 import io.github.thunderbots.lightning.control.layout.DriveSpinControlLayout;
 import io.github.thunderbots.lightning.opmode.TeleOp;
@@ -27,7 +30,7 @@ import io.github.thunderbots.resQ.ResQRobot;
 
 @OpMode(name="Tele Op", type="TeleOp")
 @Active
-public class ResQTeleOp extends TeleOp {
+public class ResQTeleOp extends TeleOp implements JoystickListener {
 	@Override
 	protected ResQRobot getRobot() {
 		return (ResQRobot) super.getRobot();
@@ -44,6 +47,7 @@ public class ResQTeleOp extends TeleOp {
 	protected void initializeOpMode() {
 		super.initializeOpMode();
 		this.setRobot(new ResQRobot());
+		Lightning.getJoystickMonitor(2).registerJoystickListener(this);
 	}
 	
 	protected void mainLoop() {
@@ -67,15 +71,16 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().stopArmPivotRotation();
 		}
 		
-		if (Lightning.getJoystick(2).xButton()) {
-			this.getRobot().toggleObject();/*
-			if (this.xTrack)
-				this.getRobot().blockObject();
-			else
-				this.getRobot().letObject();
-			
-			this.xTrack = !(this.xTrack);*/
-		}
+//		if (Lightning.getJoystick(2).xButton()) {
+//			this.getRobot().toggleObject();
+//			/*
+//			if (this.xTrack)
+//				this.getRobot().blockObject();
+//			else
+//				this.getRobot().letObject();
+//			
+//			this.xTrack = !(this.xTrack);*/
+//		}
 		
 		//Moves the climber arms forward by hitting the rightTrigger button
 		if (Lightning.getJoystick(2).rightTriggerPressed()) {
@@ -118,6 +123,11 @@ public class ResQTeleOp extends TeleOp {
 			this.getRobot().closeLeftBlocker();
 			this.getRobot().closeRightBlocker();
 		}
+	}
+	
+	@ButtonHandler(button=JoystickButton.X, joystick=2)
+	public void toggleObject() {
+		this.getRobot().toggleObject();
 	}
 	
 	public ControlLayout createControlLayout() {
