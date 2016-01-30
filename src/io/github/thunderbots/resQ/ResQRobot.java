@@ -203,6 +203,19 @@ public class ResQRobot extends Robot {
 		this.armExtensor.setPower(pow);
 	}
 	
+	public void retractExtensor() {
+		Thread t = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				while (!ResQRobot.this.touchPressed()) {
+					ResQRobot.this.moveArmExtensor(1);
+				}
+				ResQRobot.this.moveArmExtensor(0);
+			}
+		});
+		t.start();
+	}
+	
 	public void openLeftBlocker() {
 		this.leftBucketBlocker.moveToPosition(LEFT_BUCKET_BLOCKER_OPEN_POSITION);
 	}
