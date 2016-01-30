@@ -147,8 +147,8 @@ public class ResQRobot extends Robot {
 	 */
 	
 	private void setSweeperPower(double pow) {
-		this.blockSweeperLeft.setPower(pow);
-		this.blockSweeperRight.setPower(-pow);
+		this.blockSweeperLeft.setPower(-pow);
+		this.blockSweeperRight.setPower(pow);
 	}
 	
 	public void blockObject() {
