@@ -110,7 +110,7 @@ public class ResQTeleOp extends TeleOp implements JoystickListener {
 		
 		if (Lightning.getJoystick(2).yButton()) {
 			this.getRobot().moveArmExtensor(-1);
-		} else if (Lightning.getJoystick(2).aButton()) {
+		} else if (Lightning.getJoystick(2).aButton() && !this.getRobot().touchPressed()) {
 			this.getRobot().moveArmExtensor(1);
 		} else {
 			this.getRobot().moveArmExtensor(0);

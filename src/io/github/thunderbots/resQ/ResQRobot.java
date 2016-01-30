@@ -196,13 +196,11 @@ public class ResQRobot extends Robot {
 	}
 	
 	/**
-	 * Extends or retracts the arm, based off of its power, if and only if the
-	 * touch sensor is not engaged or the arm is to move upward.
+	 * Extends or retracts the arm, based off of its power
 	 * @param pow the power to which to set the arm extensor
 	 */
 	public void moveArmExtensor(double pow) {
-		if (!this.touch.isPressed() || pow >= 0)
-			this.armExtensor.setPower(pow);
+		this.armExtensor.setPower(pow);
 	}
 	
 	public void openLeftBlocker() {
@@ -245,10 +243,13 @@ public class ResQRobot extends Robot {
 		this.rightClimberArm.moveToPosition(pos);
 	}
 	
+	public boolean touchPressed() {
+		return touch.isPressed();
+	}
+	
 	public Alliance getBeaconColor() {
 		if (color.red() > color.blue())
 			return Alliance.RED;
 		return Alliance.BLUE;
 	}
-
 }
