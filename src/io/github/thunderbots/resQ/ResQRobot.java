@@ -71,7 +71,7 @@ public class ResQRobot extends Robot {
 			RIGHT_BUCKET_BLOCKER_OPEN_POSITION = 0.9;
 	
 	private static final double ENCODER_TICKS_PER_DRIVE_INCH = 131.25;
-	private static final double ENCODER_TICKS_PER_ROTATION_DEGREE = 131.25;
+	private static final double ENCODER_TICKS_PER_ROTATION_DEGREE = 13.85;
 	
 	private boolean objectTrack = false;
 	
