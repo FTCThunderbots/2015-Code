@@ -52,7 +52,7 @@ public abstract class ResQAutoMountainEncoder extends Autonomous {
 		// start in front of the driver station
 		
 		// drive forward to mountain
-		ds.driveInches(MOVEMENT_POWER, 24);
+		ds.driveInches(MOVEMENT_POWER, 35);
 		Util.sleep(STEP_DELAY);
 		// rotate to face the mountain
 		ds.rotateDegrees(MOVEMENT_POWER * this.getSide(), 90 * this.getSide());

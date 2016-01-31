@@ -46,11 +46,11 @@ public abstract class ResQAutoMountainTime extends Autonomous {
 	
 	@Override
 	protected void main() {
-		this.getRobot().getDrive().driveSeconds(DRIVE_POWER, 1.85);
+		this.getRobot().getDrive().driveSeconds(DRIVE_POWER, 1.2);
 		Util.sleep(500);
-		this.getRobot().getDrive().rotateSeconds(TURN_POWER * this.getSide(), 0.6);
+		this.getRobot().getDrive().rotateSeconds(TURN_POWER * this.getSide(), 0.8);
 		Util.sleep(500);
-		this.getRobot().getDrive().driveSeconds(DRIVE_POWER, 1.65);
+		this.getRobot().getDrive().driveSeconds(DRIVE_POWER, 1.2);
 	}
 	
 	@OpMode(type="Autonomous", name="Auto Mountain [T][R]")
